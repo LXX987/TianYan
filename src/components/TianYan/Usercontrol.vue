@@ -13,45 +13,62 @@
     <div class="slow">
         <el-tabs type="border-card">
             <el-tab-pane label="个人信息">
+              <div class="ownerinfro" id="owner_img">
+                <img :src="userInfo.avatar"/>
+                <el-button id="edituserimg" @click.stop="uploadHeadImg">编辑头像</el-button>
+                     <input type="file" accept="image/*" style="display: none" @change="handleFile" class="hiddenInput"/>
+              </div>
+              <div class="ownerinfro" id="owner_word">
+              <h2>基本信息</h2>
                 <div class="username">
-                    用户姓名：{{username}}
+                    <p class="userinformationblock">用户姓名：</p>
+                    <p class="userinformationblock">{{username}}</p>
                 </div>
                 <div class="sexy">
-                    性别：{{sexychoice}}
+                    <p class="userinformationblock">性别：</p>
+                    <!-- <p class="userinformationblock">{{sexychoice}}</p> -->
+                    <div class="userinformationblock" id="sexyradiochoose">
+                    <label class="sexychoose">
+                      <input type="radio" name="gender" value="MALE">男
+                    </label>
+                    <label class="sexychoose">
+                      <input type="radio" name="gender" value="FEMALE" checked="checked">女
+                    </label>
+                    </div>
                 </div>
+                <h2>联系方式：</h2>
                 <div class="connect">
-                    联系方式：电话号码：{{phonenumber}}
-                    邮箱：{{email}}
+                    <p class="userinformationblock">邮箱：</p>
+                    <p class="userinformationblock" id="kuangkuang1">{{email}}</p>
                 </div>
+              </div>
             </el-tab-pane>
-            <el-tab-pane label="账号管理">
+            <el-tab-pane label="账号管理" style="height:600px;">
                 <div class="passwordbutton">
                     <p>修改密码</p>
                     <p style="color:#777777;font-size:16px;">设置复杂密码更能保护您的账号安全</p>
                 </div>
                 <div class="passwordbutton" id="changekeybutton">
-                    <span class="edit-btn" @click="changekey">修改</span>
-                    <div class="changebox">
+                    <!-- <span class="edit-btn" @click="changekey">修改</span> -->
+                    <el-button type="text" class="edit-btn" @click="changekey">修改</el-button>
+                    <div class="changebox" v-show="popup">
                         <div class="boxhead">
-                            <p class="closebox">修改密码</p><div class="closebox" id="closebutton"></div>
+                          <p class="closebox">修改密码</p><div class="closebox" id="closebutton" @click="closekey"></div>
                         </div>
                         <el-divider></el-divider>
                         <div>
-                            <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-  <el-form-item label="密码" prop="pass">
-    <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
-  </el-form-item>
-  <el-form-item label="确认密码" prop="checkPass">
-    <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
-  </el-form-item>
-  <el-form-item label="年龄" prop="age">
-    <el-input v-model.number="ruleForm.age"></el-input>
-  </el-form-item>
-  <el-form-item>
-    <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
-    <el-button @click="resetForm('ruleForm')">重置</el-button>
-  </el-form-item>
-</el-form>
+                          <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="80px" class="demo-ruleForm">
+                            <el-form-item label="密码" prop="pass">
+                              <el-input type="password" v-model="ruleForm.pass" autocomplete="off" style="width:80%;"></el-input>
+                            </el-form-item>
+                            <el-form-item label="确认密码" prop="checkPass">
+                              <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off" style="width:80%;"></el-input>
+                            </el-form-item>
+                            <el-form-item>
+                              <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+                              <el-button @click="resetForm('ruleForm')">重置</el-button>
+                            </el-form-item>
+                          </el-form>
                         </div>
                     </div>
                 </div>
@@ -61,11 +78,22 @@
                     <p style="color:#777777;font-size:16px;">为保证您的账号安全，需要满足相应的条件，才能提交注销申请</p>
                 </div>
                 <div class="logout" id="logoutbutton">
-                    <span class="edit-btn" @click="changekey">注销</span>
+                    <!-- <span class="edit-btn" @click="logbutton">注销</span> -->
+                    <el-button type="text" class="edit-btn" @click="open">注销</el-button>
                 </div>
                 <el-divider></el-divider>
+                <!-- <div class="logoutbox" v-show="logoutview">
+                  <div class="closelogoutbox el-icon-warning" style="color:rgb(228, 167, 80);"></div>
+                  <p class="closelogoutbox">提示</p><div class="closelogoutbox" id="closelogoutbutton" @click="closelogout"></div>
+                  <el-divider></el-divider>
+                  <p>此操作将永久注销用户账户, 是否继续?</p>
+                  <el-button type="primary" @click="submitForm('ruleForm')">确定</el-button>
+                  <el-button @click="resetForm('ruleForm')" style="color:white;">取消</el-button>
+                </div> -->
             </el-tab-pane>
-            <el-tab-pane label="我的记录">角色管理</el-tab-pane>
+            <el-tab-pane label="我的记录">
+              <!-- <el-button type="text" @click="open">注销</el-button> -->
+            </el-tab-pane>
         </el-tabs>
     </div>
     <div class="tian"></div>
@@ -75,14 +103,93 @@
   </div>
 </template>
 <style>
+#owner_img img{
+  height: 80px;
+  width: 80px;
+}
 .body{
     overflow-x: hidden;
     margin: 0px;
     height: 974px;
 }
+.username{
+  width: 400px;
+}
+.userinformationblock{
+  display: inline-block;
+  vertical-align: top;
+}
+.ownerinfro{
+  display: inline-block;
+  vertical-align: top;
+}
+#edituserimg{
+  margin-top: 150px;
+  margin-left: -10px;
+}
+#sexyradiochoose{
+  margin-top: 17px;
+}
+#owner_img{
+  background: url('../../assets/user.png') no-repeat center 0;
+  background-color: #E4E7ED;
+  background-size: 100% 100%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-left: 70px;
+  margin-top: 50px;
+}
+#owner_word{
+  margin-left: 160px;
+  margin-top: 20px;
+}
+#kuangkuang1{
+  border-style:solid;
+  border-width:1px;
+  border-radius: 10px;
+  width: 280px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  background-color: #f5f7fa;
+  border-color: #e4e7ed;
+  color: #c0c4cc;
+}
+.closelogoutbox{
+  margin-top: 25px;
+  display: inline-block;
+  vertical-align: top;
+}
+.logoutbox .el-divider--horizontal {
+  margin: 5px 0;
+}
+.logoutbox{
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  width: 35%;
+  top:160px;
+  left:250px;
+  padding-left: 30px;
+  padding-right: 30px;
+  /* z-index: 999; */
+  border-color: #368c5b;
+  border-style:solid;
+  border-width:1px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+}
 .closebox{
-    display: inline-block;
-    vertical-align: top;
+  display: inline-block;
+  vertical-align: top;
+}
+#closelogoutbutton{
+  background: url('../../assets/close.png') no-repeat;
+  background-size: 100% 100%;
+  width: 22px;
+  height: 22px;
+  margin-left: 194px;
+  margin-top: 16px;
 }
 #closebutton{
     width: 20px;
@@ -93,14 +200,19 @@
     margin-left: 410px;
 }
 .changebox{
-    padding-left: 10px;
+    padding-left: 20px;
     width: 500px;
-    height: 500px;
+    height: 350px;
     position: absolute;
     margin-top:0px;
     margin-left: -550px;
-    background: rgb(224, 248, 89);
+    background: rgb(255, 255, 255);
     z-index: 999;
+    border-color: #368c5b;
+    border-style:solid;
+    border-width:1px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
 }
 #changekeybutton{
     margin-left: 300px;
@@ -116,12 +228,12 @@
     position:absolute;
 }
 .edit-btn {
+    line-height: 6px;
     background: rgb(219, 151, 52);
     border-radius: 20px;
     width: 90px;
     height: 32px;
     text-align: center;
-    line-height: 32px;
     display: inline-block;
     color: #fff;
     cursor: pointer;
@@ -135,6 +247,28 @@
 .logout span {
     font-size: 20px;
     font-family: cursive;
+}
+.el-button:focus, .el-button:hover {
+    background: rgb(222, 160, 38);
+    border-color: rgb(222, 160, 38);
+    color: #FFF;
+    box-shadow: rgb(187, 132, 23) 3px 3px;
+    font-weight: bold;
+}
+.el-button.is-active, .el-button:active {
+    background: rgb(222, 160, 38);
+    border-color: rgb(222, 160, 38);
+    color: #FFF;
+    box-shadow: rgb(187, 132, 23) 3px 3px;
+}
+.el-button{
+    margin:20px 30px;
+    box-shadow: rgb(173, 126, 60) 2px 2px;
+    font-family: cursive;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: rgb(228, 167, 80);
+    border-color: rgb(228, 167, 80);
 }
 .passwordbutton{
     margin-left: 20px;
@@ -157,7 +291,7 @@
 }
 .el-tabs--border-card {
     width: 60%;
-    margin-left: 3%;
+    margin-left: 19%;
     height: 550px;
 }
 .el-tabs__item {
@@ -244,14 +378,17 @@ export default {
         }
       };
       return{
-          username: "lxt",
-          sexychoice: "女",
+            userInfo: {
+      avatar: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fq_70%2Cc_zoom%2Cw_640%2Fimages%2F20190203%2F53463928a43447f78a4ff616bd86dbf7.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641135214&t=876527eda6f954bb21ebb63790b74ea9'
+    },
+          popup: 0,
+          logoutview: 0,
+          username: "lxt123456",
           phonenumber:"123456789",
           email: "123321@163.com",
           ruleForm: {
           pass: '',
-          checkPass: '',
-          age: ''
+          checkPass: ''
         },
         rules: {
           pass: [
@@ -259,14 +396,42 @@ export default {
           ],
           checkPass: [
             { validator: validatePass2, trigger: 'blur' }
-          ],
-          age: [
-            { validator: checkAge, trigger: 'blur' }
           ]
         }
       }
   },
    methods: {
+         uploadHeadImg: function () {
+      this.$el.querySelector('.hiddenInput').click()
+    },
+    // 将头像显示
+    handleFile: function (e) {
+      let $target = e.target || e.srcElement
+      let file = $target.files[0]
+      var reader = new FileReader()
+      reader.onload = (data) => {
+        let res = data.target || data.srcElement
+        this.userInfo.avatar = res.result
+      }
+      reader.readAsDataURL(file)
+    },
+     open() {
+        this.$confirm('此操作将永久注销账户, 是否继续?', '提示', {
+          cancelButtonText: '取消',
+          confirmButtonText: '确定',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });          
+        });
+      },
       handleOpen(key, keyPath) {
         console.log(key, keyPath);
       },
@@ -274,7 +439,16 @@ export default {
         console.log(key, keyPath);
       },
       changekey(){
-
+        this.popup = 1;
+      },
+      logbutton(){
+        this.logoutview = 1;
+      },
+      closekey(){
+        this.popup = 0;
+      },
+      closelogout(){
+        this.logoutview = 0;
       },
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {

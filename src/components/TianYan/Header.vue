@@ -1,6 +1,6 @@
 <template>
     <div>
-      <div class="head" style="overflow-x:hidden;">
+      <div class="head" style="overflow-x:hidden;overflow-y:hidden;">
           <div class="container">
             <div class="headerlogo" style="display:inline-block;color:white;font-size:40px">
               <img src="../../assets/logo.png" id='logo'>TianYan
