@@ -16,7 +16,7 @@
                 <el-col :span="12">
                     <h5 style="margin-left:28px;font-size:25px;margin-top: 15px;margin-bottom: 15px;">游戏导航</h5>
                     <el-menu
-                    default-active="2"
+                    default-active="1"
                     class="el-menu-vertical-demo"
                     @open="handleOpen"
                     @close="handleClose"

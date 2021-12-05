@@ -13,6 +13,7 @@ import Record from '@/components/TianYan/Record'
 import Honor2 from '@/components/TianYan/Honor2'
 import Honorview from '@/components/TianYan/Honorview'
 import Usercontrol from '@/components/TianYan/Usercontrol'
+import Login from '@/components/TianYan/Login'
 
 Vue.use(Router)
 
@@ -74,6 +75,10 @@ export default new Router({
       path:'./Usercontrol',
       name:'Usercontrol',
       component:Usercontrol
+    },{
+      path:'./Login',
+      name:'Login',
+      component:Login
     }
   ]
 })

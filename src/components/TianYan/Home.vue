@@ -10,8 +10,8 @@
           <li>学习农作物知识</li>
           <li>感受自然魅力</li>
           <li>开启探索未知的旅程吧~</li>
-          <br>
-          <li style="background-color: #0064009e;width:200px;border-radius:10px;;height:70px;line-height:70px;margin-left:37%"><a href="http://www.baidu.com" id="enter" style="text-decoration:none;">进入</a></li>
+          <li><el-button type="primary" icon="el-icon-s-home" id="begin" round><router-link to="/login" style="text-decoration:none">进入</router-link></el-button></li>
+          <!-- <li style="background-color: #0064009e;width:200px;border-radius:10px;;height:70px;line-height:70px;margin-left:37%"><router-link to="/login" style="text-decoration:none">进入</router-link></li> -->
           <br>
         </ul>
         </div>
@@ -98,6 +98,31 @@ a:hover{ color:white;text-decoration:none;font-weight:bold; }
     z-index: 0;
     opacity:0.5;
 }
+#begin{
+    height: 60px;
+    font-size: 40px;
+}
+.el-button--primary.is-active, .el-button--primary:active {
+    background: rgb(222, 160, 38);
+    border-color: rgb(222, 160, 38);
+    color: #FFF;
+    box-shadow: rgb(187, 132, 23) 3px 3px;
+}
+.el-button--primary{
+    margin:20px 30px;
+    box-shadow: rgb(173, 126, 60) 2px 2px;
+    font-family: cursive;
+    font-size: 20px;
+    background-color: rgb(228, 167, 80);
+    border-color: rgb(228, 167, 80);
+}
+.el-button--primary:focus, .el-button--primary:hover {
+    background: rgb(222, 160, 38);
+    border-color: rgb(222, 160, 38);
+    color: #FFF;
+    box-shadow: rgb(187, 132, 23) 3px 3px;
+    font-weight: bold;
+}
 #intro-buttom{
   background-color: #c08026;
   text-shadow: 1px 1px 1px #724d1a;
@@ -111,13 +136,16 @@ a:hover{ color:white;text-decoration:none;font-weight:bold; }
   font-size: 40px;
   font-family: cursive;
   color: rgb(255 255 255);
-  margin-left: 18%;
+  margin-left: 14%;
   text-shadow: 5px 2px 6px #000;
-  width: 800px;
+  width: 900px;
   height: auto;
-  background-color:#fff6e670;
+  /* background-color:#fff6e690; */
+  background: url('../../assets/1.png');
+  background-size: cover;
   text-align: center;
   padding-inline-start: 0px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.8);
 }
 #enter{
   width: 200px;
@@ -193,8 +221,9 @@ a:hover{ color:white;text-decoration:none;font-weight:bold; }
   margin-top: 79px;
 }
 .main-head{
-  background: url('../../assets/1.png') no-repeat;
-  background-size: 100% 100%;
+  /* background: url('../../assets/1.png') no-repeat; */
+  /* background-size: 100% 100%; */
+  /* background-color: blanchedalmond; */
   width: 100%;
     height: 32%;
     left: 0px;

@@ -16,6 +16,7 @@ import Record from '@/components/TianYan/Record'
 import Honor2 from '@/components/TianYan/Honor2'
 import Honorview from '@/components/TianYan/Honorview'
 import Usercontrol from '@/components/TianYan/Usercontrol'
+import Login from '@/components/TianYan/Login'
 
 const routes=[
     {path:'/home',component:Home},
@@ -26,7 +27,8 @@ const routes=[
     {path:'/record',component:Record},
     {path:'/honor2',component:Honor2},
     {path:'/honorview',component:Honorview},
-    {path:'/usercontrol',component:Usercontrol}
+    {path:'/usercontrol',component:Usercontrol},
+    {path:'/login',component:Login}
 ]
 const router=new VueRouter({
     routes:routes

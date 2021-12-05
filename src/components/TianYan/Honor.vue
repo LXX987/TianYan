@@ -16,7 +16,7 @@
                 <el-col :span="12">
                     <h5 style="margin-left:28px;font-size:25px;margin-top: 15px;margin-bottom: 15px;">游戏导航</h5>
                     <el-menu
-                    default-active="2"
+                    default-active="1"
                     class="el-menu-vertical-demo"
                     @open="handleOpen"
                     @close="handleClose"
@@ -207,23 +207,7 @@ export default {
   data() {
     return {
       rank: '',
-      tableData: [{
-            date: '2016-05-02',
-            name: '王小虎',
-            correct: '上海市普陀区金沙江路 1518 弄'
-          }, {
-            date: '2016-05-04',
-            name: '王小虎',
-            correct: '上海市普陀区金沙江路 1517 弄'
-          }, {
-            date: '2016-05-01',
-            name: '王小虎',
-            correct: '上海市普陀区金沙江路 1519 弄'
-          }, {
-            date: '2016-05-03',
-            name: '王小虎',
-            correct: '上海市普陀区金沙江路 1516 弄'
-          }]
+      tableData: []
     }
   },
   methods: {
@@ -233,6 +217,13 @@ export default {
       handleClose(key, keyPath) {
         console.log(key, keyPath);
       }
+    },
+    mounted:function() {
+      this.$axios.post("http://124.70.206.207/record/recordsQuery", {
+        type: "1"
+      }).then( res=> {
+        console.log(res)
+      })
     }
 }
 </script>
