@@ -14,6 +14,8 @@ import Honor2 from '@/components/TianYan/Honor2'
 import Honorview from '@/components/TianYan/Honorview'
 import Usercontrol from '@/components/TianYan/Usercontrol'
 import Login from '@/components/TianYan/Login'
+import game1page from '@/components/TianYan/game1page'
+import game2page from '@/components/TianYan/game2page'
 
 Vue.use(Router)
 
@@ -79,6 +81,14 @@ export default new Router({
       path:'./Login',
       name:'Login',
       component:Login
+    },{
+      path:'./game1page',
+      name:'game1page',
+      component:game1page
+    },{
+      path:'./game2page',
+      name:'game2page',
+      component:game2page
     }
   ]
 })
