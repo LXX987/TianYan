@@ -15,6 +15,8 @@ import Game2 from './components/TianYan/Game2'
 import Honor from './components/TianYan/Honor'
 import Record from './components/TianYan/Record'
 import Usercontrol from './components/TianYan/Usercontrol'
+import game1page from './components/TianYan/game1page'
+import game2page from './components/TianYan/game2page'
 
 export default {
   name: "App",
@@ -28,7 +30,9 @@ export default {
     Game2,
     Honor,
     Record,
-    Usercontrol
+    Usercontrol,
+    game1page,
+    game2page
   }
 }
 </script>

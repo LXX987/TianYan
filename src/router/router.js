@@ -17,6 +17,8 @@ import Honor2 from '@/components/TianYan/Honor2'
 import Honorview from '@/components/TianYan/Honorview'
 import Usercontrol from '@/components/TianYan/Usercontrol'
 import Login from '@/components/TianYan/Login'
+import game1page from '@/components/TianYan/game1page'
+import game2page from '@/components/TianYan/game2page'
 
 const routes=[
     {path:'/home',component:Home},
@@ -28,7 +30,9 @@ const routes=[
     {path:'/honor2',component:Honor2},
     {path:'/honorview',component:Honorview},
     {path:'/usercontrol',component:Usercontrol},
-    {path:'/login',component:Login}
+    {path:'/login',component:Login},
+    {path:'/game1page',component:game1page},
+    {path:'/game2page',component:game2page}
 ]
 const router=new VueRouter({
     routes:routes

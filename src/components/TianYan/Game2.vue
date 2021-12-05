@@ -17,7 +17,7 @@
             <div class="nameinput">
                 <el-button type="text" @click="open" style="font-size: 20px;font-family: cursive;color: black;">{{gamename}}</el-button>
             </div>
-            <el-button type="primary" icon="el-icon-s-promotion" id="begin" round>开始游戏</el-button>
+            <el-button type="primary" icon="el-icon-s-promotion" id="begin" round><router-link to="/game1page" style="text-decoration:none">开始游戏</router-link></el-button>
         </div>
         <br><br><br><br><br>
         <Footer/>
