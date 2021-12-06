@@ -12,32 +12,32 @@
     <div class="tian"></div>
     <div class="slow">
         <div class="paper">
-            <h>识别图中农作物种类</h>
+            <h2>识别图中农作物种类</h2>
             <p>题目数：</p><p style="margin-left:55px;font-size:20px;color:rgb(228, 167, 80)">{{questionnumber}}</p><p>说明：</p><p style="margin-left:55px;">依据题目图片内容，回答对应农作物种类，作答结束，点击提交按钮即可查看结果。</p>
             <el-divider></el-divider>
             <h3>1.【填空题】（2分）</h3>
             <img :src="question1"/>
-            <p>请回答：</p><el-input v-model="input" placeholder="请输入答案"></el-input>
+            <p>请回答：</p><el-input v-model="input1" placeholder="请输入答案"></el-input>
             <el-divider></el-divider>
             <h3>2.【填空题】（2分）</h3>
             <img :src="question2"/>
-            <p>请回答：</p><el-input v-model="input" placeholder="请输入答案"></el-input>
+            <p>请回答：</p><el-input v-model="input2" placeholder="请输入答案"></el-input>
             <el-divider></el-divider>
             <h3>3.【填空题】（2分）</h3>
             <img :src="question3"/>
-            <p>请回答：</p><el-input v-model="input" placeholder="请输入答案"></el-input>
+            <p>请回答：</p><el-input v-model="input3" placeholder="请输入答案"></el-input>
             <el-divider></el-divider>
             <h3>4.【填空题】（2分）</h3>
             <img :src="question4"/>
-            <p>请回答：</p><el-input v-model="input" placeholder="请输入答案"></el-input>
+            <p>请回答：</p><el-input v-model="input4" placeholder="请输入答案"></el-input>
             <el-divider></el-divider>
             <h3>5.【填空题】（2分）</h3>
             <img :src="question5"/>
-            <p>请回答：</p><el-input v-model="input" placeholder="请输入答案"></el-input>
+            <p>请回答：</p><el-input v-model="input5" placeholder="请输入答案"></el-input>
             <el-divider></el-divider>
             <h3>6.【填空题】（2分）</h3>
             <img :src="question6"/>
-            <p>请回答：</p><el-input v-model="input" placeholder="请输入答案"></el-input>
+            <p>请回答：</p><el-input v-model="input6" placeholder="请输入答案"></el-input>
             <el-divider></el-divider>
             <el-button round>提交</el-button>
         </div>
@@ -75,8 +75,7 @@
     margin-left: 470px;
     margin-top: 50px;
 }
-.paper h{
-    margin-left: 350px;
+.paper h2{
     font-size: 30px;
     font-weight: bold;
 }
@@ -145,6 +144,12 @@ export default {
   },
   data() {
     return {
+        input1: '',
+        input2: '',
+        input3: '',
+        input4: '',
+        input5: '',
+        input6: '',
       questionnumber: '6',
       question1: 'http://inews.gtimg.com/newsapp_match/0/10351417074/0.jpg',
       question2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg010.hc360.cn%2Fm3%2FM01%2FE2%2F46%2FwKhQ5lTS1cWERqlbAAAAAF5XH74692.jpg&refer=http%3A%2F%2Fimg010.hc360.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=9b751b4f2aa4c552d9f8c183b2d787ca',
@@ -155,6 +160,13 @@ export default {
     }
   },
   methods: {
+    },
+    mounted:function() {
+        this.$axios.post("https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=UKHMEldVHVqw0U1B8GtT1hr2&client_secret=XB8ap23BSr933rDy8V4ECjU38w82Dt2p", {
+
+        }).then( res=> {
+            console.log(res)
+        })
     }
 }
 </script>
