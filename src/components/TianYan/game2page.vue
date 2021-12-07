@@ -3,7 +3,7 @@
     <Header/>
     <div class="identify-intro">
         <div class="heading" style="display:inline-block;" id="word">
-            <h>荣誉殿堂</h>
+            <h>人机大战</h>
         </div>
         <div class="heading" style="display:inline-block;" id="head-img">
             <img src="../../assets/identify_head.png" id="pic">
@@ -11,76 +11,36 @@
     </div>
     <div class="tian"></div>
     <div class="slow">
-        <div class="content" id="daohang" style="display:inline-block;overflow-y:hidden;">
-            <el-row class="tac">
-                <el-col :span="12">
-                    <h5 style="margin-left:28px;font-size:25px;margin-top: 15px;margin-bottom: 15px;">游戏导航</h5>
-                    <el-menu
-                    default-active="1"
-                    class="el-menu-vertical-demo"
-                    @open="handleOpen"
-                    @close="handleClose"
-                    background-color="#545c64"
-                    text-color="#fff"
-                    active-text-color="#ffd04b">
-                    <el-menu-item index="1">
-                        <i class="el-icon-location"></i>
-                        <span slot="title"><router-link to="/gameintro" style="text-decoration:none">竞答游戏介绍</router-link></span>
-                    </el-menu-item>
-                    <el-menu-item index="2">
-                        <i class="el-icon-menu"></i>
-                            <span slot="title"><router-link to="/game1" style="text-decoration:none">人机大战</router-link></span>
-                    </el-menu-item>
-                    <el-menu-item index="3">
-                        <i class="el-icon-document"></i>
-                        <span slot="title"><span slot="title"><router-link to="/game2" style="text-decoration:none">机智过人</router-link></span></span>
-                    </el-menu-item>
-                    <el-submenu index="4">
-        <template slot="title">
-          <i class="el-icon-setting"></i>
-          <span>竞答结果</span>
-        </template>
-        <el-menu-item-group>
-          <el-menu-item index="1-1"><router-link to="/honorview" style="text-decoration:none">荣誉殿堂</router-link></el-menu-item>
-          <el-menu-item index="1-2"><router-link to="/record" style="text-decoration:none">游戏记录</router-link></el-menu-item>
-        </el-menu-item-group>  
-      </el-submenu>
-                    </el-menu>
-                </el-col>
-            </el-row>
-        </div>
-        <div class="content" id="contentword" style="display:inline-block;">
-         <span><h1 style="text-align:center;font-family:cursive;font-weight: bold;">游戏排行榜</h1></span>
-         <el-divider></el-divider>
-         <span>
-             <div class="own-rank-block">
-             <h3 style="text-align:center;font-family:cursive;font-weight: bold;">我的排名：第{{rank}}名</h3>
-             </div>
-         </span>
-         <br>
-         <div>
-             <el-table
-      :data="tableData"
-      style="width: 100%">
-      <el-table-column
-        prop="date"
-        label="游戏日期"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="name"
-        label="玩家姓名"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="correct"
-        label="准确率">
-      </el-table-column>
-    </el-table>
-         </div>  
-         <div class="honor-img">
-             <img src="../../assets/honor.png" id="honorimg">
-         </div>
+        <div class="paper">
+            <div class="back"><router-link to="/gameintro" id="routeback" style="text-decoration:none;"><div class="el-icon-back" id="backpage"></div><p id="packpage">返回</p></router-link></div>
+            <h2>选择农作物的正确图片</h2>
+            <p>题目数：</p><p style="margin-left:55px;font-size:20px;color:rgb(228, 167, 80)">{{questionnumber}}</p><p>说明：</p><p style="margin-left:55px;">依据题目内容，选择对应农作物种类的图片，作答结束，点击提交按钮即可查看结果。</p>
+            <el-divider></el-divider>
+            <h3>1.【填空题】（2分）</h3>
+            <img :src="question1"/>
+            <p>请回答：</p><el-input v-model="input1" placeholder="请输入答案"></el-input>
+            <el-divider></el-divider>
+            <h3>2.【填空题】（2分）</h3>
+            <img :src="question2"/>
+            <p>请回答：</p><el-input v-model="input2" placeholder="请输入答案"></el-input>
+            <el-divider></el-divider>
+            <h3>3.【填空题】（2分）</h3>
+            <img :src="question3"/>
+            <p>请回答：</p><el-input v-model="input3" placeholder="请输入答案"></el-input>
+            <el-divider></el-divider>
+            <h3>4.【填空题】（2分）</h3>
+            <img :src="question4"/>
+            <p>请回答：</p><el-input v-model="input4" placeholder="请输入答案"></el-input>
+            <el-divider></el-divider>
+            <h3>5.【填空题】（2分）</h3>
+            <img :src="question5"/>
+            <p>请回答：</p><el-input v-model="input5" placeholder="请输入答案"></el-input>
+            <el-divider></el-divider>
+            <h3>6.【填空题】（2分）</h3>
+            <img :src="question6"/>
+            <p>请回答：</p><el-input v-model="input6" placeholder="请输入答案"></el-input>
+            <el-divider></el-divider>
+            <el-button round>提交</el-button>
         </div>
     </div>
     <div class="tian"></div>
@@ -93,69 +53,82 @@
 .body{
     overflow-x: hidden;
     margin: 0px;
-    height: 974px;
+    height: 3374px;
 }
-.el-divider--horizontal {
-    display: block;
-    height: 1px;
-    width: 80%;
-    margin: 24px 65px;
+.paper #packpage{
+    display: inline-block;
+    vertical-align: top;
 }
-.honor-img{
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    margin-left:650px;
-    margin-top: 40px;
+.paper .back #routeback:hover{
+    color: rgb(228, 167, 80);
 }
-#honorimg{
-    width:200px;
-    height:200px;
+.paper .back #routeback{
+    color: rgb(0, 0, 0);
 }
-.el-table .el-table__cell{
-    text-align: center;
+.paper .back{
+    font-size: 40px;
+    margin-left: -40px;
+    width: 20%;
 }
-.own-rank-block{
-    /* box-shadow: inset 0 0 5px 5px rgb(239 225 204); */
-    height: 42px;
-    line-height: 42px;
+.paper #backpage:hover{
+    color: rgb(228, 167, 80);
+}
+.paper .back p{
+    font-weight: bold;
+    font-size: 22px;
+    margin-top: 12px;
+    margin-bottom: 0px;
+}
+.paper{
+    width:70%;
+    height:3050px;
+    background-color: rgb(255, 239, 220);
+    margin-left: 90px;
+    box-shadow: inset 0px 8px 20px 0 rgb(239 225 204);
     border-radius: 10px;
-    width: 850px;
-    margin-left: -30px;
+    padding-top: 30px;
+    padding-left: 80px;
+    padding-right: 80px;
 }
-.el-col-12{
-    width: 100%;
-    height: 100%;
+.paper .el-button{
+    width:100px;
+    height: 40px;
+    text-align: center;
+    line-height: 20px;
+    font-size:20px;
+    font-family: cursive;
+    margin-left: 400px;
+    margin-top: 10px;
+}
+.paper h2{
+    font-size: 30px;
+    font-weight: bold;
+    font-family: cursive;
+    text-align: center;
+    color: rgb(54, 140, 91);
+    text-shadow: rgb(255 255 255) 2px 2px;
+}
+.paper p{
+    margin-left: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.paper h3{
+    margin-left: 20px;
+}
+.paper .el-input{
+    width: 40%;
+    margin-left: 200px;
+}
+.paper img{
+    width: 250px;
+    height: 250px;
+    margin-left: 200px;
 }
 .slow{
     width:1280px;
-    height: 670px;
+    height: 3070px;
     background-color: #fff6e6;
-}
-.content{
-    vertical-align: top;
-    height: 600px;
-    background-color: white;
-    width: 256px;
-    border-right:2px solid rgb(234, 213, 180);
-}
-.el-row{
-    height: 600px;
-}
-#contentword{
-    width:790px;
-    margin-left: 60px;
-    background-color: #ffffff;
-    border-right: 0px solid rgb(234, 213, 180);
-    box-shadow: inset 0 0 5px 5px rgb(239 225 204);
-    border-radius: 10px;
-    padding: 0px 30px;
-}
-h2{
-    font-family: cursive;
-    font-weight: bold;
-    font-style: normal;
-    font-size: 30px;
 }
 #word{
     position:absolute;
@@ -168,7 +141,7 @@ h2{
     height: 80px;
 }
 .tian{
-    width:1280ps;
+    width:1280px;
     height: 40px;
     background-color: #fff6e6;
 }
@@ -180,12 +153,6 @@ h2{
     line-height: 80px;
     margin-left: 20%;
     font-family: cursive;
-}
-.el-menu-item-group__title {
-    padding: 0px 0 0px 20px;
-}
-.el-menu{
-    height: 606.66667px;
 }
 .identify-intro{
     width:1280px;
@@ -202,37 +169,33 @@ export default {
   name: "game2page",
   components: {
     Header,
-    Footer,
+    Footer
   },
   data() {
     return {
-      rank: '',
-      tableData: [{
-            date: '2016-05-02',
-            name: '王小虎',
-            correct: '上海市普陀区金沙江路 1518 弄'
-          }, {
-            date: '2016-05-04',
-            name: '王小虎',
-            correct: '上海市普陀区金沙江路 1517 弄'
-          }, {
-            date: '2016-05-01',
-            name: '王小虎',
-            correct: '上海市普陀区金沙江路 1519 弄'
-          }, {
-            date: '2016-05-03',
-            name: '王小虎',
-            correct: '上海市普陀区金沙江路 1516 弄'
-          }]
+        input1: '',
+        input2: '',
+        input3: '',
+        input4: '',
+        input5: '',
+        input6: '',
+      questionnumber: '6',
+      question1: 'http://inews.gtimg.com/newsapp_match/0/10351417074/0.jpg',
+      question2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg010.hc360.cn%2Fm3%2FM01%2FE2%2F46%2FwKhQ5lTS1cWERqlbAAAAAF5XH74692.jpg&refer=http%3A%2F%2Fimg010.hc360.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=9b751b4f2aa4c552d9f8c183b2d787ca',
+      question3: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg004.hc360.cn%2Fm7%2FM03%2F00%2F1B%2FwKhQo1XC20yEdNTfAAAAAHqzUFA421.jpg&refer=http%3A%2F%2Fimg004.hc360.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=9b32908147c78576377e42b390fb1091',
+      question4: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg3.99114.com%2Fgroup1%2FM00%2FD5%2F69%2FwKgGTFaoWhWASgh0AAPEqd5Qb0Y760.jpg&refer=http%3A%2F%2Fimg3.99114.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=1c36309ca5f67e40b8f333844d6cef66',
+      question5: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.168mh.com%2Fwp-content%2Fuploads%2F2019%2F11%2F87555edf6b5667e.jpg&refer=http%3A%2F%2Fwww.168mh.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=c39aeba0d3f3b6c65df3ca641528b3a4',
+      question6: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpfsc.agri.cn%2Fncpflzs%2F201104%2FW020110408374232979423.jpg&refer=http%3A%2F%2Fpfsc.agri.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310816&t=a8a6ebdd86a1d27c257274ec00acaa9e'
     }
   },
   methods: {
-      handleOpen(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath);
-      }
+    },
+    mounted:function() {
+        this.$axios.post("https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=UKHMEldVHVqw0U1B8GtT1hr2&client_secret=XB8ap23BSr933rDy8V4ECjU38w82Dt2p", {
+
+        }).then( res=> {
+            console.log(res)
+        })
     }
 }
 </script>

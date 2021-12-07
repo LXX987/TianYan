@@ -12,6 +12,7 @@
     <div class="tian"></div>
     <div class="slow">
         <div class="paper">
+            <div class="back"><router-link to="/gameintro" id="routeback" style="text-decoration:none;"><div class="el-icon-back" id="backpage"></div><p id="packpage">返回</p></router-link></div>
             <h2>识别图中农作物种类</h2>
             <p>题目数：</p><p style="margin-left:55px;font-size:20px;color:rgb(228, 167, 80)">{{questionnumber}}</p><p>说明：</p><p style="margin-left:55px;">依据题目图片内容，回答对应农作物种类，作答结束，点击提交按钮即可查看结果。</p>
             <el-divider></el-divider>
@@ -52,11 +53,35 @@
 .body{
     overflow-x: hidden;
     margin: 0px;
-    height: 4374px;
+    height: 3374px;
+}
+.paper #packpage{
+    display: inline-block;
+    vertical-align: top;
+}
+.paper .back #routeback:hover{
+    color: rgb(228, 167, 80);
+}
+.paper .back #routeback{
+    color: rgb(0, 0, 0);
+}
+.paper .back{
+    font-size: 40px;
+    margin-left: -40px;
+    width: 20%;
+}
+.paper #backpage:hover{
+    color: rgb(228, 167, 80);
+}
+.paper .back p{
+    font-weight: bold;
+    font-size: 22px;
+    margin-top: 12px;
+    margin-bottom: 0px;
 }
 .paper{
     width:70%;
-    height:4050px;
+    height:3050px;
     background-color: rgb(255, 239, 220);
     margin-left: 90px;
     box-shadow: inset 0px 8px 20px 0 rgb(239 225 204);
@@ -72,12 +97,16 @@
     line-height: 20px;
     font-size:20px;
     font-family: cursive;
-    margin-left: 470px;
-    margin-top: 50px;
+    margin-left: 400px;
+    margin-top: 10px;
 }
 .paper h2{
     font-size: 30px;
     font-weight: bold;
+    font-family: cursive;
+    text-align: center;
+    color: rgb(54, 140, 91);
+    text-shadow: rgb(255 255 255) 2px 2px;
 }
 .paper p{
     margin-left: 20px;
@@ -98,7 +127,7 @@
 }
 .slow{
     width:1280px;
-    height: 4070px;
+    height: 3070px;
     background-color: #fff6e6;
 }
 #word{
@@ -112,7 +141,7 @@
     height: 80px;
 }
 .tian{
-    width:1280ps;
+    width:1280px;
     height: 40px;
     background-color: #fff6e6;
 }
