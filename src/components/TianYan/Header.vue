@@ -11,7 +11,7 @@
                     <router-link to="/home" style="text-decoration:none">home</router-link>
                   </li>
                   <li id="menu-identity" class="page">
-                    <a href="http://www.baidu.com/" style="text-decoration:none">identity</a>
+                    <router-link to="/identify" style="text-decoration:none">identify</router-link>
                   </li>
                   <li id="menu-game" class="page">
                     <router-link to="/gameintro" style="text-decoration:none">game</router-link>

@@ -5,7 +5,7 @@ Vue.use(VueRouter)
 
 // import HelloWorld from './components/HelloWorld'
 import Home from '@/components/TianYan/Home'
-// import Identify from './components/TianYan/Identify'
+import Identify from '@/components/TianYan/Identify'
 // import Header from './components/TianYan/Header'
 // import Footer from './components/TianYan/Footer'
 import Game1 from '@/components/TianYan/Game1'
@@ -22,6 +22,7 @@ import game2page from '@/components/TianYan/game2page'
 
 const routes=[
     {path:'/home',component:Home},
+    {path:'/identify',component:Identify},
     {path:'/gameintro',component:GameIntro},
     {path:'/game1',component:Game1},
     {path:'/game2',component:Game2},
