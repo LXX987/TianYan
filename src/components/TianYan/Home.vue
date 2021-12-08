@@ -302,6 +302,9 @@ export default {
     name: "Home",
     components: {
       Header,
+    },
+    mounted:function() {
+      console.log(this.$route.params.ids);
     }
 }
 </script>

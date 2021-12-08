@@ -18,8 +18,7 @@
                         <input type="text" class="e" v-model="useremail" placeholder="用户邮箱">
                         <input type="password" class="e" v-model="password" placeholder="密码">
                         <input type="password" class="p" v-model="inputcode" placeholder="验证码"><img id="codema" @click="changecode" :src="code"/>
-                        <a href="#" class="f" style="color:black;">忘记密码</a>
-                        <!-- <a href="#" class="g"><router-link to="/home" style="text-decoration:none;color:white;">登录</router-link></a> -->
+                        <a href="#" @click="registernewuser" class="f" style="color:black;margin-left:55px;">注册新用户</a><a href="#" class="f" style="color:black;">忘记密码</a>
                         <a href="#" class="g" @click="login">登录</a>
                     </div>
                 </div>
@@ -165,6 +164,7 @@
 }
 </style>
 <script>
+import axios from 'axios'
 export default {
     name: 'Login',
     data() {
@@ -173,13 +173,11 @@ export default {
             codehash: '',
             useremail: '',
             password: '',
-            inputcode: ''
+            inputcode: '',
+            userid: ''
         }
     },
     methods: {
-        // getCode() {
-        //     this.$axios.get("")
-        // }
         changecode() {
             this.$axios.post("http://124.70.206.207/utils/generateCaptcha", {
             }).then( res=> {
@@ -190,17 +188,34 @@ export default {
             })
         },
         login() {
-            this.$axios.post("http://124.70.206.207/login/checkAccount", {
-                "email": this.useremail,
-                "password": this.password,
-                "captcha_input": this.inputcode,
-                "captcha_hashkey": this.codehash
-            }).then( res =>{
-                console.log(res)
-            }).catch((error) => {
-                console.log(error)
+            let data = new FormData();
+            data.append("email", this.useremail);
+            data.append("captcha_input", this.inputcode);
+            data.append("password", this.password);
+            data.append("captcha_hashkey", this.codehash);
+            console.log(data);
+            axios.post("http://124.70.206.207/login/checkAccount", data)
+            .then(res=>{
+                console.log(res);
+                this.userid = res.data.uid;
+                // console.log(this.userid);
+                if(res.data.code == 0) {
+                    // this.$router.push('/home');
+                    this.$router.push({ name: 'Home',params:{ids:this.userid} });
+                    // this.$options.methods.jumphome(this.userid);
+                }
             })
-        }
+        },
+        registernewuser() {
+            this.$router.push('/register');
+        },
+        // jumphome(id) {
+        //     console.log(id);
+        //     this.$router.push('/home');
+        //     //  this.$router.push({name:'Home', params: { id:this.userid }})
+        //     // this.$router.push({ name: 'Home',params:{ids:2} })
+        //     // this.$router.push({ name: 'Home',params:{ids:id} })
+        // }
     }
 }
 </script>

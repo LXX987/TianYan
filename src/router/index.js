@@ -16,6 +16,7 @@ import Usercontrol from '@/components/TianYan/Usercontrol'
 import Login from '@/components/TianYan/Login'
 import game1page from '@/components/TianYan/game1page'
 import game2page from '@/components/TianYan/game2page'
+import Register from '@/components/TianYan/Register'
 
 Vue.use(Router)
 
@@ -89,6 +90,10 @@ export default new Router({
       path:'./game2page',
       name:'game2page',
       component:game2page
+    },{
+      path: './register',
+      name: 'register',
+      component: Register
     }
   ]
 })

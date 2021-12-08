@@ -19,9 +19,10 @@ import Usercontrol from '@/components/TianYan/Usercontrol'
 import Login from '@/components/TianYan/Login'
 import game1page from '@/components/TianYan/game1page'
 import game2page from '@/components/TianYan/game2page'
+import Register from '@/components/TianYan/Register'
 
 const routes=[
-    {path:'/home',component:Home},
+    {path: '/home',name: 'Home',component: Home},
     {path:'/identify',component:Identify},
     {path:'/gameintro',component:GameIntro},
     {path:'/game1',component:Game1},
@@ -33,7 +34,8 @@ const routes=[
     {path:'/usercontrol',component:Usercontrol},
     {path:'/login',component:Login},
     {path:'/game1page',component:game1page},
-    {path:'/game2page',component:game2page}
+    {path:'/game2page',component:game2page},
+    {path:'/register',component:Register}
 ]
 const router=new VueRouter({
     routes:routes
