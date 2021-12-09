@@ -42,7 +42,7 @@
         </template>
         <el-menu-item-group>
           <el-menu-item index="1-1"><router-link to="/honorview" style="text-decoration:none">荣誉殿堂</router-link></el-menu-item>
-          <el-menu-item index="1-2"><router-link to="/record" style="text-decoration:none">游戏记录</router-link></el-menu-item>
+          <el-menu-item index="1-2" @click="recordid">游戏记录</el-menu-item>
         </el-menu-item-group>  
       </el-submenu>
                     </el-menu>
@@ -162,13 +162,26 @@ export default {
     Header,
     Footer,
   },
+  data() {
+      return {
+          id: ''
+      }
+  },
    methods: {
       handleOpen(key, keyPath) {
         console.log(key, keyPath);
       },
       handleClose(key, keyPath) {
         console.log(key, keyPath);
+      },
+      recordid() {
+          this.$router.push({ name: 'record',params:{ids:this.id} });
       }
+    },
+    mounted:function() {
+        console.log(this.$route.params.ids);
+        this.id = this.$route.params.ids;
+        console.log(this.id);
     }
 }
 </script>

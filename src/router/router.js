@@ -24,11 +24,11 @@ import Register from '@/components/TianYan/Register'
 const routes=[
     {path: '/home',name: 'Home',component: Home},
     {path:'/identify',component:Identify},
-    {path:'/gameintro',component:GameIntro},
+    {path:'/gameintro',name: 'gameintro',component:GameIntro},
     {path:'/game1',component:Game1},
     {path:'/game2',component:Game2},
     {path:'/honor',component:Honor},
-    {path:'/record',component:Record},
+    {path:'/record',name: 'record',component:Record},
     {path:'/honor2',component:Honor2},
     {path:'/honorview',component:Honorview},
     {path:'/usercontrol',component:Usercontrol},

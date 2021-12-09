@@ -1,6 +1,7 @@
 <template>
     <div class="layout" style="overflow-x:hidden;">
-      <Header/>
+      <Header></Header>
+      <!-- <Header/> -->
       <div class="main">
         <div class="main-head">
           <div class="suibian" style="height:0.01pt;"></div>
@@ -31,7 +32,7 @@
               <div class="section-word">
                 game
                 <div class="section_buttom">
-                  <a href="http://www.baidu.com" style="font-size:19px;line-height: 20px;text-decoration:none">start funny games</a>
+                  <a href="#" style="font-size:19px;line-height: 20px;text-decoration:none" @click="gameparams">start funny games</a>
                 </div>
               </div>
             </div>
@@ -303,8 +304,20 @@ export default {
     components: {
       Header,
     },
+    data() {
+      return {
+        id: ''
+      }
+    },
     mounted:function() {
       console.log(this.$route.params.ids);
+      this.id = this.$route.params.ids;
+      console.log(this.id);
+    },
+    methods: {
+      gameparams() {
+      this.$router.push({ name: 'gameintro',params:{ids:this.id} });
+    }
     }
 }
 </script>

@@ -198,6 +198,7 @@ h2{
 <script>
 import Header from './Header'
 import Footer from './Footer'
+import axios from 'axios'
 export default {
   name: "Honor2",
   components: {
@@ -207,23 +208,7 @@ export default {
   data() {
     return {
       rank: '',
-      tableData: [{
-            date: '2016-05-02',
-            name: '王小虎',
-            correct: '上海市普陀区金沙江路 1518 弄'
-          }, {
-            date: '2016-05-04',
-            name: '王小虎',
-            correct: '上海市普陀区金沙江路 1517 弄'
-          }, {
-            date: '2016-05-01',
-            name: '王小虎',
-            correct: '上海市普陀区金沙江路 1519 弄'
-          }, {
-            date: '2016-05-03',
-            name: '王小虎',
-            correct: '上海市普陀区金沙江路 1516 弄'
-          }]
+      tableData: []
     }
   },
   methods: {
@@ -233,6 +218,17 @@ export default {
       handleClose(key, keyPath) {
         console.log(key, keyPath);
       }
+    },
+    mounted:function() {
+
+      let data = new FormData();
+            data.append("type", "2");
+            console.log(data);
+            axios.post("http://124.70.206.207/record/recordsQuery", data)
+            .then(res=>{
+                console.log(res);
+                console.log(res.data.records);
+            })
     }
 }
 </script>

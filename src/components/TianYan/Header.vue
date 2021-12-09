@@ -105,7 +105,15 @@ div#userid {
 <script>
 export default {
     name: "Header",
-      methods: {
+    data() {
+      return {
+
+      }
+    },
+    mounted:function() {
+
+    },
+    methods: {
     addRoutes1 () {
       this.$router.push('/usercontrol')
     }

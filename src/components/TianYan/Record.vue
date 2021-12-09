@@ -172,6 +172,7 @@ h2{
 <script>
 import Header from './Header'
 import Footer from './Footer'
+import axios from 'axios'
 export default {
   name: "Record",
   components: {
@@ -180,6 +181,7 @@ export default {
   },
   data() {
     return {
+        id:'',
       rank: '',
       tableData: [{
             date: '',
@@ -189,7 +191,63 @@ export default {
     }
   },
   mounted: function() {
-    
+    console.log(this.$route.params.ids);
+    this.id = this.$route.params.ids;
+    console.log(this.id);
+
+    let data = new FormData();
+    data.append("uid", this.id);
+    console.log(data);
+    axios.post("http://124.70.206.207/record/userRecordsQuery", data)
+    .then(res=>{
+        console.log(res);
+         console.log(res.data.records);
+    })
+
+    // this.$axios.post("http://124.70.206.207/record/recordsQuery", {
+    //     uid: '4'
+    //         }).then( res=> {
+    //             console.log (res)
+    //         })
+
+
+    // let data = new FormData();
+    // data.append("uid","4");
+    // console.log(data);
+    // axios.post("http://124.70.206.207/record/recordsQuery", data)
+    // .then( res => {
+    //     console.log(res);
+    // })
+
+
+//     let file = e.target.files[0]
+//   // console.log(file)
+//   let param = new FormData() // 创建form对象
+//   param.append('file', file, file.name) // 通过append向form对象添加数据
+//   param.append('id', this.$store.state.userId) // 添加form表单中其他数据
+//    // withCredentials: true 使得后台可以接收表单数据 跨域请求
+//   const instance = axios.create({
+//     withCredentials: true
+//   })
+//   // url为后台接口
+//   instance.post('url', param)
+//     .then(this.succ) // 成功返回信息 调用函数 函数需自己定义，此处后面省略
+//     .catch(this.serverError) // 服务器错误 调用对应函数 函数需自己定义，此处后面省略
+
+
+    // login() {
+    //         let data = new FormData();
+    //         data.append("email", this.useremail);
+    //         console.log(data);
+    //         axios.post("http://124.70.206.207/login/checkAccount", data)
+    //         .then(res=>{
+    //             console.log(res);
+    //             this.userid = res.data.uid;
+    //             // console.log(this.userid);
+    //         })
+    //     },
+
+
   },
   methods: {
       handleOpen(key, keyPath) {

@@ -198,6 +198,7 @@ h2{
 <script>
 import Header from './Header'
 import Footer from './Footer'
+import axios from 'axios'
 export default {
   name: "Honor",
   components: {
@@ -219,11 +220,15 @@ export default {
       }
     },
     mounted:function() {
-      this.$axios.post("http://124.70.206.207/record/recordsQuery", {
-        type: "1"
-      }).then( res=> {
-        console.log(res)
-      })
+
+      let data = new FormData();
+            data.append("type", "1");
+            console.log(data);
+            axios.post("http://124.70.206.207/record/recordsQuery", data)
+            .then(res=>{
+                console.log(res);
+                console.log(res.data.records);
+            })
     }
 }
 </script>
