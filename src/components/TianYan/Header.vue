@@ -105,17 +105,26 @@ div#userid {
 <script>
 export default {
     name: "Header",
+    props: ['childid'],
     data() {
       return {
-
+        id: ''
+      }
+    },
+    watch: {
+      childid:function(newValue,oldValue) {
+        this.id = newValue;
+        this.updata();
       }
     },
     mounted:function() {
-
     },
     methods: {
     addRoutes1 () {
-      this.$router.push('/usercontrol')
+      this.$router.push({name: 'Usercontrol',params:{ids:this.id}});
+    },
+    updata() {
+      console.log(this.id);
     }
   }
 }

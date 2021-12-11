@@ -17,6 +17,9 @@ import Record from './components/TianYan/Record'
 import Usercontrol from './components/TianYan/Usercontrol'
 import game1page from './components/TianYan/game1page'
 import game2page from './components/TianYan/game2page'
+import Identifyone from './components/TianYan/Identifyone'
+import Identifytwo from './components/TianYan/Identifytwo'
+import Identifythree from './components/TianYan/Identifythree'
 
 export default {
   name: "App",
@@ -32,7 +35,10 @@ export default {
     Record,
     Usercontrol,
     game1page,
-    game2page
+    game2page,
+    Identifyone,
+    Identifytwo,
+    Identifythree
   }
 }
 </script>

@@ -17,13 +17,16 @@ import Login from '@/components/TianYan/Login'
 import game1page from '@/components/TianYan/game1page'
 import game2page from '@/components/TianYan/game2page'
 import Register from '@/components/TianYan/Register'
+import Identifyone from '@/components/TianYan/Identifyone'
+import Identifytwo from '@/components/TianYan/Identifytwo'
+import Identifythree from '@/components/TianYan/Identifythree'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/HelloWorld',
       name: 'HelloWorld',
       component: HelloWorld
     },
@@ -79,7 +82,7 @@ export default new Router({
       name:'Usercontrol',
       component:Usercontrol
     },{
-      path:'./Login',
+      path:'/',
       name:'Login',
       component:Login
     },{
@@ -94,6 +97,18 @@ export default new Router({
       path: './register',
       name: 'register',
       component: Register
+    },{
+      path: './identifyone',
+      name: 'identifyone',
+      component: Identifyone
+    },{
+      path: './identifytwo',
+      name: 'identifytwo',
+      component: Identifytwo
+    },{
+      path: './identifythree',
+      name: 'identifythree',
+      component: Identifythree
     }
   ]
 })

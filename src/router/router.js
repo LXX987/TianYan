@@ -20,6 +20,9 @@ import Login from '@/components/TianYan/Login'
 import game1page from '@/components/TianYan/game1page'
 import game2page from '@/components/TianYan/game2page'
 import Register from '@/components/TianYan/Register'
+import Identifyone from '@/components/TianYan/Identifyone'
+import Identifytwo from '@/components/TianYan/Identifytwo'
+import Identifythree from '@/components/TianYan/Identifythree'
 
 const routes=[
     {path: '/home',name: 'Home',component: Home},
@@ -31,11 +34,14 @@ const routes=[
     {path:'/record',name: 'record',component:Record},
     {path:'/honor2',component:Honor2},
     {path:'/honorview',component:Honorview},
-    {path:'/usercontrol',component:Usercontrol},
-    {path:'/login',component:Login},
+    {path:'/usercontrol',name: 'Usercontrol',component:Usercontrol},
+    {path:'/',component:Login},
     {path:'/game1page',component:game1page},
     {path:'/game2page',component:game2page},
-    {path:'/register',component:Register}
+    {path:'/register',component:Register},
+    {path:'/identifyone',name: 'identifyone',component:Identifyone},
+    {path:'/identifytwo',name: 'identifytwo',component:Identifytwo},
+    {path:'/identifythree',name: 'identifythree',component:Identifythree}
 ]
 const router=new VueRouter({
     routes:routes

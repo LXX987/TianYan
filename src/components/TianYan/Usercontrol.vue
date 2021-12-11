@@ -21,11 +21,11 @@
               <div class="ownerinfro" id="owner_word">
               <h2>基本信息</h2>
                 <div class="username">
-                    <p class="userinformationblock">用户姓名：</p>
+                    <p class="userinformationblock">用户姓名:</p>
                     <p class="userinformationblock">{{username}}</p>
                 </div>
                 <div class="sexy">
-                    <p class="userinformationblock">性别：</p>
+                    <p class="userinformationblock">性别:</p>
                     <!-- <p class="userinformationblock">{{sexychoice}}</p> -->
                     <div class="userinformationblock" id="sexyradiochoose">
                     <label class="sexychoose">
@@ -36,9 +36,9 @@
                     </label>
                     </div>
                 </div>
-                <h2>联系方式：</h2>
+                <h2>联系方式:</h2>
                 <div class="connect">
-                    <p class="userinformationblock">邮箱：</p>
+                    <p class="userinformationblock">邮箱:</p>
                     <p class="userinformationblock" id="kuangkuang1">{{email}}</p>
                 </div>
               </div>
@@ -58,6 +58,9 @@
                         <el-divider></el-divider>
                         <div>
                           <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="80px" class="demo-ruleForm">
+                            <el-form-item label="原密码" prop="oldpass">
+                              <el-input type="password" v-model="ruleForm.oldpass" autocomplete="off" style="width:80%;"></el-input>
+                            </el-form-item>
                             <el-form-item label="密码" prop="pass">
                               <el-input type="password" v-model="ruleForm.pass" autocomplete="off" style="width:80%;"></el-input>
                             </el-form-item>
@@ -78,21 +81,11 @@
                     <p style="color:#777777;font-size:16px;">为保证您的账号安全，需要满足相应的条件，才能提交注销申请</p>
                 </div>
                 <div class="logout" id="logoutbutton">
-                    <!-- <span class="edit-btn" @click="logbutton">注销</span> -->
                     <el-button type="text" class="edit-btn" @click="open">注销</el-button>
                 </div>
                 <el-divider></el-divider>
-                <!-- <div class="logoutbox" v-show="logoutview">
-                  <div class="closelogoutbox el-icon-warning" style="color:rgb(228, 167, 80);"></div>
-                  <p class="closelogoutbox">提示</p><div class="closelogoutbox" id="closelogoutbutton" @click="closelogout"></div>
-                  <el-divider></el-divider>
-                  <p>此操作将永久注销用户账户, 是否继续?</p>
-                  <el-button type="primary" @click="submitForm('ruleForm')">确定</el-button>
-                  <el-button @click="resetForm('ruleForm')" style="color:white;">取消</el-button>
-                </div> -->
             </el-tab-pane>
             <el-tab-pane label="我的记录">
-              <!-- <el-button type="text" @click="open">注销</el-button> -->
             </el-tab-pane>
         </el-tabs>
     </div>
@@ -202,7 +195,7 @@
 .changebox{
     padding-left: 20px;
     width: 500px;
-    height: 350px;
+    height: 400px;
     position: absolute;
     margin-top:0px;
     margin-left: -550px;
@@ -335,6 +328,7 @@
 <script>
 import Header from './Header'
 import Footer from './Footer'
+import axios from 'axios'
 export default {
   name: "Usercontrol",
   components: {
@@ -342,21 +336,12 @@ export default {
     Footer,
   },
   data(){
-      var checkAge = (rule, value, callback) => {
-        if (!value) {
-          return callback(new Error('年龄不能为空'));
+      var validateoldPass = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入原密码'));
+        } else {
+          callback();
         }
-        setTimeout(() => {
-          if (!Number.isInteger(value)) {
-            callback(new Error('请输入数字值'));
-          } else {
-            if (value < 18) {
-              callback(new Error('必须年满18岁'));
-            } else {
-              callback();
-            }
-          }
-        }, 1000);
       };
       var validatePass = (rule, value, callback) => {
         if (value === '') {
@@ -381,16 +366,21 @@ export default {
             userInfo: {
       avatar: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fq_70%2Cc_zoom%2Cw_640%2Fimages%2F20190203%2F53463928a43447f78a4ff616bd86dbf7.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641135214&t=876527eda6f954bb21ebb63790b74ea9'
     },
+          id: '',
           popup: 0,
           logoutview: 0,
           username: "lxt123456",
           phonenumber:"123456789",
           email: "123321@163.com",
           ruleForm: {
+          oldpass: '',
           pass: '',
-          checkPass: ''
+          checkPass: '',
         },
         rules: {
+          oldpass: [
+            { validator: validateoldPass, trigger: 'blur' }
+          ],
           pass: [
             { validator: validatePass, trigger: 'blur' }
           ],
@@ -399,6 +389,9 @@ export default {
           ]
         }
       }
+  },
+  mounted:function() {
+    console.log(this.$route.params.ids);
   },
    methods: {
          uploadHeadImg: function () {
@@ -459,6 +452,25 @@ export default {
             return false;
           }
         });
+        console.log(this.ruleForm.oldpass);
+        console.log(this.ruleForm.pass);
+        let data = new FormData();
+        data.append("uid", this.id);
+        data.append("old_password", this.ruleForm.oldpass);
+        data.append("new_password", this.ruleForm.pass);
+        console.log(data);
+        axios.post("http://124.70.206.207/login/updatePassword", data)
+        .then(res=>{
+            console.log(res);
+            console.log(res.data.code);
+            if(res.data.code == 1){
+              alert('旧密码和账号原密码一致');
+            }
+            else if(res.data.code == 0){
+              alert('修改成功！');
+            }
+        })
+
       },
       resetForm(formName) {
         this.$refs[formName].resetFields();

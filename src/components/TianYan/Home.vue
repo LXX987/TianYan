@@ -1,6 +1,6 @@
 <template>
     <div class="layout" style="overflow-x:hidden;">
-      <Header></Header>
+      <Header :childid="id"></Header>
       <!-- <Header/> -->
       <div class="main">
         <div class="main-head">
@@ -11,7 +11,7 @@
           <li>学习农作物知识</li>
           <li>感受自然魅力</li>
           <li>开启探索未知的旅程吧~</li>
-          <li><el-button type="primary" icon="el-icon-s-home" id="begin" round><router-link to="/login" style="text-decoration:none">进入</router-link></el-button></li>
+          <li><el-button type="primary" icon="el-icon-s-home" id="begin" round><router-link to="/" style="text-decoration:none">进入</router-link></el-button></li>
           <!-- <li style="background-color: #0064009e;width:200px;border-radius:10px;;height:70px;line-height:70px;margin-left:37%"><router-link to="/login" style="text-decoration:none">进入</router-link></li> -->
           <br>
         </ul>
