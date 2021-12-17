@@ -12,11 +12,9 @@
     <div class="tian"></div>
     <div class="slow">
         <div class="paper">
-            <div class="countdown"><p>距离竞赛截止：</p><CountDown/></div>
-            <div class="questionpaper">
             <div class="back"><router-link to="/gameintro" id="routeback" style="text-decoration:none;"><div class="el-icon-back" id="backpage"></div><p id="packpage">返回</p></router-link></div>
-            <h2>识别图中农作物种类</h2>
-            <p>题目数：</p><p style="margin-left:55px;font-size:20px;color:rgb(228, 167, 80)">{{questionnumber}}</p><p>说明：</p><p style="margin-left:55px;">依据题目图片内容，回答对应农作物种类，作答结束，点击提交按钮即可查看结果。</p>
+            <h2>选择农作物的正确图片</h2>
+            <p>题目数：</p><p style="margin-left:55px;font-size:20px;color:rgb(228, 167, 80)">{{questionnumber}}</p><p>说明：</p><p style="margin-left:55px;">依据题目内容，选择对应农作物种类的图片，作答结束，点击提交按钮即可查看结果。</p>
             <el-divider></el-divider>
             <h3>1.【填空题】（2分）</h3>
             <img :src="question1"/>
@@ -43,7 +41,6 @@
             <p>请回答：</p><el-input v-model="input6" placeholder="请输入答案"></el-input>
             <el-divider></el-divider>
             <el-button round>提交</el-button>
-            </div>
         </div>
     </div>
     <div class="tian"></div>
@@ -57,26 +54,6 @@
     overflow-x: hidden;
     margin: 0px;
     height: 3374px;
-}
-.countdown p {
-    margin: -1px -1px;
-    width: 100%;
-    border: 1px solid rgb(54, 140, 91);
-    background-color: #80b391;
-    border-radius: 5px;
-}
-.countdown {
-    background-color: rgb(253, 240, 224);
-    border-radius: 5px;
-    position: absolute;
-    left: 1050px;
-    top: 250px;
-    width: 180px;
-    height: 120px;
-    border: 1px solid rgb(54, 140, 91);
-    text-align: center;
-    line-height: 50px;
-    font-size: 20px;
 }
 .paper #packpage{
     display: inline-block;
@@ -131,7 +108,7 @@
     color: rgb(54, 140, 91);
     text-shadow: rgb(255 255 255) 2px 2px;
 }
-.questionpaper p{
+.paper p{
     margin-left: 20px;
     font-size: 16px;
     font-weight: bold;
@@ -188,13 +165,11 @@
 <script>
 import Header from './Header'
 import Footer from './Footer'
-import CountDown from './CountDown'
 export default {
-  name: "game1page",
+  name: "Feedback",
   components: {
     Header,
-    Footer,
-    CountDown
+    Footer
   },
   data() {
     return {
@@ -216,11 +191,11 @@ export default {
   methods: {
     },
     mounted:function() {
-        // this.$axios.post("https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=UKHMEldVHVqw0U1B8GtT1hr2&client_secret=XB8ap23BSr933rDy8V4ECjU38w82Dt2p", {
+        this.$axios.post("https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=UKHMEldVHVqw0U1B8GtT1hr2&client_secret=XB8ap23BSr933rDy8V4ECjU38w82Dt2p", {
 
-        // }).then( res=> {
-        //     console.log(res)
-        // })
+        }).then( res=> {
+            console.log(res)
+        })
     }
 }
 </script>

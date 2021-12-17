@@ -2,27 +2,26 @@
     <div>
       <div class="head" style="overflow-x:hidden;overflow-y:hidden;">
           <div class="container">
-            <div class="headerlogo" style="display:inline-block;color:white;font-size:40px">
+            <div class="headerlogo" style="color:white;font-size:40px">
               <img src="../../assets/logo.png" id='logo'>TianYan
             </div>
-            <div id="navbar" class="headerlogo" style="display:inline-block;">
+            <div id="navbar" class="headerlogo">
                 <ul id="menu-menu" class="nav-menu">
                   <li id="menu-home" class="page">
-                    <router-link to="/home" style="text-decoration:none">home</router-link>
+                    <router-link to="/home" style="text-decoration:none;font-family:monospace;">主页</router-link>
                   </li>
                   <li id="menu-identity" class="page">
-                    <router-link to="/identify" style="text-decoration:none">identify</router-link>
+                    <router-link to="/identify" style="text-decoration:none;font-family:monospace;">识别</router-link>
                   </li>
                   <li id="menu-game" class="page">
-                    <router-link to="/gameintro" style="text-decoration:none">game</router-link>
+                    <router-link to="/gameintro" style="text-decoration:none;font-family:monospace;">游戏</router-link>
                   </li>
                   <li id="menu-about" class="page">
-                    <a href="http://www.baidu.com/" style="text-decoration:none">about</a>
+                    <router-link to="/feedback" style="text-decoration:none;font-family:monospace;">反馈</router-link>
                   </li>
                 </ul>
             </div>
-            <div class="headerlogo" id="userid" style="display:inline-block;">
-              <!-- <router-link to="/honor2"><img src="../../assets/user.png" id="user"></router-link> -->
+            <div class="headerlogo" id="userid">
               <el-button circle id="userr" @click="addRoutes1"></el-button>
             </div>
           </div>
@@ -72,7 +71,7 @@ a:hover{ color:white;text-decoration:none;font-weight:bold; }
   font-size: 20px;
 }
 .headerlogo{
-  display: inline;
+  display: inline-block;
   height: 50px;
   vertical-align:top;
 }

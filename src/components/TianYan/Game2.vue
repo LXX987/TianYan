@@ -11,7 +11,7 @@
         </div>
         <div class="gamecontent" id="gameblock">
             <el-button type="primary" icon="el-icon-back" id="back" round><router-link to="/gameintro" style="text-decoration:none">返回</router-link></el-button>
-            <el-button id="questionbutton" circle @click="showpopup"></el-button>
+            <img @click="openupload" id="questionimg" src="../../assets/question.png">
             <h1>人机大战</h1>
             <h2>--寻找农作物游戏--</h2>
             <div class="nameinput">
@@ -24,6 +24,13 @@
     </div>
 </template>
 <style>
+#questionimg {
+    width: 50px;
+    height: 50px;
+    margin-top: 40px;
+    margin-left: 740px;
+    position: absolute;
+}
 .heading{
     color: white;
     font-size: 35px;
@@ -32,17 +39,6 @@
     line-height: 80px;
     margin-left: 20%;
     font-family: cursive;
-}
-#questionbutton:hover, #questionbutton:active, #questionbutton:focus, #questionbutton{
-    border: 0px solid #916c46;
-}
-#questionbutton{
-    width: 55px;
-    height: 55px;
-    margin-left: 760px;
-    margin-top: 15px;
-    background: url('../../assets/question.png') no-repeat center;
-    background-size: 93% 93%;
 }
 #begin{
     margin-left: 38%;
@@ -178,6 +174,9 @@ export default {
             message: '取消输入'
           });       
         });
+      },
+      openupload() {
+          this.$router.push('/uploadtwo');
       }
     }
 

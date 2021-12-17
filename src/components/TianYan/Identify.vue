@@ -3,7 +3,7 @@
     <Header/>
     <div class="identify-intro">
         <div class="heading" style="display:inline-block;" id="word">
-            <h>趣味科普</h>
+            <h>识别科普</h>
         </div>
         <div class="heading" style="display:inline-block;" id="head-img">
             <img src="../../assets/identify_head.png" id="pic">

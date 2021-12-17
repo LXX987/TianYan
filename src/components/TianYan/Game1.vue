@@ -11,6 +11,7 @@
         </div>
         <div class="gamecontent" id="gameblock">
             <el-button type="primary" icon="el-icon-back" id="back" round><router-link to="/gameintro" style="text-decoration:none">返回</router-link></el-button>
+            <img @click="openupload" id="questionimg" src="../../assets/question.png">
             <h1>人机大战</h1>
             <h2>--寻找农作物游戏--</h2>
             <div class="nameinput">
@@ -23,6 +24,13 @@
     </div>
 </template>
 <style>
+#questionimg {
+    width: 50px;
+    height: 50px;
+    margin-top: 40px;
+    margin-left: 740px;
+    position: absolute;
+}
 .heading{
     color: white;
     font-size: 35px;
@@ -158,14 +166,18 @@ export default {
         }).then(({ value }) => {
           this.$message({
             type: 'success',
-            message: '你的姓名是: ' + value
+            message: '你的姓名是: ' + value,
           });
+          this.gamename = value;
         }).catch(() => {
           this.$message({
             type: 'info',
             message: '取消输入'
           });       
         });
+      },
+      openupload() {
+          this.$router.push('/uploadone');
       }
     }
 

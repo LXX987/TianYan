@@ -52,15 +52,15 @@
         <div class="content" id="contentword" style="display:inline-block;">
             <div>
             <h2>游戏竞答介绍：</h2>
-            <p style="text-align: justify;margin: 0 0 10px;font-size:20px;">Pioneer Records Management began life in 1984, as Records Management Systems. Records Management Systems helped businesses throughout Florida better manage and access their growing information stockpiles.Records Management Systems initially offered consulting services to major corporations in publishing and manufacturing as well as document scanning and document imaging. Throughout the 1990s.</p>
-            <ul style="text-align: justify;margin: 0 0 10px;font-size:20px;line-height:20px;">
+            <p style="text-align: justify;margin: 0 0 10px;font-size:22px;font-family:cursive;">趣味竞答游戏，分为人机大战游戏与机智过人游戏。采用创意且新颖的方式，将农作物科普教育和人工智能目标识别技术有机结合起来的一种形式。寓教于乐,寓学于趣 ，通过参与体验、趣味竞答等多种方式，让学生在学习过程中轻松、愉快、生动地接受农作物知识，培养学生的科学精神并传播科学思想。</p>
+            <ul style="text-align: justify;margin: 0 0 10px;font-size:21px;line-height:20px;">
                 <li>
                     <h3>人机大战</h3>
-                    <p>随便说一些啦~~~，文案还没想好，不要紧。。。。凑凑字数，看效果~~</p>
+                    <p style="font-family:cursive;">系统随机展示一张农作物图片，用户的系统同时开始回答农作物种类，比拼回答准确率及作答时间。</p>
                 </li>
                 <li>
                     <h3>机智过人</h3>
-                    <p>随便说一些啦~~~，文案还没想好，不要紧。。。。凑凑字数，看效果~~</p>
+                    <p style="font-family:cursive;">系统展示多个种类农作物图片，根据题目要求种类，用户和系统同时开始寻找对应种类农作物，比拼回答准确率及作答时间。</p>
                 </li>
             </ul>
             </div>
@@ -79,7 +79,7 @@
 .body{
     overflow-x: hidden;
     margin: 0px;
-    height: 974px;
+    height: 985px;
 }
 .el-col-12{
     width: 100%;
@@ -90,7 +90,7 @@
 }
 .slow{
     width:1280px;
-    height: 670px;
+    height: 682px;
     background-color: #fff6e6;
 }
 .content{

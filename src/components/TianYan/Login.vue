@@ -207,6 +207,7 @@ export default {
             })
         },
         registernewuser() {
+            console.log("jump");
             this.$router.push('/register');
         },
         // jumphome(id) {

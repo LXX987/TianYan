@@ -20,7 +20,9 @@ import Register from '@/components/TianYan/Register'
 import Identifyone from '@/components/TianYan/Identifyone'
 import Identifytwo from '@/components/TianYan/Identifytwo'
 import Identifythree from '@/components/TianYan/Identifythree'
-
+import Uploadone from '@/components/TianYan/Uploadone'
+import Uploadtwo from '@/components/TianYan/Uploadtwo'
+import Feedback from '@/components/TianYan/Feedback'
 Vue.use(Router)
 
 export default new Router({
@@ -109,6 +111,18 @@ export default new Router({
       path: './identifythree',
       name: 'identifythree',
       component: Identifythree
+    },{
+      path: './uploadone',
+      name: 'uploadone',
+      component: Uploadone
+    },{
+      path: './uploadtwo',
+      name: 'uploadtwo',
+      component: Uploadtwo
+    },{
+      path:'/feedback',
+      name: 'feedback',
+      component:Feedback
     }
   ]
 })

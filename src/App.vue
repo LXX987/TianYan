@@ -2,6 +2,7 @@
   <div>
     <router-view></router-view>
     <!-- <Game2/> -->
+    <!-- <count-down></count-down> -->
   </div>
 </template>
 <script>
@@ -20,6 +21,9 @@ import game2page from './components/TianYan/game2page'
 import Identifyone from './components/TianYan/Identifyone'
 import Identifytwo from './components/TianYan/Identifytwo'
 import Identifythree from './components/TianYan/Identifythree'
+import Uploadone from './components/TianYan/Uploadone'
+import Feedback from './components/TianYan/Feedback'
+import CountDown from './components/TianYan/CountDown'
 
 export default {
   name: "App",
@@ -38,7 +42,10 @@ export default {
     game2page,
     Identifyone,
     Identifytwo,
-    Identifythree
+    Identifythree,
+    Uploadone,
+    Feedback,
+    CountDown
   }
 }
 </script>
