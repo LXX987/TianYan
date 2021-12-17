@@ -166,7 +166,7 @@
 import Header from './Header'
 import Footer from './Footer'
 export default {
-  name: "Feedback",
+  name: "feedback",
   components: {
     Header,
     Footer

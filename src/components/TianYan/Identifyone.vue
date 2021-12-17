@@ -210,7 +210,7 @@
 import Header from './Header'
 import Footer from './Footer'
 export default {
-  name: "Identifyone",
+  name: "identifyone",
   components: {
     Header,
     Footer,

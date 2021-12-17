@@ -200,7 +200,7 @@ import Header from './Header'
 import Footer from './Footer'
 import axios from 'axios'
 export default {
-  name: "Honor2",
+  name: "honor2",
   components: {
     Header,
     Footer,

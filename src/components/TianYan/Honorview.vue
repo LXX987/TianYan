@@ -211,7 +211,7 @@ h2{
 import Header from './Header'
 import Footer from './Footer'
 export default {
-  name: "Honorview",
+  name: "honorview",
   components: {
     Header,
     Footer,

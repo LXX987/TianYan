@@ -174,7 +174,7 @@ import Header from './Header'
 import Footer from './Footer'
 import axios from 'axios'
 export default {
-  name: "Record",
+  name: "record",
   components: {
     Header,
     Footer,

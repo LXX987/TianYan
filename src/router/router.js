@@ -26,28 +26,32 @@ import Identifythree from '@/components/TianYan/Identifythree'
 import Uploadone from '@/components/TianYan/Uploadone'
 import Uploadtwo from '@/components/TianYan/Uploadtwo'
 import Feedback from '@/components/TianYan/Feedback'
+import Gameresult1 from '@/components/TianYan/Gameresult1'
+import Gameresult2 from '@/components/TianYan/Gameresult2'
 
 const routes=[
     {path: '/home',name: 'Home',component: Home},
-    {path:'/identify',component:Identify},
+    {path:'/identify',name: 'identify',component:Identify},
     {path:'/gameintro',name: 'gameintro',component:GameIntro},
-    {path:'/game1',component:Game1},
-    {path:'/game2',component:Game2},
-    {path:'/honor',component:Honor},
+    {path:'/game1',name: 'game1',component:Game1},
+    {path:'/game2',name: 'game2',component:Game2},
+    {path:'/honor',name: 'honor',component:Honor},
     {path:'/record',name: 'record',component:Record},
-    {path:'/honor2',component:Honor2},
-    {path:'/honorview',component:Honorview},
+    {path:'/honor2',name: 'honor2',component:Honor2},
+    {path:'/honorview',name: 'honorview',component:Honorview},
     {path:'/usercontrol',name: 'Usercontrol',component:Usercontrol},
     {path:'/',component:Login},
-    {path:'/game1page',component:game1page},
-    {path:'/game2page',component:game2page},
+    {path:'/game1page',name: 'gamepage1',component:game1page},
+    {path:'/game2page',name: 'game2page',component:game2page},
     {path:'/register',name: 'register',component:Register},
     {path:'/identifyone',name: 'identifyone',component:Identifyone},
     {path:'/identifytwo',name: 'identifytwo',component:Identifytwo},
     {path:'/identifythree',name: 'identifythree',component:Identifythree},
     {path:'/uploadone',name: 'uploadone',component:Uploadone},
     {path:'/uploadtwo',name: 'uploadtwo',component:Uploadtwo},
-    {path:'/feedback',name: 'feedback',component:Feedback}
+    {path:'/feedback',name: 'feedback',component:Feedback},
+    {path:'/gameresult1',name: 'gameresult1',component:Gameresult1},
+    {path:'/gameresult2',name: 'gameresult2',component:Gameresult2}
 ]
 const router=new VueRouter({
     routes:routes

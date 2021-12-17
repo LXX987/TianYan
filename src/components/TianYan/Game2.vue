@@ -145,7 +145,7 @@ h2{
 import Header from './Header'
 import Footer from './Footer'
 export default {
-    name: "Game2",
+    name: "game2",
     components: {
     Header,
     Footer,

@@ -263,7 +263,7 @@
 import Header from './Header'
 import Footer from './Footer'
 export default {
-  name: "Uploadtwo",
+  name: "uploadtwo",
   components: {
     Header,
     Footer,

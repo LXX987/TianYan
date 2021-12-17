@@ -3,7 +3,7 @@
     <Header/>
     <div class="identify-intro">
         <div class="heading" style="display:inline-block;" id="word">
-            <h>荣誉殿堂</h>
+            <h>趣味竞答</h>
         </div>
         <div class="heading" style="display:inline-block;" id="head-img">
             <img src="../../assets/identify_head.png" id="pic">
@@ -25,7 +25,7 @@
                     active-text-color="#ffd04b">
                     <el-menu-item index="1">
                         <i class="el-icon-location"></i>
-                        <span slot="title"><router-link to="/gameintro" style="text-decoration:none">竞答游戏介绍</router-link></span>
+                        <span slot="title">竞答游戏介绍</span>
                     </el-menu-item>
                     <el-menu-item index="2">
                         <i class="el-icon-menu"></i>
@@ -42,7 +42,7 @@
         </template>
         <el-menu-item-group>
           <el-menu-item index="1-1"><router-link to="/honorview" style="text-decoration:none">荣誉殿堂</router-link></el-menu-item>
-          <el-menu-item index="1-2"><router-link to="/record" style="text-decoration:none">游戏记录</router-link></el-menu-item>
+          <el-menu-item index="1-2" @click="recordid">游戏记录</el-menu-item>
         </el-menu-item-group>  
       </el-submenu>
                     </el-menu>
@@ -50,37 +50,23 @@
             </el-row>
         </div>
         <div class="content" id="contentword" style="display:inline-block;">
-         <span><h1 style="text-align:center;font-family:cursive;font-weight: bold;">游戏排行榜</h1></span>
-         <el-divider></el-divider>
-         <span>
-             <div class="own-rank-block">
-             <h3 style="text-align:center;font-family:cursive;font-weight: bold;">我的排名：第{{rank}}名</h3>
-             </div>
-         </span>
-         <br>
-         <div>
-             <el-table
-      :data="tableData"
-      style="width: 100%">
-      <el-table-column
-        prop="date"
-        label="游戏日期"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="name"
-        label="玩家姓名"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="correct"
-        label="准确率">
-      </el-table-column>
-    </el-table>
-         </div>  
-         <div class="honor-img">
-             <img src="../../assets/honor.png" id="honorimg">
-         </div>
+            <div>
+            <h2>游戏竞答介绍：</h2>
+            <p style="text-align: justify;margin: 0 0 10px;font-size:22px;font-family:cursive;">趣味竞答游戏，分为人机大战游戏与机智过人游戏。采用创意且新颖的方式，将农作物科普教育和人工智能目标识别技术有机结合起来的一种形式。寓教于乐,寓学于趣 ，通过参与体验、趣味竞答等多种方式，让学生在学习过程中轻松、愉快、生动地接受农作物知识，培养学生的科学精神并传播科学思想。</p>
+            <ul style="text-align: justify;margin: 0 0 10px;font-size:21px;line-height:20px;">
+                <li>
+                    <h3>人机大战</h3>
+                    <p style="font-family:cursive;">系统随机展示一张农作物图片，用户的系统同时开始回答农作物种类，比拼回答准确率及作答时间。</p>
+                </li>
+                <li>
+                    <h3>机智过人</h3>
+                    <p style="font-family:cursive;">系统展示多个种类农作物图片，根据题目要求种类，用户和系统同时开始寻找对应种类农作物，比拼回答准确率及作答时间。</p>
+                </li>
+            </ul>
+            </div>
+            <div class="game-png">
+                <img src="../../assets/game.png">
+            </div>
         </div>
     </div>
     <div class="tian"></div>
@@ -93,43 +79,18 @@
 .body{
     overflow-x: hidden;
     margin: 0px;
-    height: 974px;
-}
-.el-divider--horizontal {
-    display: block;
-    height: 1px;
-    width: 80%;
-    margin: 24px 65px;
-}
-.honor-img{
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    margin-left:650px;
-    margin-top: 40px;
-}
-#honorimg{
-    width:200px;
-    height:200px;
-}
-.el-table .el-table__cell{
-    text-align: center;
-}
-.own-rank-block{
-    /* box-shadow: inset 0 0 5px 5px rgb(239 225 204); */
-    height: 42px;
-    line-height: 42px;
-    border-radius: 10px;
-    width: 850px;
-    margin-left: -30px;
+    height: 985px;
 }
 .el-col-12{
     width: 100%;
     height: 100%;
 }
+.game-png{
+    margin-left: 490px;
+}
 .slow{
     width:1280px;
-    height: 670px;
+    height: 682px;
     background-color: #fff6e6;
 }
 .content{
@@ -143,13 +104,10 @@
     height: 600px;
 }
 #contentword{
-    width:790px;
+    width:850px;
     margin-left: 60px;
-    background-color: #ffffff;
+    background-color: #fff6e6;
     border-right: 0px solid rgb(234, 213, 180);
-    box-shadow: inset 0 0 5px 5px rgb(239 225 204);
-    border-radius: 10px;
-    padding: 0px 30px;
 }
 h2{
     font-family: cursive;
@@ -198,37 +156,32 @@ h2{
 <script>
 import Header from './Header'
 import Footer from './Footer'
-import axios from 'axios'
 export default {
-  name: "honor",
+  name: "gameresult2",
   components: {
     Header,
     Footer,
   },
   data() {
-    return {
-      rank: '',
-      tableData: []
-    }
+      return {
+          id: ''
+      }
   },
-  methods: {
+   methods: {
       handleOpen(key, keyPath) {
         console.log(key, keyPath);
       },
       handleClose(key, keyPath) {
         console.log(key, keyPath);
+      },
+      recordid() {
+          this.$router.push({ name: 'record',params:{ids:this.id} });
       }
     },
     mounted:function() {
-
-      let data = new FormData();
-            data.append("type", "1");
-            console.log(data);
-            axios.post("http://124.70.206.207/record/recordsQuery", data)
-            .then(res=>{
-                console.log(res);
-                console.log(res.data.records);
-            })
+        console.log(this.$route.params.ids);
+        this.id = this.$route.params.ids;
+        console.log(this.id);
     }
 }
 </script>

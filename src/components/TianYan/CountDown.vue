@@ -14,7 +14,7 @@
     },
     props: {
       remainTime: {    // 倒计时间总秒数
-        default: '10'
+        default: '3'
       }
     },
     mounted () {
@@ -35,7 +35,9 @@
               self.second = 59
               self.minute -= 1
             } else if (self.minute === 0 && self.second === 0) {
+              //计时结束
               self.second = 0
+              console.log("计时结束！")
               self.$emit('countDowmEnd', true)
               clearInterval(self.timer)
             } else {

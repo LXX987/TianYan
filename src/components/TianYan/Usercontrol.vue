@@ -330,7 +330,7 @@ import Header from './Header'
 import Footer from './Footer'
 import axios from 'axios'
 export default {
-  name: "Usercontrol",
+  name: "usercontrol",
   components: {
     Header,
     Footer,

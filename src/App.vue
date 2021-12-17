@@ -24,6 +24,8 @@ import Identifythree from './components/TianYan/Identifythree'
 import Uploadone from './components/TianYan/Uploadone'
 import Feedback from './components/TianYan/Feedback'
 import CountDown from './components/TianYan/CountDown'
+import Gameresult1 from './components/TianYan/Gameresult1'
+import Gameresult2 from './components/TianYan/Gameresult2'
 
 export default {
   name: "App",
@@ -45,7 +47,9 @@ export default {
     Identifythree,
     Uploadone,
     Feedback,
-    CountDown
+    CountDown,
+    Gameresult1,
+    Gameresult2
   }
 }
 </script>
