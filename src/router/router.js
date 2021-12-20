@@ -28,7 +28,6 @@ import Uploadtwo from '@/components/TianYan/Uploadtwo'
 import Feedback from '@/components/TianYan/Feedback'
 import Gameresult1 from '@/components/TianYan/Gameresult1'
 import Gameresult2 from '@/components/TianYan/Gameresult2'
-import DealFeedback from "../components/TianYan/Administrator/DealFeedback";
 
 const routes=[
     {path: '/home',name: 'Home',component: Home},
@@ -52,15 +51,7 @@ const routes=[
     {path:'/uploadtwo',name: 'uploadtwo',component:Uploadtwo},
     {path:'/feedback',name: 'feedback',component:Feedback},
     {path:'/gameresult1',name: 'gameresult1',component:Gameresult1},
-    {path:'/gameresult2',name: 'gameresult2',component:Gameresult2},
-
-    {path:'/admin',name:"Admin",component:Admin},
-    {path:'/traindata',name:"Traindata",component:Traindata},
-    {path:'/knowledge',name:'Knowledge',component:Knowledge},
-    {path:'/check',name:'Check',component:Check},
-    {path:'/accuracycount',name:'AccuracyCount',component:AccuracyCount},
-    {path:'/identifycount',name:'IdentifyCount',component:IdentifyCount},
-    {path:'/dealfeedback',name:'DealFeedback',component:DealFeedback},
+    {path:'/gameresult2',name: 'gameresult2',component:Gameresult2}
 ]
 const router=new VueRouter({
     routes:routes
