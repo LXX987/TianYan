@@ -68,7 +68,7 @@ export default new Router({
     {path:'/admin',name:'admin',component:Admin},
     {path:'/accuracycount',name:'accuracycount',component:AccuracyCount},
     {path:'/check',name:'check',component:Check},
-    {path:'dealfeedback',name:'dealfeedback',component:DealFeedback},
+    {path:'/dealfeedback',name:'dealfeedback',component:DealFeedback},
     {path:'/identifycount',name:'identifycount',component:IdentifyCount},
     {path:'/knowledge',name:'knowledge',component:Knowledge},
     {path:'/traindata',name:'traindata',component:TrainData},

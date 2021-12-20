@@ -2,69 +2,53 @@
   <div class="deal">
     <Header></Header>
     <el-container>
+      <AdminSidebar/>
       <el-main>
-        <div class="returnbutton">
-          <el-button type="primary" icon="el-icon-back" style="width:90px" @click="clickreturn">返回</el-button>
-        </div>
-        <div class="feedbacknumber">
-          <span style="margin:10px;">
-          <el-badge :value="feedback.length" class="feedbackitem">
-            <el-button>反馈</el-button>
-          </el-badge>
-          </span>
-          <span style="margin:10px;">
-          <el-badge :value="replynumber" class="replyitem" type="primary">
-            <el-button>回复</el-button>
-          </el-badge>
-          </span>
-          <span style="margin:10px;">
-          <el-badge :value="refusenumber" class="refuseitem" type="warning">
-            <el-button>拒绝</el-button>
-          </el-badge>
-          </span>
-        </div>
         <div class="details">
           <div class="feedbackcontent" v-for="(item,index) in feedback" :key="index">
             <div class="content">
               <div class="none">
               </div>
-                <span style="font-size:15px;float:left;margin-left:15px;color:red;">{{item.name}}</span>
-                <span style="font-size:10px;float:left;margin-left:10px;margin-top:4px;">{{item.time}}</span>
+              <div class="title">
+                <span style="font-size:15px;margin-left:20px;color:red;">{{item.name}}</span>
+                <span style="font-size:10px;margin-left:5px">{{item.time}}</span>
+              </div>
               <el-input
                 type="textarea"
                 :autosize="{minRows:3,maxRows:5}"
                 v-model="item.content"
                 readonly
                 class="input-border"
-                style="width:620px;margin-top:5px;margin-left:0px;"
+                style="width:600px;margin-top:5px;margin-left:20px;"
               >
               </el-input>
               <div class="operate">
                 <span style="margin:10px;">
-                  <el-button type="primary" icon="el-icon-message" size="mini" @click="clickreply(item)" v-show="item.IsReplyShow">回复</el-button>
+                  <el-button type="primary" icon="el-icon-bottom" size="mini" @click="clickreply(item)">回复</el-button>
                 </span>
                 <span style="margin:10px;">
-                  <el-button type="danger" icon="el-icon-delete" size="mini" @click="clickignore(item)">{{item.ignore}}</el-button>
+                  <el-button type="danger" icon="el-icon-top" size="mini" @click="clickignore(item)">收起</el-button>
                 </span>
               </div>
-              <el-form ref="form" label-width="80px" class="demo-form" v-show="item.IsFeedbackShow">
+              <el-form ref="item" label-width="80px" class="demo-form" v-show="item.IsFeedbackShow" :model="item">
                 <el-form-item label="反馈">
                   <el-input
                     type="textarea"
                     autosize
                     placeholder="请输入回复的内容"
                     v-model="item.reply"
-                    style="width:580px;left:-10px;top:-2px;"
+                    style="width:560px;"
+                    prop="reply"
                   >
                   </el-input>
                 </el-form-item>
               </el-form>
               <div class="choice" v-show="item.IsFeedbackShow">
                 <span style="margin:10px;">
-                    <el-button type="success" icon="el-icon-circle-check" size="mini" @click="clickfinish(item)">{{item.finish}}</el-button>
+                    <el-button type="success" :icon="item.send" size="mini" @click="clickfinish(item)">{{item.finish}}</el-button>
                   </span>
                 <span style="margin:10px;">
-                    <el-button type="warning" icon="el-icon-circle-close" size="mini" v-show="item.IsCancelShow" @click="clickcancel(item)">取消</el-button>
+                    <el-button type="warning" icon="el-icon-circle-close" size="mini" @click="clickcancel(item)">取消</el-button>
                   </span>
               </div>
             </div>
@@ -79,123 +63,63 @@
 
 <script>
 import Header from './Header'
+import AdminSidebar from './AdminSidebar'
 export default{
   name:"DealFeedback",
   components:{
-    Header
+    Header,AdminSidebar
   },
   data(){
     return{
-      feedback:[
-        {
-          name:"搁浅的晴天一路向北",
-          time:"2002-10-23",
-          content:"太帅了",
-          IsFeedbackShow:false,
-          IsReplyShow:true,
-          ignore:"忽略",
-          reply:'',
-          IsCancelShow:true,
-          finish:"确认",
-        },
-        {
-          name:"prince",
-          time:"2021-12-06",
-          content:"听说贝克汉姆都没他拽",
-          IsFeedbackShow:false,
-          IsReplyShow:true,
-          ignore:"忽略",
-          reply:'',
-          IsCancelShow:true,
-          finish:"确认",
-        },
-        {
-          name:"某人",
-          time:"2021-12-06",
-          content:'好漂亮',
-          IsFeedbackShow:false,
-          IsReplyShow:true,
-          ignore:"忽略",
-          reply:'',
-          IsCancelShow:true,
-          finish:"确认",
-        },
-        {
-          name:"某人",
-          time:"2021-12-06",
-          content:'好漂亮',
-          IsFeedbackShow:false,
-          IsReplyShow:true,
-          ignore:"忽略",
-          reply:'',
-          IsCancelShow:true,
-          finish:"确认",
-        },
-        {
-          name:"某人",
-          time:"2021-12-06",
-          content:'好漂亮',
-          IsFeedbackShow:false,
-          IsReplyShow:true,
-          ignore:"忽略",
-          reply:'',
-          IsCancelShow:true,
-          finish:"确认",
-        },
-        {
-          name:"某人",
-          time:"2021-12-06",
-          content:'好漂亮',
-          IsFeedbackShow:false,
-          IsReplyShow:true,
-          ignore:"忽略",
-          reply:'',
-          IsCancelShow:true,
-          finish:"确认",
-        },
-      ],
+      feedback:[],
       readonly:true,
-      replynumber:0,
-      refusenumber:0,
     }
+  },
+  mounted() {
+    getFeedback().then(res =>{
+      let feedbacks = res.data.feedback
+      for(let i=0; i<feedbacks.length; i++){
+        this.feedback.push({
+          name: feedbacks[i].user_name,
+          time: feedbacks[i].time,
+          content:feedbacks[i].content,
+          fid: feedbacks[i].fid,
+          IsFeedbackShow:false,
+          IsFeedbackSend:false,
+          reply:'',
+          finish:"确认",
+          send:"el-icon-message",
+        })
+      }
+    }).catch(function (error) {
+      console.log(error)
+    });
   },
   methods: {
     clickreply:function(item){
-      if(item.finish=="完成"){
-        item.IsCancelShow=true;
-        item.finish="确认";
-      }
-      else{
-        item.IsFeedbackShow=!item.IsFeedbackShow;
-      }
+      item.IsFeedbackShow=true;
     },
     clickignore:function(item){
-      item.IsReplyShow=!item.IsReplyShow;
       item.IsFeedbackShow=false;
-      if(item.IsReplyShow){
-        item.ignore="忽略";
-        this.refusenumber--;
-      }
-      else{
-        item.ignore="撤销";
-        this.refusenumber++;
-      }
     },
     clickfinish:function(item){
-      if(item.IsFeedbackShow){
-        if(item.IsCancelShow){
-          item.IsCancelShow=false;
-          item.finish="完成";
-          this.replynumber++;
-        }
+      if(item.finish==="确认"){
+        feedback(item.name, item.reply, item.fid).then(res =>{
+          alert("发送成功")
+        }).catch(function (error) {
+          console.log(error)
+        });
+        item.IsFeedbackSend=true;
       }
+      item.finish="完成";
+      item.send="el-icon-circle-check";
     },
     clickcancel:function(item){
-      item.IsFeedbackShow=!item.IsFeedbackShow;
-    },
-    clickreturn:function(){
-      this.$router.push('/admin');
-
+      if(item.finish=="完成"){
+        item.finish="确认";
+        item.send="el-icon-message";
+      }
+      item.reply='';
     },
   }
 }

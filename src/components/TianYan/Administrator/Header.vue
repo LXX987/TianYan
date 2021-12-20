@@ -2,7 +2,7 @@
     <div class="head">
         <el-header>
             <div class="asidelogo" style="display:inline-block;color:white;font-size:40px">
-                <img src="src/assets/logo.png" id='logo'>TianYan
+                <img src="../../../assets/logo.png" id='logo'>TianYan
             </div>
         </el-header>
     </div>
