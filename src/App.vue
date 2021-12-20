@@ -27,6 +27,14 @@ import CountDown from './components/TianYan/CountDown'
 import Gameresult1 from './components/TianYan/Gameresult1'
 import Gameresult2 from './components/TianYan/Gameresult2'
 
+import AccuracyCount from './components/TianYan/Administrator/AccuracyCount'
+import Admin from './components/TianYan/Administrator/Admin'
+import Check from './components/TianYan/Administrator/Check'
+import DealFeedback from './components/TianYan/Administrator/DealFeedback'
+import IdentifyCount from './components/TianYan/Administrator/IdentifyCount'
+import Knowledge from './components/TianYan/Administrator/Knowledge'
+import TrainData from './components/TianYan/Administrator/TrainData'
+
 export default {
   name: "App",
   components: {
@@ -49,7 +57,14 @@ export default {
     Feedback,
     CountDown,
     Gameresult1,
-    Gameresult2
+    Gameresult2,
+    AccuracyCount,
+    Admin,
+    Check,
+    DealFeedback,
+    IdentifyCount,
+    Knowledge,
+    TrainData
   }
 }
 </script>

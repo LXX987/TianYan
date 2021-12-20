@@ -25,6 +25,15 @@ import Uploadtwo from '@/components/TianYan/Uploadtwo'
 import Feedback from '@/components/TianYan/Feedback'
 import Gameresult1 from '@/components/TianYan/Gameresult1'
 import Gameresult2 from '@/components/TianYan/Gameresult2'
+import AccuracyCount from '@/components/TianYan/Administrator/AccuracyCount'
+import Admin from '@/components/TianYan/Administrator/Admin'
+import Check from '@/components/TianYan/Administrator/Check'
+import DealFeedback from '@/components/TianYan/Administrator/DealFeedback'
+import IdentifyCount from '@/components/TianYan/Administrator/IdentifyCount'
+import Knowledge from '@/components/TianYan/Administrator/Knowledge'
+import TrainData from '@/components/TianYan/Administrator/TrainData'
+
+
 Vue.use(Router)
 
 export default new Router({
@@ -55,6 +64,13 @@ export default new Router({
     {path:'/uploadtwo',name: 'uploadtwo',component:Uploadtwo},
     {path:'/feedback',name: 'feedback',component:Feedback},
     {path:'/gameresult1',name: 'gameresult1',component:Gameresult1},
-    {path:'/gameresult2',name: 'gameresult2',component:Gameresult2}
+    {path:'/gameresult2',name: 'gameresult2',component:Gameresult2},
+    {path:'/admin',name:'admin',component:Admin},
+    {path:'/accuracycount',name:'accuracycount',component:AccuracyCount},
+    {path:'/check',name:'check',component:Check},
+    {path:'dealfeedback',name:'dealfeedback',component:DealFeedback},
+    {path:'/identifycount',name:'identifycount',component:IdentifyCount},
+    {path:'/knowledge',name:'knowledge',component:Knowledge},
+    {path:'/traindata',name:'traindata',component:TrainData},
   ]
 })
