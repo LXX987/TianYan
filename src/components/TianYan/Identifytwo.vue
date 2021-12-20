@@ -33,7 +33,7 @@
                 <div id="closebutton" @click="closekey">×</div>
                         <h5 style="margin-top: 5px;">请为本次识别结果准确度打分，以帮助我们更好的改进产品，谢谢您的参与!</h5>
                       <el-slider v-model="value1" :step="1" :max="10"></el-slider>
-                      <el-button style="margin: 5px 120px;">确认</el-button>
+                      <el-button @click="commitbutton" style="margin: 5px 120px;">确认</el-button>
             </div>
         </div>
     </div>
@@ -245,6 +245,14 @@ export default {
       closekey() {
           this.estimateview = 0;
           console.log(this.estimateview);
+      },
+      commitbutton() {
+          this.estimateview = 0;
+          this.$notify({
+          title: '成功',
+          message: '感谢您的打分！',
+          type: 'success'
+        });
       }
     }
 }

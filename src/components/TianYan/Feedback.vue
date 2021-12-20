@@ -3,7 +3,7 @@
     <Header/>
     <div class="identify-intro">
         <div class="heading" style="display:inline-block;" id="word">
-            <h>人机大战</h>
+            <h>反馈</h>
         </div>
         <div class="heading" style="display:inline-block;" id="head-img">
             <img src="../../assets/identify_head.png" id="pic">
@@ -11,36 +11,25 @@
     </div>
     <div class="tian"></div>
     <div class="slow">
-        <div class="paper">
-            <div class="back"><router-link to="/gameintro" id="routeback" style="text-decoration:none;"><div class="el-icon-back" id="backpage"></div><p id="packpage">返回</p></router-link></div>
-            <h2>选择农作物的正确图片</h2>
-            <p>题目数：</p><p style="margin-left:55px;font-size:20px;color:rgb(228, 167, 80)">{{questionnumber}}</p><p>说明：</p><p style="margin-left:55px;">依据题目内容，选择对应农作物种类的图片，作答结束，点击提交按钮即可查看结果。</p>
-            <el-divider></el-divider>
-            <h3>1.【填空题】（2分）</h3>
-            <img :src="question1"/>
-            <p>请回答：</p><el-input v-model="input1" placeholder="请输入答案"></el-input>
-            <el-divider></el-divider>
-            <h3>2.【填空题】（2分）</h3>
-            <img :src="question2"/>
-            <p>请回答：</p><el-input v-model="input2" placeholder="请输入答案"></el-input>
-            <el-divider></el-divider>
-            <h3>3.【填空题】（2分）</h3>
-            <img :src="question3"/>
-            <p>请回答：</p><el-input v-model="input3" placeholder="请输入答案"></el-input>
-            <el-divider></el-divider>
-            <h3>4.【填空题】（2分）</h3>
-            <img :src="question4"/>
-            <p>请回答：</p><el-input v-model="input4" placeholder="请输入答案"></el-input>
-            <el-divider></el-divider>
-            <h3>5.【填空题】（2分）</h3>
-            <img :src="question5"/>
-            <p>请回答：</p><el-input v-model="input5" placeholder="请输入答案"></el-input>
-            <el-divider></el-divider>
-            <h3>6.【填空题】（2分）</h3>
-            <img :src="question6"/>
-            <p>请回答：</p><el-input v-model="input6" placeholder="请输入答案"></el-input>
-            <el-divider></el-divider>
-            <el-button round>提交</el-button>
+        <div class="back"><el-button @click="backpre" type="primary" round icon="el-icon-back">返回</el-button></div>
+        <div class="servicewindow">
+            <div class="serviceslow">
+                <div class="servicehead">
+                    <img class="headtitle" style="width:50px;height:50px;margin:10px 0px;margin-left:30px;" src="../../assets/service.png"/>
+                    <h3 class="headtitle" style="margin:0px;padding:20px 20px;font-size:25px;font-familt:cursive;color:white;font-weight: 200;">反馈窗口</h3>
+                </div>
+                <div class="servicebody">
+                </div>
+                <div class="inputcontent">
+                    <el-input type="textarea" :rows="2" placeholder="请输入内容..." v-model="textarea"></el-input>
+                </div>
+                <div class="sendbutton">
+                <el-button @click="sendmessage" round>发送</el-button>
+                </div>
+                <div class="canclebutton">
+                <el-button @click="canclemessge" round>清空</el-button>
+                </div>
+            </div>
         </div>
     </div>
     <div class="tian"></div>
@@ -53,81 +42,101 @@
 .body{
     overflow-x: hidden;
     margin: 0px;
-    height: 3374px;
+    height: 974px;
 }
-.paper #packpage{
+.el-button--primary:focus, .el-button--primary:hover {
+    background: rgb(222, 160, 38);
+    border-color: rgb(222, 160, 38);
+    color: #FFF;
+    box-shadow: rgb(187, 132, 23) 3px 3px;
+    font-weight: bold;
+}
+.el-button--primary.is-active, .el-button--primary:active {
+    background: rgb(222, 160, 38);
+    border-color: rgb(222, 160, 38);
+    color: #FFF;
+    box-shadow: rgb(187, 132, 23) 3px 3px;
+}
+.el-button--primary{
+    margin:20px 30px;
+    box-shadow: rgb(173, 126, 60) 2px 2px;
+    font-family: cursive;
+    font-size: 20px;
+    background-color: rgb(228, 167, 80);
+    border-color: rgb(228, 167, 80);
+}
+.back {
+    position: absolute;
+    left: 10px;
+    top: 170px;
+}
+.sendbutton .el-button {
+    position: absolute;
+    left: 930px;
+    top: 770px;
+    width: 100px;
+    font-size: 15px;
+}
+.canclebutton .el-button {
+    position: absolute;
+    left: 800px;
+    top: 770px;
+    width: 100px;
+    font-size: 15px;
+}
+.el-textarea__inner {
+    height: 209px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 0px solid rgb(255 255 255 / 0%);
+}
+.servicebody {
+    width: 100%;
+    height: 53%;
+    background-color: rgb(255, 255, 255);
+    border-right: 1px solid #028a4b;
+    border-left: 1px solid #028a4b;
+    overflow-y: scroll;
+}
+.inputcontent {
+    width: 100%;
+    height: 35%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #028a4b;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.headtitle {
     display: inline-block;
     vertical-align: top;
 }
-.paper .back #routeback:hover{
-    color: rgb(228, 167, 80);
+.servicewindow {
+    width: 75%;
+    height: 665px;
+    background-color: #fff6e6;
+    margin-left: 11%;
+    border: 1px solid #fff6e6;
+    /* margin-top: 50px; */
 }
-.paper .back #routeback{
-    color: rgb(0, 0, 0);
+.serviceslow {
+    width: 90%;
+    height: 600px;
+    background-color: #fff6e6;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    /* border: 1px solid #003a1f; */
+    margin-top: 30px;
+    margin-left: 5%;
 }
-.paper .back{
-    font-size: 40px;
-    margin-left: -40px;
-    width: 20%;
-}
-.paper #backpage:hover{
-    color: rgb(228, 167, 80);
-}
-.paper .back p{
-    font-weight: bold;
-    font-size: 22px;
-    margin-top: 12px;
-    margin-bottom: 0px;
-}
-.paper{
-    width:70%;
-    height:3050px;
-    background-color: rgb(255, 239, 220);
-    margin-left: 90px;
-    box-shadow: inset 0px 8px 20px 0 rgb(239 225 204);
-    border-radius: 10px;
-    padding-top: 30px;
-    padding-left: 80px;
-    padding-right: 80px;
-}
-.paper .el-button{
-    width:100px;
-    height: 40px;
-    text-align: center;
-    line-height: 20px;
-    font-size:20px;
-    font-family: cursive;
-    margin-left: 400px;
-    margin-top: 10px;
-}
-.paper h2{
-    font-size: 30px;
-    font-weight: bold;
-    font-family: cursive;
-    text-align: center;
-    color: rgb(54, 140, 91);
-    text-shadow: rgb(255 255 255) 2px 2px;
-}
-.paper p{
-    margin-left: 20px;
-    font-size: 16px;
-    font-weight: bold;
-}
-.paper h3{
-    margin-left: 20px;
-}
-.paper .el-input{
-    width: 40%;
-    margin-left: 200px;
-}
-.paper img{
-    width: 250px;
-    height: 250px;
-    margin-left: 200px;
+.servicehead {
+    width: 100.3%;
+    height: 70px;
+    background-color: #028a4b;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .slow{
     width:1280px;
-    height: 3070px;
+    height: 670px;
     background-color: #fff6e6;
 }
 #word{
@@ -179,6 +188,7 @@ export default {
         input4: '',
         input5: '',
         input6: '',
+        textarea: '',
       questionnumber: '6',
       question1: 'http://inews.gtimg.com/newsapp_match/0/10351417074/0.jpg',
       question2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg010.hc360.cn%2Fm3%2FM01%2FE2%2F46%2FwKhQ5lTS1cWERqlbAAAAAF5XH74692.jpg&refer=http%3A%2F%2Fimg010.hc360.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=9b751b4f2aa4c552d9f8c183b2d787ca',
@@ -189,13 +199,31 @@ export default {
     }
   },
   methods: {
+      sendmessage() {
+          this.$notify({
+          title: '成功',
+          message: '成功发送反馈消息',
+          type: 'success'
+        });
+        this.textarea = '';
+      },
+      canclemessge() {
+          this.$notify.info({
+          title: '取消',
+          message: '取消发送，清空输入消息'
+        });
+          this.textarea = '';
+      },
+      backpre() {
+          this.$router.push('home');
+      }
     },
     mounted:function() {
-        this.$axios.post("https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=UKHMEldVHVqw0U1B8GtT1hr2&client_secret=XB8ap23BSr933rDy8V4ECjU38w82Dt2p", {
+        // this.$axios.post("https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=UKHMEldVHVqw0U1B8GtT1hr2&client_secret=XB8ap23BSr933rDy8V4ECjU38w82Dt2p", {
 
-        }).then( res=> {
-            console.log(res)
-        })
+        // }).then( res=> {
+        //     console.log(res)
+        // })
     }
 }
 </script>

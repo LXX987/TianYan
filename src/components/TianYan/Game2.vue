@@ -168,6 +168,7 @@ export default {
             type: 'success',
             message: '你的姓名是: ' + value
           });
+          this.gamename = value;
         }).catch(() => {
           this.$message({
             type: 'info',
