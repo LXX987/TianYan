@@ -19,6 +19,7 @@
                     <h3 class="headtitle" style="margin:0px;padding:20px 20px;font-size:25px;font-familt:cursive;color:white;font-weight: 200;">反馈窗口</h3>
                 </div>
                 <div class="servicebody">
+                    
                 </div>
                 <div class="inputcontent">
                     <el-input type="textarea" :rows="2" placeholder="请输入内容..." v-model="textarea"></el-input>
