@@ -27,7 +27,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
         body{
             /* 设置背景渐变 */
             background-image: linear-gradient(to left,
@@ -201,6 +201,7 @@ export default {
                 // console.log(this.userid);
                 if(res.data.code == 0) {
                     // this.$router.push('/home');
+                    this.$cookies.set('uid',this.userid);//增加cookie，返回 this
                     this.$router.push({name:'Home', query:{ids:this.userid}});
                     // this.$router.push({ name: 'Home',params:{ids:this.userid} });
                     // this.$options.methods.jumphome(this.userid);

@@ -79,7 +79,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 .el-button--primary:focus, .el-button--primary:hover {
     background: rgb(222, 160, 38);
     border-color: rgb(222, 160, 38);

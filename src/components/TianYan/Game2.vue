@@ -23,7 +23,7 @@
         <Footer/>
     </div>
 </template>
-<style>
+<style scoped>
 #questionimg {
     width: 50px;
     height: 50px;

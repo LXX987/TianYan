@@ -76,7 +76,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 .body{
     overflow-x: hidden;
     margin: 0px;

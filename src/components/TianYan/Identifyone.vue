@@ -43,7 +43,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 #closebutton{
     width: 20px;
     height: 20px;

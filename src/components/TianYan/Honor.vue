@@ -64,18 +64,23 @@
       :data="tableData"
       style="width: 100%">
       <el-table-column
-        prop="date"
+        prop="time"
         label="游戏日期"
         width="180">
       </el-table-column>
       <el-table-column
-        prop="name"
+        prop="rid"
+        label="排名"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="nick_name"
         label="玩家姓名"
         width="180">
       </el-table-column>
       <el-table-column
-        prop="correct"
-        label="准确率">
+        prop="score"
+        label="分值">
       </el-table-column>
     </el-table>
          </div>  
@@ -90,7 +95,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 .body{
     overflow-x: hidden;
     margin: 0px;
@@ -247,6 +252,7 @@ export default {
             .then(res=>{
                 console.log(res);
                 console.log(res.data.records);
+                this.tableData = res.data.records;
             })
     }
 }

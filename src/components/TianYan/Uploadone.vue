@@ -74,7 +74,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 .el-descriptions-item__label:not(.is-bordered-label) {
   margin-right: 10px;
   margin-left: 40px;

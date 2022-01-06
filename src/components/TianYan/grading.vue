@@ -72,7 +72,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 .block {
     display: inline-block;
     vertical-align: top;

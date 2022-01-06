@@ -19,8 +19,7 @@
     <el-menu
       default-active="1"
       class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose"
+      
       background-color="white"
       text-color="#2c3e50"
       active-text-color="#black">
@@ -57,7 +56,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 .noticehead {
     height: 70px;
     background-color: white;

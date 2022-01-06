@@ -95,7 +95,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 #owner_img img{
   height: 80px;
   width: 80px;

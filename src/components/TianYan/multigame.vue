@@ -20,7 +20,7 @@
         <Footer/>
     </div>
 </template>
-<style>
+<style scoped>
 .el-icon-loading {
     position: absolute;
     left: 855px;

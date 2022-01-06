@@ -24,7 +24,7 @@
     </div>
 </div>
 </template>
-<style>
+ scoped>
 .el-button:active {
     color: #67c23a;
     border-color: #67c23a70;

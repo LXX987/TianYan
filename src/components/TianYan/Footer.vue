@@ -5,7 +5,7 @@
       </div>
     
 </template>
-<style>
+<style scoped>
 .a{ 
   color: white; 
 } 

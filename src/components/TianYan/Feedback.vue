@@ -39,8 +39,7 @@
     <el-menu
       default-active="1"
       class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose"
+      
       background-color="white"
       text-color="#2c3e50"
       active-text-color="#black">
@@ -60,7 +59,7 @@
         <div class="feedbackbox">
           <!-- <img src="@/assets/feedback.png" id="feedbackimg"> -->
           <div class="inputbord">
-              <el-input id="inputmessage" type="textarea" :rows="2" placeholder="请输入内容" v-model="textarea"></el-input>
+              <el-input id="inputmessage" type="textarea" :rows="10" placeholder="请输入内容" v-model="textarea"></el-input>
           </div>
           <h3>联系方式：</h3>
           <div class="contectbord">
@@ -70,7 +69,6 @@
         </div>
       </div>
     </div>
-        
     </div>
     <div class="tian"></div>
     <div class="footer">
@@ -78,8 +76,7 @@
     </div>
   </div>
 </template>
-<style>
-
+<style scoped>
 .advicecontent{
   height: 519px;
   width: 100%;
@@ -88,8 +85,8 @@
 .feedbackbox .inputbord{
     height: 160px;
     width: 100%;
-    margin-left:33px;
-    margin-top: 10px;
+    margin-left:0px;
+    margin-top: 0px;
 }
 .feedbackbox .inputbord #inputmessage{
     border: 1px solid rgba(187, 187, 187, 100);
@@ -99,7 +96,8 @@
 }
 .feedbackbox h3{
     text-align: left;
-    margin-left: 33px;;
+    margin-left: 33px;
+    margin-top: 80px;
 }
 .feedbackbox .contectbord{
     border-radius: 10px;
@@ -171,20 +169,7 @@
   margin-left: 20px;
   margin-bottom: 20px;
 }
-.feedbackbox p{
-  width:100%;
-}
-.feedbackbox .word{
-  display: inline-block;
-  vertical-align: top;
-}
-.feedbackbox #textpng{
-  margin-left: 0px;
-}
-.feedbackbox #imgpng{
-  margin-left: 220px;
-}
-.feedbackbox{
+ .feedbackbox{
   margin-top: 0px;
   width:700px;
   height: 440px;
@@ -192,45 +177,6 @@
   border-radius: 4px;
   border: 1px solid #EBEEF5;
   box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
-}
-.feedbackbox .inputbord{
-    height: 160px;
-    width: 100%;
-    margin-left:33px;
-    margin-top: 10px;
-}
-.feedbackbox .inputbord #inputmessage{
-    border: 1px solid rgba(187, 187, 187, 100);
-    height: 160px;
-    width: 90%;
-    border-radius: 10px;
-}
-.feedbackbox h3{
-    text-align: left;
-    margin-left: 33px;;
-}
-.feedbackbox .contectbord{
-    border-radius: 10px;
-    width: 100%;
-    height: 30px;
-}
-.feedbackbox .contectbord #contectinput{
-    border: 1px solid rgba(187, 187, 187, 100);
-    border-radius: 10px;
-    width: 90%;
-    margin-left: 30px;
-    height: 50px;
-}
-.feedbackbox .el-button{
-  margin-left: 45%;
-    margin-top: 30px;
-}
-#feedbackview{
-  margin-left: 8px;
-  margin-top: 35px;
-  width: 700px;
-  height: 440px;
-  border-radius: 20px;
 }
 .body{
     overflow-x: hidden;
@@ -276,12 +222,6 @@
     top: 770px;
     width: 100px;
     font-size: 15px;
-}
-.el-textarea__inner {
-    height: 209px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border: 0px solid rgb(255 255 255 / 0%);
 }
 .servicebody {
     width: 100%;
@@ -375,26 +315,38 @@ export default {
   data() {
     return {
         input:'',
-        textarea:'',
-        input1: '',
-        input2: '',
-        input3: '',
-        input4: '',
-        input5: '',
-        input6: '',
-        textarea: '',
-      questionnumber: '6',
-    //   question1: 'http://inews.gtimg.com/newsapp_match/0/10351417074/0.jpg',
-    //   question2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg010.hc360.cn%2Fm3%2FM01%2FE2%2F46%2FwKhQ5lTS1cWERqlbAAAAAF5XH74692.jpg&refer=http%3A%2F%2Fimg010.hc360.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=9b751b4f2aa4c552d9f8c183b2d787ca',
-    //   question3: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg004.hc360.cn%2Fm7%2FM03%2F00%2F1B%2FwKhQo1XC20yEdNTfAAAAAHqzUFA421.jpg&refer=http%3A%2F%2Fimg004.hc360.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=9b32908147c78576377e42b390fb1091',
-    //   question4: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg3.99114.com%2Fgroup1%2FM00%2FD5%2F69%2FwKgGTFaoWhWASgh0AAPEqd5Qb0Y760.jpg&refer=http%3A%2F%2Fimg3.99114.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=1c36309ca5f67e40b8f333844d6cef66',
-    //   question5: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.168mh.com%2Fwp-content%2Fuploads%2F2019%2F11%2F87555edf6b5667e.jpg&refer=http%3A%2F%2Fwww.168mh.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=c39aeba0d3f3b6c65df3ca641528b3a4',
-    //   question6: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpfsc.agri.cn%2Fncpflzs%2F201104%2FW020110408374232979423.jpg&refer=http%3A%2F%2Fpfsc.agri.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310816&t=a8a6ebdd86a1d27c257274ec00acaa9e'
+        textarea: ''
     }
   },
   methods: {
       commit() {
         //   this.$router.push('/feedbacknotice');
+        // console.log(this.textarea);
+        // if(this.textarea!=''&&this.input!=''){
+        // this.$axios({
+        //   method:"post",
+        //   url: 'http://47.102.194.89:8080/feedback/feedback',
+        //   params: {
+        //     feedbackContent: this.textarea,
+        //   },
+        //   headers: { token:window.sessionStorage.getItem("token")},
+        // }).then(res=>{
+        //   console.log(res);
+        //   if(res.data.data.msg == "Success") {
+        //     this.$notify({
+        //   title: '成功',
+        //   message: '反馈成功，感谢您的使用！',
+        //   type: 'success'
+        // });
+        //   }
+        // })}
+        // else {
+        //   this.$notify({
+        //   title: '警告',
+        //   message: '输入不可以为空',
+        //   type: 'warning'
+        // });
+        // }
       },
       feedbacknotic() {
           this.$router.push('feedbacknotice');

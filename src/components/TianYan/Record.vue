@@ -55,10 +55,12 @@
          <el-divider></el-divider>
          <br>
          <div>
-           <el-table :data="tableData" style="width: 100%">
-             <el-table-column prop="date" label="游戏日期" width="180"></el-table-column>
-             <el-table-column prop="name" label="玩家姓名" width="180"></el-table-column>
-             <el-table-column prop="correct" label="准确率"></el-table-column>
+           <el-table :data="tableData" height="450" style="width: 100%">
+             <el-table-column prop="time" label="游戏日期" width="180"></el-table-column>
+             <el-table-column prop="type" label="游戏模式" width="180"></el-table-column>
+             <el-table-column prop="nick_name" label="玩家姓名" width="180"></el-table-column>
+             <!-- <el-table-column prop="nick_name" label="" width="180"></el-table-column> -->
+             <el-table-column prop="score" label="准确率"></el-table-column>
             </el-table>
          </div>  
          <div class="honor-img">
@@ -72,7 +74,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 .body{
     overflow-x: hidden;
     margin: 0px;
@@ -82,7 +84,7 @@
     display: block;
     height: 1px;
     width: 80%;
-    margin: 24px 65px;
+    margin: 10px 65px;
 }
 .honor-img{
     position: absolute;
@@ -184,71 +186,27 @@ export default {
     return {
         id:'',
       rank: '',
+      test:'',
       tableData: [{
-            date: '',
-            name: '',
-            correct: ''
           }]
     }
   },
   mounted: function() {
+      this.test = this.$cookies.get('uid');//获取cookie，返回 value
+      console.log(this.test);
     console.log(this.$route.query.ids);
     this.id = this.$route.query.ids;
     console.log(this.id);
 
     let data = new FormData();
-    data.append("uid", this.id);
+    data.append("uid", this.test);
     console.log(data);
-    axios.post("http://124.70.206.207/record/userRecordsQuery", data)
+    axios.post("http://124.70.206.207/record/userRecordsQuery",data)
     .then(res=>{
         console.log(res);
          console.log(res.data.records);
+         this.tableData = res.data.records;
     })
-
-    // this.$axios.post("http://124.70.206.207/record/recordsQuery", {
-    //     uid: '4'
-    //         }).then( res=> {
-    //             console.log (res)
-    //         })
-
-
-    // let data = new FormData();
-    // data.append("uid","4");
-    // console.log(data);
-    // axios.post("http://124.70.206.207/record/recordsQuery", data)
-    // .then( res => {
-    //     console.log(res);
-    // })
-
-
-//     let file = e.target.files[0]
-//   // console.log(file)
-//   let param = new FormData() // 创建form对象
-//   param.append('file', file, file.name) // 通过append向form对象添加数据
-//   param.append('id', this.$store.state.userId) // 添加form表单中其他数据
-//    // withCredentials: true 使得后台可以接收表单数据 跨域请求
-//   const instance = axios.create({
-//     withCredentials: true
-//   })
-//   // url为后台接口
-//   instance.post('url', param)
-//     .then(this.succ) // 成功返回信息 调用函数 函数需自己定义，此处后面省略
-//     .catch(this.serverError) // 服务器错误 调用对应函数 函数需自己定义，此处后面省略
-
-
-    // login() {
-    //         let data = new FormData();
-    //         data.append("email", this.useremail);
-    //         console.log(data);
-    //         axios.post("http://124.70.206.207/login/checkAccount", data)
-    //         .then(res=>{
-    //             console.log(res);
-    //             this.userid = res.data.uid;
-    //             // console.log(this.userid);
-    //         })
-    //     },
-
-
   },
   methods: {
       handleOpen(key, keyPath) {

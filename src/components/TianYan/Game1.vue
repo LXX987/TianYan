@@ -29,7 +29,7 @@
         <Footer/>
     </div>
 </template>
-<style>
+<style scoped>
 .pattern_block{
     display: inline-block;
     vertical-align: top;

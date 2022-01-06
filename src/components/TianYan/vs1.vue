@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="paper">
-            <div class="countdown"><p>距离竞赛截止：</p><CountDown @countDowmEnd="testData"/></div>
+            <div class="countdown"><p>本题剩余时间：</p><CountNext @countDowmEnd="testData" /></div>
             <div class="gameover" v-show="gameovershow">
                 <el-result icon="warning" title="警告提示" subTitle="竞赛时间到，请结束答题！">
                     <template slot="extra">
@@ -39,7 +39,10 @@
                 <p>请回道下列图片中的农作物种类</p>
                 <p>看看最后谁答题正确率最高呢？</p>
             </div>
-
+            <div class="next_question">
+                <el-button v-show="nextshow" @click="changenextquestion" icon="el-icon-right">下一题</el-button>
+                <el-button v-show="endshow" @click="endanswer" icon="el-icon-right">结束</el-button>
+            </div>
             <h2>第{{question_number}}题</h2>
             <img style="margin-left:320px;" :src="question_pic" />
             <div>
@@ -56,7 +59,34 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
+.el-button+.el-button {
+    margin-left: 800px;
+}
+.el-button:focus, .el-button:hover {
+    background: rgb(222, 160, 38);
+    border-color: rgb(222, 160, 38);
+    color: #FFF;
+    box-shadow: rgb(187, 132, 23) 3px 3px;
+    font-weight: bold;
+}
+.el-button.is-active, .el-button:active {
+    background: rgb(222, 160, 38);
+    border-color: rgb(222, 160, 38);
+    color: #FFF;
+    box-shadow: rgb(187, 132, 23) 3px 3px;
+}
+.el-button {
+    color: white;
+    margin:40px 550px;
+    box-shadow: rgb(173, 126, 60) 2px 2px;
+    font-family: cursive;
+    font-size: 20px;
+    background-color: rgb(228, 167, 80);
+    border-color: rgb(228, 167, 80);
+    margin: -15px 0px;
+    margin-left: 800px;
+}
 .el-radio {
     margin-left: 100px;
 }
@@ -292,13 +322,15 @@
 <script>
 import Header from './Header'
 import Footer from './Footer'
-import CountDown from './CountDown'
+import CountNext from './CountNext'
+
 export default {
   name: "vs1",
   components: {
     Header,
     Footer,
-    CountDown
+    // CountDown,
+    CountNext,
   },
   data() {
     return {
@@ -321,6 +353,8 @@ export default {
         // disabledinput5: false,
         // disabledinput6: false,
         // disabledbutton: false,
+        nextshow: 1,
+        endshow:0,
       questionnumber: '6',
       headpic1: require('../../assets/serviceimg.png'),
       headpic2: require('../../assets/tihuanpic.png'),
@@ -333,6 +367,12 @@ export default {
     }
   },
   methods: {
+      changenextquestion() {
+
+      },
+      endanswer() {
+
+      },
       format(percentage) {
         return percentage === 100 ? '满' : `${percentage}%`;
       },
@@ -349,7 +389,10 @@ export default {
       if(data == true) {
           console.log("ok");
           //计时结束
-          this.gameovershow = 1;
+        //   this.gameovershow = 1;
+        //切到下一道题
+
+        
         //   this.disabledinput1 = true;
         //   this.disabledinput2 = true;
         //   this.disabledinput3 = true;
@@ -363,19 +406,7 @@ export default {
     listenerFunction(e) {
       document.addEventListener('scroll', this.handleScroll, true)
     },
-    // 编写滚动条事件
-    handleScroll() {
-      // 获取滚动条元素对象
-    //   let ele = document.getElementsByClassName('page-router-wrapper')[0]
-      // 获取需要固定的元素对象
-    //   let editorNav = document.getElementsByName('slow')[0]
-      // 判断滚动条的高度（大于240，给固定元素添加 class）
-    //   if (ele.scrollTop > 240) {
-        // editorNav.classList.add('countdown')
-    //   } else {
-    //     editorNav.classList.remove('countdown')
-    //   }
-    }
+    
     },
     mounted:function() {
         //定义定时器开始时间为0
