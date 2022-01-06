@@ -209,6 +209,7 @@
 <script>
 import Header from './Header'
 import Footer from './Footer'
+import axios from 'axios'
 export default {
   name: "identifyone",
   components: {
@@ -217,35 +218,19 @@ export default {
   },
   data() {
       return {
-          estimateview: 0,
+        estimateview: 0,
         value1: 0,
         plantname: '番茄',
         plantcontent: '番茄（学名:Lycopersicon esculentum），即西红柿，是 [9]  管状花目、茄科、番茄属的一种一年生或多年生草本植物，体高0.6～2米，全体生粘质腺毛，有强烈气味，茎易倒伏，叶羽状复叶或羽状深裂，花序总梗长2～5厘米，常3～7朵花，花萼辐状，花冠辐状，浆果扁球状或近球状，肉质而多汁液，种子黄色，花果期夏秋季。'
       }
   },
   mounted() {
-      document.getElementById("img1").src = 'https://s4.aconvert.com/convert/p3r68-cdx67/ab4k3-qe488.png'
+      document.getElementById("img1").src = require('../../assets/shuidao.jpg')
   },
    methods: {
        backbefore() {
            this.$router.push('/identify');
        },
-//        formatterDateTime() {
-// var date=new Date()
-// var month=date.getMonth() + 1
-// var datetime = date.getFullYear()
-// + ""// "年"
-// + (month >= 10 ? month : "0"+ month)
-// + ""// "月"
-// + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate())
-// + ""
-// + (date.getHours() < 10 ? "0" + date.getHours() : date.getHours())
-// + ""
-// + (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes())
-// + ""
-// + (date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds());
-// return datetime;
-// },
        tirggerFile(event) {
                 var file = event.target.files;
                   var reader = new FileReader();//读取文件
@@ -253,40 +238,16 @@ export default {
                 reader.readAsDataURL(file[0]);
                    reader.onload = function() {
                  document.getElementById("img1").src = reader.result;
+                 console.log(document.getElementById("img1"));
             };
 
-    //         let data = new FormData();
-    //         data.append("showapi_timestamp",formatterDateTime());
-    //         data.append("showapi_appid",'25288243');
-    //         data.append("showapi_sign",'XB8ap23BSr933rDy8V4ECjU38w82Dt2p');
-    //         data.append("ds_id",'');
-            
-
-    //         "showapi_timestamp": formatterDateTime(),
-    // : 'just_test_app', //这里需要改成自己的appid
-    // : 'just_test_sign',  //这里需要改成自己的应用的密钥secret
-    // :"",
-    // "image":"",
-    // "baike_num":""
-    //         let data = new FormData();
-    //         data.append("email", this.useremail);
-    //         data.append("captcha_input", this.inputcode);
-    //         data.append("password", this.password);
-    //         data.append("captcha_hashkey", this.codehash);
-    //         console.log(data);
-    //         axios.post("http://124.70.206.207/login/checkAccount", data)
-    //         .then(res=>{
-    //             console.log(res);
-    //             this.userid = res.data.uid;
-    //             // console.log(this.userid);
-    //             if(res.data.code == 0) {
-    //                 // this.$router.push('/home');
-    //                 this.$router.push({ name: 'Home',params:{ids:this.userid} });
-    //                 // this.$options.methods.jumphome(this.userid);
-    //             }
-    //         })
-        
-
+            let data = new FormData();
+           data.append("image", document.getElementById("img1"));
+           console.log(data);
+           axios.post("http://124.70.206.207/contest/identify", data)
+           .then(res=>{
+               console.log(res);
+            })
        },
        open() {
         this.estimateview = 1;

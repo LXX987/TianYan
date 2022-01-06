@@ -25,29 +25,85 @@
             <h2>识别图中农作物种类</h2>
             <p>题目数：</p><p style="margin-left:55px;font-size:20px;color:rgb(228, 167, 80)">{{questionnumber}}</p><p>说明：</p><p style="margin-left:55px;">依据题目图片内容，回答对应农作物种类，作答结束，点击提交按钮即可查看结果。</p>
             <el-divider></el-divider>
-            <h3>1.【填空题】（2分）</h3>
+            <h3>1.【选择题】（2分）</h3>
             <img :src="question1"/>
-            <p>请回答：</p><el-input v-model="input1" :disabled="disabledinput1" placeholder="请输入答案"></el-input>
+            <p>请回答：</p>
+            <el-radio v-model="radio1" label="1">备选项</el-radio>
+            <el-radio v-model="radio1" label="2">备选项</el-radio>
+            <el-radio v-model="radio1" label="3">备选项</el-radio>
+            <el-radio v-model="radio1" label="4">备选项</el-radio>
             <el-divider></el-divider>
-            <h3>2.【填空题】（2分）</h3>
+            <h3>2.【选择题】（2分）</h3>
             <img :src="question2"/>
-            <p>请回答：</p><el-input v-model="input2" :disabled="disabledinput2" placeholder="请输入答案"></el-input>
+            <p>请回答：</p>
+            <el-radio v-model="radio2" label="1">备选项</el-radio>
+            <el-radio v-model="radio2" label="2">备选项</el-radio>
+            <el-radio v-model="radio2" label="3">备选项</el-radio>
+            <el-radio v-model="radio2" label="4">备选项</el-radio>
             <el-divider></el-divider>
-            <h3>3.【填空题】（2分）</h3>
+            <h3>3.【选择题】（2分）</h3>
             <img :src="question3"/>
-            <p>请回答：</p><el-input v-model="input3" :disabled="disabledinput3" placeholder="请输入答案"></el-input>
+            <p>请回答：</p>
+            <el-radio v-model="radio3" label="1">备选项</el-radio>
+            <el-radio v-model="radio3" label="2">备选项</el-radio>
+            <el-radio v-model="radio3" label="3">备选项</el-radio>
+            <el-radio v-model="radio3" label="4">备选项</el-radio>
             <el-divider></el-divider>
-            <h3>4.【填空题】（2分）</h3>
+            <h3>4.【选择题】（2分）</h3>
             <img :src="question4"/>
-            <p>请回答：</p><el-input v-model="input4" :disabled="disabledinput4" placeholder="请输入答案"></el-input>
+            <p>请回答：</p>
+            <el-radio v-model="radio4" label="1">备选项</el-radio>
+            <el-radio v-model="radio4" label="2">备选项</el-radio>
+            <el-radio v-model="radio4" label="3">备选项</el-radio>
+            <el-radio v-model="radio4" label="4">备选项</el-radio>
             <el-divider></el-divider>
-            <h3>5.【填空题】（2分）</h3>
+            <h3>5.【选择题】（2分）</h3>
             <img :src="question5"/>
-            <p>请回答：</p><el-input v-model="input5" :disabled="disabledinput5" placeholder="请输入答案"></el-input>
+            <p>请回答：</p>
+            <el-radio v-model="radio5" label="1">备选项</el-radio>
+            <el-radio v-model="radio5" label="2">备选项</el-radio>
+            <el-radio v-model="radio5" label="3">备选项</el-radio>
+            <el-radio v-model="radio5" label="4">备选项</el-radio>
             <el-divider></el-divider>
-            <h3>6.【填空题】（2分）</h3>
+            <h3>6.【选择题】（2分）</h3>
             <img :src="question6"/>
-            <p>请回答：</p><el-input v-model="input6" :disabled="disabledinput6" placeholder="请输入答案"></el-input>
+            <p>请回答：</p>
+            <el-radio v-model="radio6" label="1">备选项</el-radio>
+            <el-radio v-model="radio6" label="2">备选项</el-radio>
+            <el-radio v-model="radio6" label="3">备选项</el-radio>
+            <el-radio v-model="radio6" label="4">备选项</el-radio>
+            <el-divider></el-divider>
+            <h3>7.【选择题】（2分）</h3>
+            <img :src="question5"/>
+            <p>请回答：</p>
+            <el-radio v-model="radio7" label="1">备选项</el-radio>
+            <el-radio v-model="radio7" label="2">备选项</el-radio>
+            <el-radio v-model="radio7" label="3">备选项</el-radio>
+            <el-radio v-model="radio7" label="4">备选项</el-radio>
+            <el-divider></el-divider>
+            <h3>8.【选择题】（2分）</h3>
+            <img :src="question5"/>
+            <p>请回答：</p>
+            <el-radio v-model="radio8" label="1">备选项</el-radio>
+            <el-radio v-model="radio8" label="2">备选项</el-radio>
+            <el-radio v-model="radio8" label="3">备选项</el-radio>
+            <el-radio v-model="radio8" label="4">备选项</el-radio>
+            <el-divider></el-divider>
+            <h3>9.【选择题】（2分）</h3>
+            <img :src="question5"/>
+            <p>请回答：</p>
+            <el-radio v-model="radio9" label="1">备选项</el-radio>
+            <el-radio v-model="radio9" label="2">备选项</el-radio>
+            <el-radio v-model="radio9" label="3">备选项</el-radio>
+            <el-radio v-model="radio9" label="4">备选项</el-radio>
+            <el-divider></el-divider>
+            <h3>10.【选择题】（2分）</h3>
+            <img :src="question5"/>
+            <p>请回答：</p>
+            <el-radio v-model="radio10" label="1">备选项</el-radio>
+            <el-radio v-model="radio10" label="2">备选项</el-radio>
+            <el-radio v-model="radio10" label="3">备选项</el-radio>
+            <el-radio v-model="radio10" label="4">备选项</el-radio>
             <el-divider></el-divider>
             <el-button round :disabled="disabledbutton" @click="jumpresult">提交</el-button>
             </div>
@@ -60,10 +116,13 @@
   </div>
 </template>
 <style scoped>
+.el-radio {
+    margin-left: 105px;
+}
 .body{
     overflow-x: hidden;
     margin: 0px;
-    height: 3374px;
+    height: 4974px;
 }
 .el-result__extra {
     margin-top: 10px;
@@ -131,7 +190,7 @@
 }
 .paper{
     width:70%;
-    height:3050px;
+    height:4650px;
     background-color: rgb(255, 239, 220);
     margin-left: 90px;
     box-shadow: inset 0px 8px 20px 0 rgb(239 225 204);
@@ -177,7 +236,7 @@
 }
 .slow{
     width:1280px;
-    height: 3070px;
+    height: 4670px;
     background-color: #fff6e6;
 }
 #word{
@@ -231,6 +290,16 @@ export default {
         input4: '',
         input5: '',
         input6: '',
+        radio1: '0',
+        radio2: '0',
+        radio3: '0',
+        radio4: '0',
+        radio5: '0',
+        radio6: '0',
+        radio7: '0',
+        radio8: '0',
+        radio9: '0',
+        radio10: '0',
         gameovershow: 0,
         disabledinput1: false,
         disabledinput2: false,
@@ -239,7 +308,7 @@ export default {
         disabledinput5: false,
         disabledinput6: false,
         disabledbutton: false,
-      questionnumber: '6',
+      questionnumber: '10',
       question1: 'http://inews.gtimg.com/newsapp_match/0/10351417074/0.jpg',
       question2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg010.hc360.cn%2Fm3%2FM01%2FE2%2F46%2FwKhQ5lTS1cWERqlbAAAAAF5XH74692.jpg&refer=http%3A%2F%2Fimg010.hc360.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=9b751b4f2aa4c552d9f8c183b2d787ca',
       question3: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg004.hc360.cn%2Fm7%2FM03%2F00%2F1B%2FwKhQo1XC20yEdNTfAAAAAHqzUFA421.jpg&refer=http%3A%2F%2Fimg004.hc360.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=9b32908147c78576377e42b390fb1091',
