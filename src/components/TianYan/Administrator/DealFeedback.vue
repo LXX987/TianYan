@@ -144,16 +144,6 @@ export default{
   border:1px solid deepskyblue;
   border-radius: 12px;
 }
-.returnbutton{
-  position:fixed;
-  left:100px;
-  top:120px;
-}
-.feedbacknumber{
-  position:fixed;
-  top:200px;
-  left:90px;
-}
 .demo-form{
   margin-left:-20px;
 }

@@ -1,11 +1,10 @@
 <template>
     <div class="menupart">
-        <el-aside>
             <el-row class="tac">
                 <div class="icontext">
                     <i class="el-icon-location" style="font-size:25px;display:inline-block"></i>
                     <span style="font-size:25px">工作台</span>
-                </div>    
+                </div>
                 <el-col :span="18">
                     <el-menu
                     :default-active="this.$route.path"
@@ -16,15 +15,16 @@
                     text-color="#fff"
                     active-text-color="#ffd04b"
                     router
+                    style="width:225px;"
                     >
                     <el-menu-item index="/admin">
                         <i class="el-icon-location"></i>
                         <span style="margin-left:-10px">用户信息管理</span>
-                    </el-menu-item>    
+                    </el-menu-item>
 
                     <el-menu-item index="/traindata">
                         <i class="el-icon-location"></i>
-                        <span style="margin-left:-10px">训练数据管理</span>    
+                        <span style="margin-left:-10px">训练数据管理</span>
                     </el-menu-item>
 
                     <el-menu-item index="/knowledge">
@@ -41,7 +41,7 @@
                         <i class="el-icon-location"></i>
                         <span style="margin-left:-10px;">反馈处理</span>
                     </el-menu-item>
-                    
+
                     <el-submenu>
                         <template slot="title">
                             <i class="el-icon-s-data" style="font-size:20px;"></i>
@@ -49,13 +49,12 @@
                         </template>
                         <el-menu-item-group>
                             <el-menu-item index="/identifycount">识别统计</el-menu-item>
-                            <el-menu-item index="accuracycount">反馈准确度</el-menu-item>
+                            <el-menu-item index="/accuracycount">反馈准确度</el-menu-item>
                         </el-menu-item-group>
                     </el-submenu>
                     </el-menu>
                 </el-col>
             </el-row>
-        </el-aside>
     </div>
 </template>
 
@@ -64,7 +63,15 @@ export default{
   name: 'AdminSidebar',
   data () {
     return {
-        
+
+    }
+  },
+  methods:{
+    handleOpen(key,keyPath){
+      console.log(key,keyPath);
+    },
+    handleClose(key,keyPath){
+      console.log(key,keyPath);
     }
   }
 }
