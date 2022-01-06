@@ -2,7 +2,7 @@
     <div class="menupart">
             <el-row class="tac">
                 <div class="icontext">
-                    <i class="el-icon-location" style="font-size:25px;display:inline-block"></i>
+                    <i class="el-icon-location" style="font-size:25px;display:inline-block;margin-left:50px;"></i>
                     <span style="font-size:25px">工作台</span>
                 </div>
                 <el-col :span="18">
@@ -11,34 +11,29 @@
                     class="el-menu-vertical-demo"
                     @open="handleOpen"
                     @close="handleClose"
-                    background-color="#545c64"
+                    background-color="#546e7a"
                     text-color="#fff"
                     active-text-color="#ffd04b"
                     router
-                    style="width:225px;"
+                    style="width:220px;"
                     >
                     <el-menu-item index="/admin">
-                        <i class="el-icon-location"></i>
+                        <i class="el-icon-user-solid"></i>
                         <span style="margin-left:-10px">用户信息管理</span>
                     </el-menu-item>
 
-                    <el-menu-item index="/traindata">
-                        <i class="el-icon-location"></i>
-                        <span style="margin-left:-10px">训练数据管理</span>
-                    </el-menu-item>
-
                     <el-menu-item index="/knowledge">
-                        <i class="el-icon-location"></i>
+                        <i class="el-icon-s-grid"></i>
                         <span style="margin-left:-10px;">科普知识管理</span>
                     </el-menu-item>
 
                     <el-menu-item index="/check">
-                        <i class="el-icon-location"></i>
+                        <i class="el-icon-circle-check"></i>
                         <span style="margin-left:-10px;">问题审核</span>
                     </el-menu-item>
 
                     <el-menu-item index="/dealfeedback">
-                        <i class="el-icon-location"></i>
+                        <i class="el-icon-finished"></i>
                         <span style="margin-left:-10px;">反馈处理</span>
                     </el-menu-item>
 
@@ -48,8 +43,14 @@
                             <span style="font-size:20px;margin-left:-10px;">数据统计</span>
                         </template>
                         <el-menu-item-group>
-                            <el-menu-item index="/identifycount">识别统计</el-menu-item>
-                            <el-menu-item index="/accuracycount">反馈准确度</el-menu-item>
+                            <el-menu-item index="/identifycount">
+                              <i class="el-icon-pie-chart"></i>
+                              <span style="margin-left:-10px;">识别统计</span>
+                            </el-menu-item>
+                            <el-menu-item index="/accuracycount">
+                              <i class="el-icon-data-analysis"></i>
+                              <span style="margin-left:-10px;">评分反馈</span>
+                            </el-menu-item>
                         </el-menu-item-group>
                     </el-submenu>
                     </el-menu>
@@ -84,10 +85,10 @@ export default{
     left:0px;
 }
 .icontext{
-    height:40px;
-    left:0px;
-    float:left;
-    margin-left:50px;
+  width:220px;
+  height:40px;
+  float:left;
+  background-color:#00c853;
 }
 .usertext{
     position:absolute;
