@@ -7,13 +7,14 @@
                 <div class="c">
                     <div class="d">
                         <h1>注册账号</h1>
-                        <input type="text" class="e" v-model="useremail" placeholder="请输注册户邮箱">
-                        <input type="password" class="e" v-model="password" placeholder="请输入密码">
+                        <input type="text" class="e" v-model="username" placeholder="用户姓名">
+                        <input type="text" class="e" v-model="useremail" placeholder="用户邮箱">
+                        <input type="password" class="e" v-model="password" placeholder="密码">
                         <input type="emailcode" class="p" v-model="emailcode" placeholder="邮箱验证码">
                         <el-button class="button" @click="countDown">
                             {{content}}
                         </el-button>
-                        <input type="code" class="p" v-model="inputcode" placeholder="验证码"><img id="codema" @click="changecode" :src="code"/>
+                        <!-- <input type="code" class="p" v-model="inputcode" placeholder="验证码"><img id="codema" @click="changecode" :src="code"/> -->
                         <!-- <a href="#" @click="registernewuser" class="f" style="color:black;margin-left:55px;">注册新用户</a><a href="#" class="f" style="color:black;">忘记密码</a> -->
                         <a href="#" class="g" @click="login">注册</a>
                     </div>
@@ -36,7 +37,7 @@
 }
 .el-button {
     width: 48%;
-    margin-left: 0px;
+    margin-left: 5px;
     padding: 13px 6px;
     font-size: 10px;
 }
@@ -84,7 +85,7 @@
         }
         .e{
             width: 150px;
-            margin: 10px 0;
+            margin: 8px 0;
             outline: none;
             border: 0;
             padding: 10px;
@@ -167,12 +168,12 @@
     font-size:40px;
     line-height: 70px;
 }
-#codema{
+/* #codema{
     width: 75px;
     height: 40px;
     background-color: blanchedalmond;
     margin-left: 25px;
-}
+} */
 </style>
 <script>
 import axios from 'axios'
@@ -180,6 +181,7 @@ export default {
     name: 'register',
     data() {
         return{
+            username: '',
             emailcode: '',
             code: '',
             codehash: '',
@@ -208,17 +210,18 @@ export default {
                     }
                 },1000)
             },
-        changecode() {
-            this.$axios.post("http://124.70.206.207/utils/generateCaptcha", {
-            }).then( res=> {
-                console.log (res)
-                this.code = 'http://124.70.206.207/' + res.data.image_url
-                this.codehash = res.data.hashkey
-                console.log(this.code)
-            })
-        },
+        // changecode() {
+        //     this.$axios.post("http://124.70.206.207/utils/generateCaptcha", {
+        //     }).then( res=> {
+        //         console.log (res)
+        //         this.code = 'http://124.70.206.207/' + res.data.image_url
+        //         this.codehash = res.data.hashkey
+        //         console.log(this.code)
+        //     })
+        // },
         login() {
             let data = new FormData();
+            data.append("name", this.username);
             data.append("email", this.useremail);
             data.append("captcha_input", this.inputcode);
             data.append("password", this.password);
@@ -231,7 +234,7 @@ export default {
                 // console.log(this.userid);
                 if(res.data.code == 0) {
                     // this.$router.push('/home');
-                    this.$router.push({ name: 'login',params:{ids:this.userid} });
+                    this.$router.push({ name: 'login',query:{ids:this.userid} });
                     // this.$options.methods.jumphome(this.userid);
                 }
             })

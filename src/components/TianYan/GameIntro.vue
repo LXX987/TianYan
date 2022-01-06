@@ -175,12 +175,12 @@ export default {
         console.log(key, keyPath);
       },
       recordid() {
-          this.$router.push({ name: 'record',params:{ids:this.id} });
+          this.$router.push({ name: 'record',query:{ids:this.id} });
       }
     },
     mounted:function() {
-        console.log(this.$route.params.ids);
-        this.id = this.$route.params.ids;
+        console.log(this.$route.query.ids);
+        this.id = this.$route.query.ids;
         console.log(this.id);
     }
 }

@@ -21,7 +21,7 @@
             <div class="section" style="color:rgb(64,35,0); font-size:30px;">
               <img src="../../assets/section1.png" style="width:50px;height:50px;float:left;margin-top: 5px;">
               <div class="section-word">
-                identity
+                识别
                 <div class="section_buttom">
                   <a href="http://www.baidu.com" style="font-size:15px;line-height: 20px;text-decoration:none">identify your pictures</a>
                 </div>
@@ -30,7 +30,7 @@
             <div class="section" style="color:rgb(64,35,0); font-size:30px;">
               <img src="../../assets/section2.png" style="width:50px;height:50px;float:left;margin-top: 5px;margin-left: 5px;">
               <div class="section-word">
-                game
+                游戏
                 <div class="section_buttom">
                   <a href="#" style="font-size:19px;line-height: 20px;text-decoration:none" @click="gameparams">start funny games</a>
                 </div>
@@ -39,7 +39,7 @@
             <div class="section" style="color:rgb(64,35,0); font-size:30px;">
               <img src="../../assets/section3.png" style="width:50px;height:50px;float:left;margin-top: 5px;margin-left: 5px;">
               <div class="section-word">
-                feedback
+                反馈
                 <div class="section_buttom">
                   <a href="http://www.baidu.com" style="font-size:18px;line-height: 20px;text-decoration:none">give valuable advice</a>
                 </div>
@@ -236,6 +236,8 @@ a:hover{ color:white;text-decoration:none;font-weight:bold; }
       height: 100px;
     width: 200px;
     margin-left: 70px;
+        margin-top: 5px;
+    font-family: cursive;
 }
 .section_buttom{
   margin-top: 5px;
@@ -310,13 +312,14 @@ export default {
       }
     },
     mounted:function() {
-      console.log(this.$route.params.ids);
-      this.id = this.$route.params.ids;
+      // this.$route.query.ids
+      console.log(this.$route.query.ids);
+      this.id = this.$route.query.ids;
       console.log(this.id);
     },
     methods: {
       gameparams() {
-      this.$router.push({ name: 'gameintro',params:{ids:this.id} });
+      this.$router.push({ name: 'gameintro',query:{ids:this.id} });
     }
     }
 }

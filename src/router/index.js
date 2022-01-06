@@ -32,7 +32,7 @@ import DealFeedback from '@/components/TianYan/Administrator/DealFeedback'
 import IdentifyCount from '@/components/TianYan/Administrator/IdentifyCount'
 import Knowledge from '@/components/TianYan/Administrator/Knowledge'
 import TrainData from '@/components/TianYan/Administrator/TrainData'
-
+import multigame from '@/component/TianYan/multigame'
 
 Vue.use(Router)
 
@@ -72,5 +72,6 @@ export default new Router({
     {path:'/identifycount',name:'identifycount',component:IdentifyCount},
     {path:'/knowledge',name:'knowledge',component:Knowledge},
     {path:'/traindata',name:'traindata',component:TrainData},
+    {path:'/multigame',name:'multigame',component:multigame}
   ]
 })

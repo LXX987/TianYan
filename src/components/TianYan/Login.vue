@@ -201,7 +201,8 @@ export default {
                 // console.log(this.userid);
                 if(res.data.code == 0) {
                     // this.$router.push('/home');
-                    this.$router.push({ name: 'Home',params:{ids:this.userid} });
+                    this.$router.push({name:'Home', query:{ids:this.userid}});
+                    // this.$router.push({ name: 'Home',params:{ids:this.userid} });
                     // this.$options.methods.jumphome(this.userid);
                 }
             })

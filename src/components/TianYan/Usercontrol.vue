@@ -391,7 +391,7 @@ export default {
       }
   },
   mounted:function() {
-    console.log(this.$route.params.ids);
+    console.log(this.$route.query.ids);
   },
    methods: {
          uploadHeadImg: function () {

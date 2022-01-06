@@ -244,7 +244,7 @@ export default {
            this.$router.push('/gameintro');
        }
     //   recordid() {
-    //       this.$router.push({ name: 'record',params:{ids:this.id} });
+    //       this.$router.push({ name: 'record',query:{ids:this.id} });
     //   }
     },
     // mounted:function() {

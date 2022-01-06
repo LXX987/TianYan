@@ -26,6 +26,7 @@ import Feedback from './components/TianYan/Feedback'
 import CountDown from './components/TianYan/CountDown'
 import Gameresult1 from './components/TianYan/Gameresult1'
 import Gameresult2 from './components/TianYan/Gameresult2'
+import multigame from './components/TianYan/multigame'
 
 import AccuracyCount from './components/TianYan/Administrator/AccuracyCount'
 import Admin from './components/TianYan/Administrator/Admin'
@@ -64,7 +65,8 @@ export default {
     DealFeedback,
     IdentifyCount,
     Knowledge,
-    TrainData
+    TrainData,
+    multigame
   }
 }
 </script>

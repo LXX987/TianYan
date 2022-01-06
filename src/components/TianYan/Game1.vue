@@ -17,13 +17,79 @@
             <div class="nameinput">
                 <el-button type="text" @click="open" style="font-size: 20px;font-family: cursive;color: black;">{{gamename}}</el-button>
             </div>
-            <el-button type="primary" icon="el-icon-s-promotion" id="begin" round><router-link to="/game1page" style="text-decoration:none">开始游戏</router-link></el-button>
+            <el-button type="primary" icon="el-icon-s-promotion" id="begin" round @click="choose">开始游戏</el-button>
+            <div class="choose_pattern" v-show="show_pattern_block">
+                <p @click="close_pattern">×</p>
+                <h2 style="margin-top:-42px;margin-bottom: 6px;">选择游戏模式</h2>
+                <div class="pattern_block" id="pattern_1" @click="jump_robot"><p>人机对抗</p></div>
+                <div class="pattern_block" id="pattern_2" @click="jump_vs"><p>3V3</p></div>
+            </div>
         </div>
         <br><br><br><br><br>
         <Footer/>
     </div>
 </template>
 <style>
+.pattern_block{
+    display: inline-block;
+    vertical-align: top;
+    width:280px;
+    height:180px;
+    border-radius: 10px;
+}
+.choose_pattern #pattern_1 p {
+    width: 120px;
+    margin-left: 80px;
+    margin-top: 85px;
+    font-size: 30px;
+    font-family: cursive;
+    color: #31653c;
+    font-weight: 600;
+}
+.choose_pattern #pattern_2 p {
+    width: 50px;
+    margin-left: 122px;
+    margin-top: 90px;
+    font-size: 30px;
+    font-family: cursive;
+    color: #31653c;
+    font-weight: 600;
+}
+.choose_pattern :hover {
+    /* box-shadow: #003a1f 3px 3px 3px 3px; */
+    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+}
+.choose_pattern #pattern_2 {
+    margin-left: 40px;
+    /* background-color: #003a1f; */
+    background: url('../../assets/pattern_2.png') no-repeat;
+    /* opacity: 80%; */
+    background-size: 110% 125%;
+}
+.choose_pattern #pattern_1 {
+    margin-left: 43px;
+    background: url('../../assets/pattern_1.png') no-repeat;
+    background-size: 110% 125%;
+}
+.choose_pattern p {
+    margin-left: 93%;
+    margin-top: 1%;
+    font-size: 30px;
+    color: #187047;
+}
+.choose_pattern {
+    position: absolute;
+    width: 55%;
+    height: 50%;
+    left: 23%;
+    top: 300px;
+    /* background-color: #003a1f; */
+    border-radius: 10px;
+      background-color: #fff6e6;
+  /* border-radius: 4px; */
+  border: 1px solid #fcefd8;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+}
 #questionimg {
     width: 50px;
     height: 50px;
@@ -66,8 +132,6 @@ h1{
     background-color: #ffffff70;
 }
 h2{
-    /* text-shadow: rgb(255, 255, 255) 2px 2px 2px 2px; */
-    /* border: rgb(255, 0, 0) 10px; */
     font-family: cursive;
     text-align: center;
     font-size: 35px;
@@ -153,7 +217,8 @@ export default {
   data() {
     return {
       input: '',
-      gamename: '请输入姓名'
+      gamename: '请输入姓名',
+      show_pattern_block: 0
     }
   },
     methods: {
@@ -178,6 +243,27 @@ export default {
       },
       openupload() {
           this.$router.push('/uploadone');
+      },
+      choose() {
+          //检查是否输入游戏姓名
+          if(this.gamename == '请输入姓名') {
+              this.$message({
+            type: 'info',
+            message: '请输入游戏姓名'
+          }); 
+          }
+          else {
+              this.show_pattern_block = 1;
+          }
+      },
+      close_pattern() {
+          this.show_pattern_block = 0;
+      },
+      jump_robot() {
+          this.$router.push('/game1page');
+      },
+      jump_vs() {
+          this.$router.push('/multigame');
       }
     }
 

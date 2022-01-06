@@ -120,7 +120,7 @@ export default {
     },
     methods: {
     addRoutes1 () {
-      this.$router.push({name: 'Usercontrol',params:{ids:this.id}});
+      this.$router.push({name: 'Usercontrol',query:{ids:this.id}});
     },
     updata() {
       console.log(this.id);

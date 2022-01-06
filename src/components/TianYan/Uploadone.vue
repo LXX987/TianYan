@@ -283,6 +283,7 @@ export default {
     }
   },
   mounted() {
+    document.getElementById("img1").src = 'https://s2.loli.net/2022/01/05/E9MFBpY8ZJ7uhdy.png';
   },
   methods: {
     backgameone() {

@@ -249,6 +249,7 @@ export default {
        tirggerFile(event) {
                 var file = event.target.files;
                   var reader = new FileReader();//读取文件
+                  console.log(reader);
                 reader.readAsDataURL(file[0]);
                    reader.onload = function() {
                  document.getElementById("img1").src = reader.result;

@@ -50,7 +50,7 @@
             </el-row>
         </div>
         <div class="content" id="contentword" style="display:inline-block;">
-         <span><h1 style="text-align:center;font-family:cursive;font-weight: bold;margin-top:40px;">查看游戏排行榜</h1></span>
+         <span><h1 style="text-align:center;font-family:cursive;font-weight: bold;margin-top:40px;">我的游戏</h1></span>
          <el-divider></el-divider>
          <span>
              <el-button type="primary" icon="el-icon-s-promotion" id="begin" round><router-link to="/honor" style="text-decoration:none">查看人机大战游戏排行榜</router-link></el-button>

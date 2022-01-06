@@ -35,6 +35,7 @@ import DealFeedback from '@/components/TianYan/Administrator/DealFeedback'
 import IdentifyCount from '@/components/TianYan/Administrator/IdentifyCount'
 import Knowledge from '@/components/TianYan/Administrator/Knowledge'
 import TrainData from '@/components/TianYan/Administrator/TrainData'
+import multigame from '@/components/TianYan/multigame'
 
 const routes=[
     {path: '/home',name: 'Home',component: Home},
@@ -66,6 +67,7 @@ const routes=[
     {path:'/identifycount',name:'identifycount',component:IdentifyCount},
     {path:'/knowledge',name:'knowledge',component:Knowledge},
     {path:'/traindata',name:'traindata',component:TrainData},
+    {path:'/multigame',name:'multigame',component:multigame}
 ]
 const router=new VueRouter({
     routes:routes
