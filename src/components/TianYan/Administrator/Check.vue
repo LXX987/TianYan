@@ -27,16 +27,9 @@
 
               <p></p>
               <h style="margin-left:20px;">问题照片</h>
-              <el-input
-                type="textarea"
-                autosize
-                v-model="item.photo"
-                readonly
-                class="input-border"
-                style="width:600px;margin-top:5px;margin-left:20px;"
-              >
-              </el-input>
-
+              <div class="questionphoto">
+                <img :src='item.photourl'>
+              </div>
               <p></p>
               <h style="margin-left:20px;">问题答案</h>
               <el-input
@@ -75,10 +68,10 @@
 
               <div class="operate">
                 <span style="margin:10px;">
-                  <el-button type="primary" icon="el-icon-check" size="mini">通过</el-button>
+                  <el-button type="primary" icon="el-icon-check" size="mini" @click="checkpass">通过</el-button>
                 </span>
                 <span style="margin:10px;">
-                  <el-button type="danger" icon="el-icon-close" size="mini">反对</el-button>
+                  <el-button type="danger" icon="el-icon-close" size="mini" @click="checkrefuse">反对</el-button>
                 </span>
               </div>
             </div>
@@ -98,6 +91,15 @@ export default {
   name: 'Check',
   components:{Header,AdminSidebar},
   methods:{
+    checkpass(){
+      this.$message({
+        message:"审核成功通过！",
+        type:'success'
+      })
+    },
+    checkrefuse(){
+      this.$message.error('审核不通过！');
+    }
 
   },
   data(){
@@ -106,42 +108,42 @@ export default {
         name:'啦啦啦',
         time:'2021.1.1',
         title:'种子',
-        photo:'',
         answer:'key',
         feature:'ke',
-        remark:'11'
+        remark:'11',
+        photourl:require('../../../assets/section1.png')
       },{
         name:'111',
         time:'2021.1.1',
         title:'11',
-        photo:'11',
         answer:'1',
         feature:'1',
-        remark:'1'
+        remark:'1',
+        photourl:require('../../../assets/section1.png')
       },{
         name:'111',
         time:'2021.1.1',
         title:'11',
-        photo:'11',
         answer:'1',
         feature:'1',
-        remark:'1'
+        remark:'1',
+        photourl:require('../../../assets/section1.png')
       },{
         name:'111',
         time:'2021.1.1',
         title:'11',
-        photo:'11',
         answer:'1',
         feature:'1',
-        remark:'1'
+        remark:'1',
+        photourl:require('../../../assets/section1.png')
       },{
         name:'111',
         time:'2021.1.1',
         title:'11',
-        photo:'11',
         answer:'1',
         feature:'1',
-        remark:'1'
+        remark:'1',
+        photourl:require('../../../assets/section1.png')
       }
       ]
     }
@@ -149,7 +151,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .checkquestion{
   position:absolute;
   left:450px;
@@ -165,7 +167,14 @@ export default {
 }
 .content{
   width:650px;
-  border:1px solid deepskyblue;
+  border:2px solid #bcaaa4;
   border-radius: 12px;
+}
+.questionphoto{
+  width:150px;
+  height:150px;
+  border:2px dotted #ff7043;
+  border-radius:12px;
+  margin-left:20px;
 }
 </style>

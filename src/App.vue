@@ -35,7 +35,6 @@ import Check from './components/TianYan/Administrator/Check'
 import DealFeedback from './components/TianYan/Administrator/DealFeedback'
 import IdentifyCount from './components/TianYan/Administrator/IdentifyCount'
 import Knowledge from './components/TianYan/Administrator/Knowledge'
-import TrainData from './components/TianYan/Administrator/TrainData'
 
 export default {
   name: "App",
@@ -66,7 +65,6 @@ export default {
     DealFeedback,
     IdentifyCount,
     Knowledge,
-    TrainData,
     multigame,
     grading
   }

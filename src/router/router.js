@@ -34,7 +34,6 @@ import Check from '@/components/TianYan/Administrator/Check'
 import DealFeedback from '@/components/TianYan/Administrator/DealFeedback'
 import IdentifyCount from '@/components/TianYan/Administrator/IdentifyCount'
 import Knowledge from '@/components/TianYan/Administrator/Knowledge'
-import TrainData from '@/components/TianYan/Administrator/TrainData'
 import multigame from '@/components/TianYan/multigame'
 import vs1 from '@/components/TianYan/vs1'
 import feedbacknotice from '@/components/TianYan/feedbacknotice'
@@ -69,7 +68,6 @@ const routes=[
     {path:'/dealfeedback',name:'dealfeedback',component:DealFeedback},
     {path:'/identifycount',name:'identifycount',component:IdentifyCount},
     {path:'/knowledge',name:'knowledge',component:Knowledge},
-    {path:'/traindata',name:'traindata',component:TrainData},
     {path:'/multigame',name:'multigame',component:multigame},
     {path:'/vs1',name:'vs1',component:vs1},
     {path:'/feedbacknotice',name:'feedbacknotice',component:feedbacknotice},
