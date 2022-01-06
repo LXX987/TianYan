@@ -211,13 +211,16 @@ export default {
             console.log("jump");
             this.$router.push('/register');
         },
-        // jumphome(id) {
-        //     console.log(id);
-        //     this.$router.push('/home');
-        //     //  this.$router.push({name:'Home', params: { id:this.userid }})
-        //     // this.$router.push({ name: 'Home',params:{ids:2} })
-        //     // this.$router.push({ name: 'Home',params:{ids:id} })
-        // }
+    },
+    mounted:function() {
+        this.$axios.post("http://124.70.206.207/utils/generateCaptcha", {
+            }).then( res=> {
+                console.log (res)
+                this.code = 'http://124.70.206.207/' + res.data.image_url
+                this.codehash = res.data.hashkey
+                console.log(this.code)
+            })
+        // changecode();
     }
 }
 </script>

@@ -46,28 +46,31 @@
       active-text-color="#black">
       <el-menu-item index="1">
         <i class="el-icon-notebook-2"></i>
-        <span slot="title">反馈主页</span>
+        <span slot="title" @click="feedbacknotic">反馈主页</span>
       </el-menu-item>
       <el-menu-item index="2">
         <i class="el-icon-document"></i>
-        <span slot="title" @click="feedbacknotic">反馈通知</span>
+        <span slot="title">反馈通知</span>
       </el-menu-item>
     </el-menu>
   </el-col>
 </el-row>
       </div>
       <div id="feedbackview" class="feedbackcontent">
-        <div class="feedbackbox">
-          <!-- <img src="@/assets/feedback.png" id="feedbackimg"> -->
-          <div class="inputbord">
-              <el-input id="inputmessage" type="textarea" :rows="2" placeholder="请输入内容" v-model="textarea"></el-input>
-          </div>
-          <h3>联系方式：</h3>
-          <div class="contectbord">
-              <el-input id="contectinput" v-model="input" placeholder="请输入联系方式"></el-input>
-          </div>
-          <el-button @click="commit">提交</el-button>
+        <!-- <div class="noticehead"><img src="@/assets/back.png" id="backpng" @click="jumppage"></div> -->
+    <div class="noticehead"><h2 style="color:#101010;margin-left:20px;margin-bottom: 0px;">通知</h2></div>
+    <el-divider></el-divider>
+    <el-card class="box-card">
+        <div v-for="(item) in resultList" :key="item.index" class="text-item">
+            <div class="noticeblock">
+                <h3>通知</h3>
+                <p>{{item.messageHead}}</p>
+                <!-- <p>{{item.message}}</p> -->
+                <!-- <img @click="changeview" v-if="lay_type" src="@/assets/noticebottom.png" alt />
+                <img @click="changeview" v-else src="@/assets/noticeup.png" alt /> -->
+            </div>
         </div>
+    </el-card>
       </div>
     </div>
         
@@ -79,7 +82,13 @@
   </div>
 </template>
 <style>
-
+.noticehead {
+    height: 60px;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid #EBEEF5;
+    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+}
 .advicecontent{
   height: 519px;
   width: 100%;
@@ -162,7 +171,10 @@
   margin-top: 35px;
   width: 700px;
   height: 440px;
-  border-radius: 20px;
+  /* background: white; */
+  /* border-radius: 4px;
+  border: 1px solid #EBEEF5;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%); */
 }
 .tace h5{
   font-size:20px;
@@ -224,13 +236,6 @@
 .feedbackbox .el-button{
   margin-left: 45%;
     margin-top: 30px;
-}
-#feedbackview{
-  margin-left: 8px;
-  margin-top: 35px;
-  width: 700px;
-  height: 440px;
-  border-radius: 20px;
 }
 .body{
     overflow-x: hidden;
@@ -367,7 +372,7 @@
 import Header from './Header'
 import Footer from './Footer'
 export default {
-  name: "feedback",
+  name: "feedbacknotice",
   components: {
     Header,
     Footer
@@ -393,11 +398,8 @@ export default {
     }
   },
   methods: {
-      commit() {
-        //   this.$router.push('/feedbacknotice');
-      },
       feedbacknotic() {
-          this.$router.push('feedbacknotice');
+          this.$router.push('/feedback');
       },
       sendmessage() {
           this.$notify({

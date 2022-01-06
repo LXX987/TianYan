@@ -36,6 +36,8 @@ import IdentifyCount from '@/components/TianYan/Administrator/IdentifyCount'
 import Knowledge from '@/components/TianYan/Administrator/Knowledge'
 import TrainData from '@/components/TianYan/Administrator/TrainData'
 import multigame from '@/components/TianYan/multigame'
+import vs1 from '@/components/TianYan/vs1'
+import feedbacknotice from '@/components/TianYan/feedbacknotice'
 
 const routes=[
     {path: '/home',name: 'Home',component: Home},
@@ -48,7 +50,7 @@ const routes=[
     {path:'/honor2',name: 'honor2',component:Honor2},
     {path:'/honorview',name: 'honorview',component:Honorview},
     {path:'/usercontrol',name: 'Usercontrol',component:Usercontrol},
-    {path:'/',component:Login},
+    {path:'/',name:'login',component:Login},
     {path:'/game1page',name: 'gamepage1',component:game1page},
     {path:'/game2page',name: 'game2page',component:game2page},
     {path:'/register',name: 'register',component:Register},
@@ -67,7 +69,9 @@ const routes=[
     {path:'/identifycount',name:'identifycount',component:IdentifyCount},
     {path:'/knowledge',name:'knowledge',component:Knowledge},
     {path:'/traindata',name:'traindata',component:TrainData},
-    {path:'/multigame',name:'multigame',component:multigame}
+    {path:'/multigame',name:'multigame',component:multigame},
+    {path:'/vs1',name:'vs1',component:vs1},
+    {path:'/feedbacknotice',name:'feedbacknotice',component:feedbacknotice}
 ]
 const router=new VueRouter({
     routes:routes

@@ -25,15 +25,15 @@
                     active-text-color="#ffd04b">
                     <el-menu-item index="1">
                         <i class="el-icon-location"></i>
-                        <span slot="title"><router-link to="/gameintro" style="text-decoration:none">竞答游戏介绍</router-link></span>
+                        <span slot="title" @click="jumpgameintro">竞答游戏介绍</span>
                     </el-menu-item>
                     <el-menu-item index="2">
                         <i class="el-icon-menu"></i>
-                            <span slot="title"><router-link to="/game1" style="text-decoration:none">人机大战</router-link></span>
+                            <span slot="title" @click="jumpgame1">人机大战</span>
                     </el-menu-item>
                     <el-menu-item index="3">
                         <i class="el-icon-document"></i>
-                        <span slot="title"><span slot="title"><router-link to="/game2" style="text-decoration:none">机智过人</router-link></span></span>
+                            <span slot="title" @click="jumpgame2">机智过人</span>
                     </el-menu-item>
                     <el-submenu index="4">
         <template slot="title">
@@ -41,8 +41,8 @@
           <span>竞答结果</span>
         </template>
         <el-menu-item-group>
-          <el-menu-item index="1-1"><router-link to="/honorview" style="text-decoration:none">荣誉殿堂</router-link></el-menu-item>
-          <el-menu-item index="1-2"><router-link to="/record" style="text-decoration:none">游戏记录</router-link></el-menu-item>
+          <el-menu-item index="1-1" @click="jumphonorview">荣誉殿堂</el-menu-item>
+          <el-menu-item index="1-2" @click="recordid">游戏记录</el-menu-item>
         </el-menu-item-group>  
       </el-submenu>
                     </el-menu>
@@ -53,8 +53,8 @@
          <span><h1 style="text-align:center;font-family:cursive;font-weight: bold;margin-top:40px;">我的游戏</h1></span>
          <el-divider></el-divider>
          <span>
-             <el-button type="primary" icon="el-icon-s-promotion" id="begin" round><router-link to="/honor" style="text-decoration:none">查看人机大战游戏排行榜</router-link></el-button>
-             <el-button type="primary" icon="el-icon-s-promotion" id="begin" round><router-link to="/honor2" style="text-decoration:none">查看机智过人游戏排行榜</router-link></el-button>
+             <el-button @click="jumphonor" type="primary" icon="el-icon-s-promotion" id="begin" round>查看人机大战游戏排行榜</el-button>
+             <el-button @click="jumphonor2" type="primary" icon="el-icon-s-promotion" id="begin" round>查看机智过人游戏排行榜</el-button>
          </span>
          <br>
           
@@ -227,6 +227,27 @@ export default {
       },
       handleClose(key, keyPath) {
         console.log(key, keyPath);
+      },
+      recordid() {
+          this.$router.push({ name: 'record',query:{ids:this.id} });
+      },
+      jumpgame1() {
+          this.$router.push('/game1');
+      },
+      jumpgame2() {
+          this.$router.push('/game2');
+      },
+      jumphonorview() {
+          this.$router.push('/honorview');
+      },
+      jumpgameintro() {
+          this.$router.push('/gameintro');
+      },
+      jumphonor() {
+          this.$router.push('/honor');
+      },
+      jumphonor2() {
+          this.$router.push('/honor2');
       }
     }
 }

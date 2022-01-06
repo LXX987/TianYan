@@ -10,14 +10,14 @@
             </div>
         </div>
         <div class="gamecontent" id="gameblock">
-            <el-button type="primary" icon="el-icon-back" id="back" round><router-link to="/gameintro" style="text-decoration:none">返回</router-link></el-button>
+            <el-button @click="backgameintro" type="primary" icon="el-icon-back" id="back" round>返回</el-button>
             <img @click="openupload" id="questionimg" src="../../assets/question.png">
             <h1>人机大战</h1>
             <h2>--寻找农作物游戏--</h2>
             <div class="nameinput">
                 <el-button type="text" @click="open" style="font-size: 20px;font-family: cursive;color: black;">{{gamename}}</el-button>
             </div>
-            <el-button type="primary" icon="el-icon-s-promotion" id="begin" round><router-link to="/game2page" style="text-decoration:none">开始游戏</router-link></el-button>
+            <el-button @click="startgame" type="primary" icon="el-icon-s-promotion" id="begin" round>开始游戏</el-button>
         </div>
         <br><br><br><br><br>
         <Footer/>
@@ -178,6 +178,12 @@ export default {
       },
       openupload() {
           this.$router.push('/uploadtwo');
+      },
+      backgameintro() {
+          this.$router.push('/gameintro');
+      },
+      startgame() {
+          this.$router.push('/game2page');
       }
     }
 

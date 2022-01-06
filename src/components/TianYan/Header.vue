@@ -7,17 +7,17 @@
             </div>
             <div id="navbar" class="headerlogo">
                 <ul id="menu-menu" class="nav-menu">
-                  <li id="menu-home" class="page">
-                    <router-link to="/home" style="text-decoration:none;font-family:monospace;">主页</router-link>
+                  <li @click="jumpmain" id="menu-home" class="page">
+                    主页
                   </li>
-                  <li id="menu-identity" class="page">
-                    <router-link to="/identify" style="text-decoration:none;font-family:monospace;">识别</router-link>
+                  <li @click="jumpidentify" id="menu-identity" class="page">
+                    识别
                   </li>
-                  <li id="menu-game" class="page">
-                    <router-link to="/gameintro" style="text-decoration:none;font-family:monospace;">游戏</router-link>
+                  <li @click="jumpgame" id="menu-game" class="page">
+                    游戏
                   </li>
-                  <li id="menu-about" class="page">
-                    <router-link to="/feedback" style="text-decoration:none;font-family:monospace;">反馈</router-link>
+                  <li @click="jumpfeedback" id="menu-about" class="page">
+                    反馈
                   </li>
                 </ul>
             </div>
@@ -69,6 +69,8 @@ a:hover{ color:white;text-decoration:none;font-weight:bold; }
   margin-left: 20px;
   margin-right: 20px;
   font-size: 20px;
+  font-family:monospace;
+  color: white;
 }
 .headerlogo{
   display: inline-block;
@@ -124,6 +126,18 @@ export default {
     },
     updata() {
       console.log(this.id);
+    },
+    jumpmain() {
+      this.$router.push('/home');
+    },
+    jumpidentify() {
+      this.$router.push('/identify');
+    },
+    jumpgame() {
+      this.$router.push('/gameintro');
+    },
+    jumpfeedback() {
+      this.$router.push('/feedback')
     }
   }
 }

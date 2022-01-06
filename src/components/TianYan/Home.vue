@@ -11,7 +11,7 @@
           <li>学习农作物知识</li>
           <li>感受自然魅力</li>
           <li>开启探索未知的旅程吧~</li>
-          <li><el-button type="primary" icon="el-icon-s-home" id="begin" round><router-link to="/" style="text-decoration:none">进入</router-link></el-button></li>
+          <li><el-button type="primary" icon="el-icon-s-home" id="begin" round @click="jumpidentify">进入</el-button></li>
           <!-- <li style="background-color: #0064009e;width:200px;border-radius:10px;;height:70px;line-height:70px;margin-left:37%"><router-link to="/login" style="text-decoration:none">进入</router-link></li> -->
           <br>
         </ul>
@@ -320,6 +320,9 @@ export default {
     methods: {
       gameparams() {
       this.$router.push({ name: 'gameintro',query:{ids:this.id} });
+    },
+    jumpidentify() {
+      this.$router.push('/identify');
     }
     }
 }

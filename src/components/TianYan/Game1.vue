@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="gamecontent" id="gameblock">
-            <el-button type="primary" icon="el-icon-back" id="back" round><router-link to="/gameintro" style="text-decoration:none">返回</router-link></el-button>
+            <el-button @click="jumpback" type="primary" icon="el-icon-back" id="back" round>返回</el-button>
             <img @click="openupload" id="questionimg" src="../../assets/question.png">
             <h1>人机大战</h1>
             <h2>--寻找农作物游戏--</h2>
@@ -264,6 +264,9 @@ export default {
       },
       jump_vs() {
           this.$router.push('/multigame');
+      },
+      jumpback() {
+          this.$router.push('/gameintro');
       }
     }
 
