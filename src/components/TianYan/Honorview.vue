@@ -43,6 +43,7 @@
         <el-menu-item-group>
           <el-menu-item index="1-1" @click="jumphonorview">荣誉殿堂</el-menu-item>
           <el-menu-item index="1-2" @click="recordid">游戏记录</el-menu-item>
+          <el-menu-item index="1-3" @click="jumpgrading">游戏段位</el-menu-item>
         </el-menu-item-group>  
       </el-submenu>
                     </el-menu>
@@ -248,6 +249,9 @@ export default {
       },
       jumphonor2() {
           this.$router.push('/honor2');
+      },
+      jumpgrading() {
+          this.$router.push('/grading');
       }
     }
 }

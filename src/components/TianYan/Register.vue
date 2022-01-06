@@ -196,6 +196,19 @@ export default {
     },
     methods: {
         countDown () {
+            let data = new FormData();
+            data.append("name", this.username);
+            data.append("email", this.useremail);
+            // data.append("captcha_input", this.inputcode);
+            data.append("password", this.password);
+            data.append("pwd_verification", this.password);
+            // data.append("captcha_hashkey", this.codehash);
+            console.log(data);
+            axios.post("http://127.0.0.1:8081/register/checkAccount", data)
+            .then(res=>{
+                console.log(res);
+            })
+
             if (!this.canClick) return  //改动的是这两行代码
                 this.canClick = false
                 this.content = this.totalTime + 's后重新发送'

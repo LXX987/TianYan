@@ -35,6 +35,7 @@ import TrainData from '@/components/TianYan/Administrator/TrainData'
 import multigame from '@/components/TianYan/multigame'
 import vs1 from '@/components/TianYan/vs1'
 import feedbacknotice from '@/components/TianYan/feedbacknotice'
+import grading from '@/components/TianYan/grading'
 
 Vue.use(Router)
 
@@ -76,6 +77,7 @@ export default new Router({
     {path:'/traindata',name:'traindata',component:TrainData},
     {path:'/multigame',name:'multigame',component:multigame},
     {path:'/vs1',name:'vs1',component:vs1},
-    {path:'/feedbacknotice',name:'feedbacknotice',component:feedbacknotice}
+    {path:'/feedbacknotice',name:'feedbacknotice',component:feedbacknotice},
+    {path:'/grading',name:'grading',component:grading}
   ]
 })

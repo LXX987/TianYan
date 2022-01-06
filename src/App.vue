@@ -27,6 +27,7 @@ import CountDown from './components/TianYan/CountDown'
 import Gameresult1 from './components/TianYan/Gameresult1'
 import Gameresult2 from './components/TianYan/Gameresult2'
 import multigame from './components/TianYan/multigame'
+import grading from './components/TianYan/grading'
 
 import AccuracyCount from './components/TianYan/Administrator/AccuracyCount'
 import Admin from './components/TianYan/Administrator/Admin'
@@ -66,7 +67,8 @@ export default {
     IdentifyCount,
     Knowledge,
     TrainData,
-    multigame
+    multigame,
+    grading
   }
 }
 </script>

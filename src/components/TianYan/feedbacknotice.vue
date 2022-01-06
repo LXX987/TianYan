@@ -11,26 +11,6 @@
     </div>
     <div class="tian"></div>
     <div class="slow">
-        <!-- <div class="back"><el-button @click="backpre" type="primary" round icon="el-icon-back">返回</el-button></div> -->
-        
-            <!-- <div class="serviceslow">
-                <div class="servicehead">
-                    <img class="headtitle" style="width:50px;height:50px;margin:10px 0px;margin-left:30px;" src="../../assets/service.png"/>
-                    <h3 class="headtitle" style="margin:0px;padding:20px 20px;font-size:25px;font-familt:cursive;color:white;font-weight: 200;">反馈窗口</h3>
-                </div>
-                <div class="servicebody">
-                    
-                </div>
-                <div class="inputcontent">
-                    <el-input type="textarea" :rows="2" placeholder="请输入内容..." v-model="textarea"></el-input>
-                </div>
-                <div class="sendbutton">
-                <el-button @click="sendmessage" round>发送</el-button>
-                </div>
-                <div class="canclebutton">
-                <el-button @click="canclemessge" round>清空</el-button>
-                </div>
-            </div> -->
         <div class="advicecontent">
       <div id="advicenavigationbar" class="feedbackcontent">
         <el-row class="tace" style="width:420px;">
@@ -57,17 +37,13 @@
 </el-row>
       </div>
       <div id="feedbackview" class="feedbackcontent">
-        <!-- <div class="noticehead"><img src="@/assets/back.png" id="backpng" @click="jumppage"></div> -->
     <div class="noticehead"><h2 style="color:#101010;margin-left:20px;margin-bottom: 0px;">通知</h2></div>
-    <el-divider></el-divider>
+    <br>
     <el-card class="box-card">
         <div v-for="(item) in resultList" :key="item.index" class="text-item">
             <div class="noticeblock">
                 <h3>通知</h3>
                 <p>{{item.messageHead}}</p>
-                <!-- <p>{{item.message}}</p> -->
-                <!-- <img @click="changeview" v-if="lay_type" src="@/assets/noticebottom.png" alt />
-                <img @click="changeview" v-else src="@/assets/noticeup.png" alt /> -->
             </div>
         </div>
     </el-card>
@@ -83,7 +59,7 @@
 </template>
 <style>
 .noticehead {
-    height: 60px;
+    height: 70px;
     background-color: white;
     border-radius: 4px;
     border: 1px solid #EBEEF5;
@@ -92,7 +68,6 @@
 .advicecontent{
   height: 519px;
   width: 100%;
-  /* background-color: rgb(255, 255, 255); */
 }
 .feedbackbox .inputbord{
     height: 160px;
@@ -126,12 +101,6 @@
   margin-left: 45%;
     margin-top: 30px;
 }
-/* #feedbackimg{
-    width: 350px;
-    height: 40px;
-    margin-left: 30px;
-    margin-top: 10px;
-} */
 .feedbackcontent{
   display: inline-block;
   vertical-align: top;
@@ -171,10 +140,6 @@
   margin-top: 35px;
   width: 700px;
   height: 440px;
-  /* background: white; */
-  /* border-radius: 4px;
-  border: 1px solid #EBEEF5;
-  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%); */
 }
 .tace h5{
   font-size:20px;
@@ -381,20 +346,7 @@ export default {
     return {
         input:'',
         textarea:'',
-        input1: '',
-        input2: '',
-        input3: '',
-        input4: '',
-        input5: '',
-        input6: '',
-        textarea: '',
-      questionnumber: '6',
-    //   question1: 'http://inews.gtimg.com/newsapp_match/0/10351417074/0.jpg',
-    //   question2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg010.hc360.cn%2Fm3%2FM01%2FE2%2F46%2FwKhQ5lTS1cWERqlbAAAAAF5XH74692.jpg&refer=http%3A%2F%2Fimg010.hc360.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=9b751b4f2aa4c552d9f8c183b2d787ca',
-    //   question3: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg004.hc360.cn%2Fm7%2FM03%2F00%2F1B%2FwKhQo1XC20yEdNTfAAAAAHqzUFA421.jpg&refer=http%3A%2F%2Fimg004.hc360.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=9b32908147c78576377e42b390fb1091',
-    //   question4: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg3.99114.com%2Fgroup1%2FM00%2FD5%2F69%2FwKgGTFaoWhWASgh0AAPEqd5Qb0Y760.jpg&refer=http%3A%2F%2Fimg3.99114.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=1c36309ca5f67e40b8f333844d6cef66',
-    //   question5: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.168mh.com%2Fwp-content%2Fuploads%2F2019%2F11%2F87555edf6b5667e.jpg&refer=http%3A%2F%2Fwww.168mh.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=c39aeba0d3f3b6c65df3ca641528b3a4',
-    //   question6: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpfsc.agri.cn%2Fncpflzs%2F201104%2FW020110408374232979423.jpg&refer=http%3A%2F%2Fpfsc.agri.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310816&t=a8a6ebdd86a1d27c257274ec00acaa9e'
+        resultList:[],
     }
   },
   methods: {

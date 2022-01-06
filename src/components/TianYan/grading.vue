@@ -51,19 +51,19 @@
             </el-row>
         </div>
         <div class="content" id="contentword" style="display:inline-block;">
-         <span><h1 style="text-align:center;font-family:cursive;font-weight: bold;">我的游戏记录</h1></span>
+         <span><h1 style="text-align:center;font-family:cursive;font-weight: bold;">游戏段位</h1></span>
          <el-divider></el-divider>
-         <br>
+         <p style="margin-top:10px;margin-bottom:10px;font-size:25px;font-weight:550;font-family:cursive;text-align:center;">我的段位：{{own_grade}}</p>
+         <p style="margin-top:0px;margin-bottom:15px;font-size:25px;font-weight:550;font-family:cursive;text-align:center;">当前积分：{{myown_grade}}</p>
          <div>
-           <el-table :data="tableData" style="width: 100%">
-             <el-table-column prop="date" label="游戏日期" width="180"></el-table-column>
-             <el-table-column prop="name" label="玩家姓名" width="180"></el-table-column>
-             <el-table-column prop="correct" label="准确率"></el-table-column>
-            </el-table>
+            <div v-for="(item) in gradeList" :key="item.index" class="text-item">
+            <div class="gradeblock">
+                <img class="block" style="border-radius:50%;width:80px;height:80px;margin-left:15%;margin-right:15%;" :src="item.gradeicon" />
+                <p class="block" style="width:18%;font-size:25px;font-family:cursive;text-align:center;font-weight:600;">{{item.gradename}}</p>
+                <p class="block" style="width:33%;font-size:25px;font-weight:550;font-family:cursive;text-align:center;">{{item.grade}}</p>
+            </div>
+            </div>
          </div>  
-         <div class="honor-img">
-             <img src="../../assets/honor.png" id="honorimg">
-         </div>
         </div>
     </div>
     <div class="tian"></div>
@@ -73,6 +73,10 @@
   </div>
 </template>
 <style>
+.block {
+    display: inline-block;
+    vertical-align: top;
+}
 .body{
     overflow-x: hidden;
     margin: 0px;
@@ -82,7 +86,7 @@
     display: block;
     height: 1px;
     width: 80%;
-    margin: 24px 65px;
+    margin: 0px 65px;
 }
 .honor-img{
     position: absolute;
@@ -175,7 +179,7 @@ import Header from './Header'
 import Footer from './Footer'
 import axios from 'axios'
 export default {
-  name: "record",
+  name: "grading",
   components: {
     Header,
     Footer,
@@ -184,11 +188,39 @@ export default {
     return {
         id:'',
       rank: '',
-      tableData: [{
-            date: '',
-            name: '',
-            correct: ''
-          }]
+      own_grade: '王者',
+      myown_grade: 10020342,
+      gradeList: [{
+          gradeicon: require('../../assets/qingtong.png'),
+          gradename:"青铜",
+          grade:100,
+      },
+      {
+          gradeicon: require('../../assets/baiying.png'),
+          gradename:"白银",
+          grade:300,
+      },
+      {
+          gradeicon: require('../../assets/huangjing.png'),
+          gradename:"黄金",
+          grade:500,
+      },
+      {
+          gradeicon: require('../../assets/zuanshi.png'),
+          gradename:"钻石",
+          grade:800,
+      },
+      {
+          gradeicon: require('../../assets/wangzhe.png'),
+          gradename:"王者",
+          grade:1000,
+      }
+      ]
+    //   tableData: [{
+    //         date: '',
+    //         name: '',
+    //         correct: ''
+    //       }]
     }
   },
   mounted: function() {
@@ -196,59 +228,14 @@ export default {
     this.id = this.$route.query.ids;
     console.log(this.id);
 
-    let data = new FormData();
-    data.append("uid", this.id);
-    console.log(data);
-    axios.post("http://124.70.206.207/record/userRecordsQuery", data)
-    .then(res=>{
-        console.log(res);
-         console.log(res.data.records);
-    })
-
-    // this.$axios.post("http://124.70.206.207/record/recordsQuery", {
-    //     uid: '4'
-    //         }).then( res=> {
-    //             console.log (res)
-    //         })
-
-
     // let data = new FormData();
-    // data.append("uid","4");
+    // data.append("uid", this.id);
     // console.log(data);
-    // axios.post("http://124.70.206.207/record/recordsQuery", data)
-    // .then( res => {
+    // axios.post("http://124.70.206.207/record/userRecordsQuery", data)
+    // .then(res=>{
     //     console.log(res);
+    //      console.log(res.data.records);
     // })
-
-
-//     let file = e.target.files[0]
-//   // console.log(file)
-//   let param = new FormData() // 创建form对象
-//   param.append('file', file, file.name) // 通过append向form对象添加数据
-//   param.append('id', this.$store.state.userId) // 添加form表单中其他数据
-//    // withCredentials: true 使得后台可以接收表单数据 跨域请求
-//   const instance = axios.create({
-//     withCredentials: true
-//   })
-//   // url为后台接口
-//   instance.post('url', param)
-//     .then(this.succ) // 成功返回信息 调用函数 函数需自己定义，此处后面省略
-//     .catch(this.serverError) // 服务器错误 调用对应函数 函数需自己定义，此处后面省略
-
-
-    // login() {
-    //         let data = new FormData();
-    //         data.append("email", this.useremail);
-    //         console.log(data);
-    //         axios.post("http://124.70.206.207/login/checkAccount", data)
-    //         .then(res=>{
-    //             console.log(res);
-    //             this.userid = res.data.uid;
-    //             // console.log(this.userid);
-    //         })
-    //     },
-
-
   },
   methods: {
       handleOpen(key, keyPath) {
