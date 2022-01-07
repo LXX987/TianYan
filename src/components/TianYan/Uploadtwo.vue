@@ -12,8 +12,6 @@
     <div class="tian"></div>
     <div class="slow">
         <el-button type="primary" @click="backgameone" icon="el-icon-back" id="back" round>返回</el-button>
-        <!-- <div class="content" id="left"></div>
-        <div class="content" id="right"></div> -->
         <div class="uploadcontent">
             <h3 style="font-size:30px;font-family:emoji;color:rgb(30,83,53);text-align:center;margin-bottom:10px;">介绍</h3>
             <h4 style="font-size:18px;color:rgb(54,140,91);text-align:center;margin:5px;">上传题目</h4>
@@ -25,30 +23,51 @@
             <p>一起帮助我们共同打造更好的农业识别平台，传播知识，感受自然的魅力</p>
         </div>
         <div class="uploadquestionbody">
-            <div class="questionheading">
-                <p style="font-size:20px;font-weight:bold;margin-left:20px;color:red;display:inline-block;vertical-align:top;">*</p><p style="font-size:18px;margin-left:10px;display:inline-block;vertical-align:top;">问题题目</p>
-                <el-input v-model="input1" placeholder="请输入题目内容"></el-input>
-            </div>
-            <div class="questionpicture">
-                <p style="font-size:20px;font-weight:bold;margin-left:20px;color:red;display:inline-block;vertical-align:top;">*</p><p style="font-size:18px;margin-left:10px;display:inline-block;vertical-align:top;">问题图片</p>
-                <el-button id="uploadpicbutton" icon="el-icon-upload">上传图片
-                <input type="file" ref="file2" name="check_img_url" @change="tirggerFile($event)" />
-                </el-button>
-                <div>
-                <img style="width:300px;height:300px;margin-left:300px;border-radius: 10px;" id="img1" src alt />
-                </div>
-            </div>
+          <div class="questionheading">
+              <p style="font-size:20px;font-weight:bold;margin-left:20px;color:red;display:inline-block;vertical-align:top;">*</p><p style="font-size:18px;margin-left:10px;display:inline-block;vertical-align:top;">问题题目</p>
+              <el-input v-model="input1" placeholder="请输入题目内容"></el-input>
+          </div>
+          <p style="font-size:20px;font-weight:bold;margin-left:20px;color:red;display:inline-block;vertical-align:top;">*</p><p style="font-size:18px;margin-left:10px;display:inline-block;vertical-align:top;">问题图片</p>
+          <el-row style="margin-left:-200px;width:750px;">
+            <el-col span="6">
+              <img style="width:150px;height:150px;margin-left:300px;border-radius: 10px;" id="img1" src alt />
+            </el-col>
+            <el-col span="6">
+              <img style="width:150px;height:150px;margin-left:300px;border-radius: 10px;" id="img2" src alt />
+            </el-col>
+            <el-col span="6">
+              <img style="width:150px;height:150px;margin-left:300px;border-radius: 10px;" id="img3" src alt />
+            </el-col>
+            <el-col span="6">
+              <img style="width:150px;height:150px;margin-left:300px;border-radius: 10px;" id="img4" src alt />
+            </el-col>
+          </el-row>
+
+          <el-row style="margin-left:110px;width:750px;">
+            <el-col span="6">
+              <el-button id="uploadpicbutton1" icon="el-icon-upload">上传图片1
+                <input type="file" name="check_img_url1" @change="tirggerFile1($event)" />
+              </el-button>
+            </el-col>
+            <el-col span="6">
+              <el-button id="uploadpicbutton2" icon="el-icon-upload">上传图片2
+                <input type="file" name="check_img_url2" @change="tirggerFile2($event)" />
+              </el-button>
+            </el-col>
+            <el-col span="6">
+              <el-button id="uploadpicbutton3" icon="el-icon-upload">上传图片3
+                <input type="file" name="check_img_url3" @change="tirggerFile3($event)" />
+              </el-button>
+            </el-col>
+            <el-col span="6">
+              <el-button id="uploadpicbutton4" icon="el-icon-upload">上传图片4
+                <input type="file" name="check_img_url4" @change="tirggerFile4($event)" />
+              </el-button>
+            </el-col>
+          </el-row>
             <div class="questionanswer">
                 <p style="font-size:20px;font-weight:bold;margin-left:20px;color:red;display:inline-block;vertical-align:top;">*</p><p style="font-size:18px;margin-left:10px;display:inline-block;vertical-align:top;">问题答案</p>
                 <el-input v-model="input2" placeholder="请输入题目答案"></el-input>
-            </div>
-            <div class="questioreason">
-                <p style="font-size:20px;font-weight:bold;margin-left:20px;color:red;display:inline-block;vertical-align:top;">*</p><p style="font-size:18px;margin-left:10px;display:inline-block;vertical-align:top;">题目特点</p>
-                <el-input type="textarea" :rows="2" placeholder="请输入您认为题目与什么特点" v-model="textarea1"></el-input>
-            </div>
-            <div class="questionote">
-                <p style="font-size:20px;font-weight:bold;margin-left:20px;color:red;display:inline-block;vertical-align:top;">*</p><p style="font-size:18px;margin-left:10px;display:inline-block;vertical-align:top;">题目备注</p>
-                <el-input type="textarea" :rows="2" placeholder="请输入您的备注" v-model="textarea2"></el-input>
             </div>
             <div class="uploadconfirm">
                 <el-button id="confirmbutton" @click="openprompt">上传</el-button>
@@ -58,14 +77,12 @@
                 <el-descriptions title="题目信息">
                     <el-descriptions-item label="问题题目">{{questionname}}</el-descriptions-item>
                     <el-descriptions-item label="问题答案">{{answer}}</el-descriptions-item>
-                    <el-descriptions-item label="题目特点">{{characteristic}}</el-descriptions-item>
-                    <el-descriptions-item label="题目备注">{{promptcontent}}</el-descriptions-item>
                     <el-descriptions-item label="图片状态">
                         <el-tag size="small">已上传</el-tag>
                     </el-descriptions-item>
                 </el-descriptions>
                 <el-button @click="confirm">确认提交</el-button>
-            </div>        
+            </div>
         </div>
     </div>
     <div class="tian"></div>
@@ -133,20 +150,36 @@
     font-weight: bold;
     /* font-size: 30px; */
 }
-.questionpicture #uploadpicbutton {
-    margin-left: 260px;
-    width: 140px;
-    margin-top: 60px;
-    margin-bottom: 20px;
-    font-size: 18px;
-    font-family: cursive;
-    border-radius: 10px;
+/*#questionpicture1 #uploadpicbutton {*/
+/*    margin-left: 260px;*/
+/*    width: 140px;*/
+/*    margin-top: 60px;*/
+/*    margin-bottom: 20px;*/
+/*    font-size: 18px;*/
+/*    font-family: cursive;*/
+/*    border-radius: 10px;*/
+/*}*/
+#uploadpicbutton1 input {
+  position: absolute;
+  opacity: 0;
+  left: 0px;
 }
-.questionpicture input {
-    position: absolute;
-    opacity: 0;
-    left: 590px;
+#uploadpicbutton2 input {
+  position: absolute;
+  opacity: 0;
+  left: 190px;
 }
+#uploadpicbutton3 input {
+  position: absolute;
+  opacity: 0;
+  left: 380px;
+}
+#uploadpicbutton4 input {
+  position: absolute;
+  opacity: 0;
+  left: 560px;
+}
+
 .questionheading .el-input {
     width: 80%;
     margin-left: -20px;
@@ -154,7 +187,7 @@
 }
 .uploadquestionbody {
     width: 900px;
-    height: 1000px;
+    height: 700px;
     border: 1px solid rgb(132, 156, 86);
     border-radius: 10px;
     margin-left: 180px;
@@ -183,16 +216,6 @@
     margin-left: 180px;
     /* box-shadow: inset 0px 8px 20px 0 rgb(239 225 204); */
 }
-/* .slow #left {
-    width: 200px;
-    height: 50px;
-    border: 1px solid rgb(54,140,91);
-}
-.slow #right {
-    width: 200px;
-    height: 50px;
-    border: 1px solid rgb(54,140,91);
-} */
 .el-button--primary:focus, .el-button--primary:hover {
     background: rgb(222, 160, 38);
     border-color: rgb(222, 160, 38);
@@ -288,7 +311,7 @@ export default {
        backgameone() {
            this.$router.push('/game1');
        },
-       tirggerFile(event) {
+       tirggerFile1(event) {
                 var file = event.target.files;
                   var reader = new FileReader();//读取文件
                 reader.readAsDataURL(file[0]);
@@ -296,6 +319,30 @@ export default {
                  document.getElementById("img1").src = reader.result;
             };
        },
+     tirggerFile2(event) {
+       var file = event.target.files;
+       var reader = new FileReader();//读取文件
+       reader.readAsDataURL(file[0]);
+       reader.onload = function() {
+         document.getElementById("img2").src = reader.result;
+       };
+     },
+     tirggerFile3(event) {
+       var file = event.target.files;
+       var reader = new FileReader();//读取文件
+       reader.readAsDataURL(file[0]);
+       reader.onload = function() {
+         document.getElementById("img3").src = reader.result;
+       };
+     },
+     tirggerFile4(event) {
+       var file = event.target.files;
+       var reader = new FileReader();//读取文件
+       reader.readAsDataURL(file[0]);
+       reader.onload = function() {
+         document.getElementById("img4").src = reader.result;
+       };
+     },
        closekey() {
            this.promptview = 0;
        },

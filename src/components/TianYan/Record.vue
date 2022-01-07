@@ -44,7 +44,7 @@
           <el-menu-item index="1-1" @click="jumphonorview">荣誉殿堂</el-menu-item>
           <el-menu-item index="1-2" @click="recordid">游戏记录</el-menu-item>
           <el-menu-item index="1-3" @click="jumpgrading">游戏段位</el-menu-item>
-        </el-menu-item-group>  
+        </el-menu-item-group>
       </el-submenu>
                     </el-menu>
                 </el-col>
@@ -62,7 +62,7 @@
              <!-- <el-table-column prop="nick_name" label="" width="180"></el-table-column> -->
              <el-table-column prop="score" label="准确率"></el-table-column>
             </el-table>
-         </div>  
+         </div>
          <div class="honor-img">
              <img src="../../assets/honor.png" id="honorimg">
          </div>
@@ -192,8 +192,8 @@ export default {
     }
   },
   mounted: function() {
-      this.test = this.$cookies.get('uid');//获取cookie，返回 value
-      console.log(this.test);
+    this.test = this.$cookies.get('uid');//获取cookie，返回 value
+    console.log(this.test);
     console.log(this.$route.query.ids);
     this.id = this.$route.query.ids;
     console.log(this.id);
