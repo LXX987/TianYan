@@ -45,11 +45,11 @@
             </div>
             <h2>第{{question_number}}题</h2>
             <img style="margin-left:320px;" :src="question_pic" />
-            <div>
-            <el-radio v-model="radio" label="1">备选项</el-radio>
-            <el-radio v-model="radio" label="2">备选项</el-radio>
-            <el-radio v-model="radio" label="3">备选项</el-radio>
-            <el-radio v-model="radio" label="4">备选项</el-radio>
+            <div v-for="(item) in resultList" :key="item.index" class="text-item">
+            <el-radio v-model="radio" label="1">{{item.select1}}</el-radio>
+            <el-radio v-model="radio" label="2">{{item.select2}}</el-radio>
+            <el-radio v-model="radio" label="3">{{item.select3}}</el-radio>
+            <el-radio v-model="radio" label="4">{{item.select4}}</el-radio>
             </div>
         </div>
     </div>
@@ -323,6 +323,7 @@
 import Header from './Header'
 import Footer from './Footer'
 import CountNext from './CountNext'
+import axios from 'axios'
 
 export default {
   name: "vs1",
@@ -334,10 +335,19 @@ export default {
   },
   data() {
     return {
+        testuid:'',
         question_pic: require('../../assets/upload_identify_pic.png'),
         question_number: 1,
         input:'',
         radio: '0',
+        resultList:[
+            {
+                select1:'A',
+                select2:'B',
+                select3:'C',
+                select4:'D',
+            }
+        ],
         // input1: '',
         // input2: '',
         // input3: '',
@@ -409,6 +419,7 @@ export default {
     
     },
     mounted:function() {
+        this.testuid = this.$cookies.get('uid');//获取cookie，返回 value
         //定义定时器开始时间为0
         var progressnuw =0;
         //顶一个定时器
@@ -426,6 +437,14 @@ export default {
         this.loading=progressnuw;
         // format(100);
         },10)
+
+    //     let data = new FormData();
+    //   data.append("uid", this.testuid);
+    //        console.log(data);
+    //        axios.post("http://124.70.206.207/match/match", data)
+    //        .then(res=>{
+    //            console.log(res);
+    //         })
     },
     // 页面创建钩子函数中添加事件监听
    created() {

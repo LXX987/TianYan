@@ -209,6 +209,7 @@
 <script>
 import Header from './Header'
 import Footer from './Footer'
+import axios from 'axios'
 export default {
   name: "identifythree",
   components: {
@@ -234,9 +235,18 @@ export default {
                 var file = event.target.files;
                   var reader = new FileReader();//读取文件
                 reader.readAsDataURL(file[0]);
+                var testfile = file[0];
                    reader.onload = function() {
                  document.getElementById("img1").src = reader.result;
             };
+
+            let data = new FormData();
+           data.append("image", testfile);
+           console.log(data);
+           axios.post("http://124.70.206.207/contest/worms", data)
+           .then(res=>{
+               console.log(res);
+            })
 
             
 

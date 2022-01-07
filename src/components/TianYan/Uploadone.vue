@@ -39,17 +39,22 @@
           </div>
         </div>
         <div class="questionanswer">
-          <p style="font-size:20px;font-weight:bold;margin-left:20px;color:red;display:inline-block;vertical-align:top;">*</p><p style="font-size:18px;margin-left:10px;display:inline-block;vertical-align:top;">问题答案</p>
+          <p style="font-size:20px;font-weight:bold;margin-left:20px;color:red;display:inline-block;vertical-align:top;">*</p><p style="font-size:18px;margin-left:10px;display:inline-block;vertical-align:top;">正确答案</p>
           <el-input v-model="input2" placeholder="请输入题目答案"></el-input>
         </div>
         <div class="questioreason">
-          <p style="font-size:20px;font-weight:bold;margin-left:20px;color:red;display:inline-block;vertical-align:top;">*</p><p style="font-size:18px;margin-left:10px;display:inline-block;vertical-align:top;">题目特点</p>
+          <p style="font-size:20px;font-weight:bold;margin-left:20px;color:red;display:inline-block;vertical-align:top;">*</p><p style="font-size:18px;margin-left:10px;display:inline-block;vertical-align:top;">其他答案</p>
+          <p>选项1</p>
           <el-input type="textarea" :rows="2" placeholder="请输入您认为题目与什么特点" v-model="textarea1"></el-input>
+          <p>选项2</p>
+          <el-input type="textarea" :rows="2" placeholder="请输入您认为题目与什么特点" v-model="textarea2"></el-input>
+          <p>选项3</p>
+          <el-input type="textarea" :rows="2" placeholder="请输入您认为题目与什么特点" v-model="textarea3"></el-input>
         </div>
-        <div class="questionote">
+        <!-- <div class="questionote">
           <p style="font-size:20px;font-weight:bold;margin-left:20px;color:red;display:inline-block;vertical-align:top;">*</p><p style="font-size:18px;margin-left:10px;display:inline-block;vertical-align:top;">题目备注</p>
           <el-input type="textarea" :rows="2" placeholder="请输入您的备注" v-model="textarea2"></el-input>
-        </div>
+        </div> -->
         <div class="uploadconfirm">
           <el-button id="confirmbutton" @click="openprompt">上传</el-button>
         </div>
@@ -57,9 +62,9 @@
           <div id="closebutton" @click="closekey">×</div>
           <el-descriptions title="题目信息">
             <el-descriptions-item label="问题题目">{{questionname}}</el-descriptions-item>
-            <el-descriptions-item label="问题答案">{{answer}}</el-descriptions-item>
-            <el-descriptions-item label="题目特点">{{characteristic}}</el-descriptions-item>
-            <el-descriptions-item label="题目备注">{{promptcontent}}</el-descriptions-item>
+            <el-descriptions-item label="正确答案">{{answer}}</el-descriptions-item>
+            <el-descriptions-item label="其他选项">{{characteristic}}</el-descriptions-item>
+            <!-- <el-descriptions-item label="题目备注">{{promptcontent}}</el-descriptions-item> -->
             <el-descriptions-item label="图片状态">
               <el-tag size="small">已上传</el-tag>
             </el-descriptions-item>
@@ -217,14 +222,14 @@
 .body{
   overflow-x: hidden;
   margin: 0px;
-  height: 1754px;
+  height: 2054px;
 }
 .slow #back {
   margin-top: 0px;
 }
 .slow{
   width:1280px;
-  height: 1450px;
+  height: 1750px;
   background-color: #fff6e6;
 }
 #word{
@@ -262,6 +267,7 @@
 <script>
 import Header from './Header'
 import Footer from './Footer'
+import axios from 'axios'
 export default {
   name: "uploadone",
   components: {
@@ -270,20 +276,26 @@ export default {
   },
   data() {
     return {
+      testuid:'',
       input1: '',
       input2: '',
       input3: '',
+      textarea3: '',
       textarea2: '',
       textarea1: '',
       promptview: 0,
       questionname: '',
       answer: '',
       characteristic: '',
-      promptcontent: ''
+      promptcontent: '',
+      answeranotherlist:[],
+      fileimg: '',
     }
   },
   mounted() {
-    document.getElementById("img1").src = 'https://s2.loli.net/2022/01/05/E9MFBpY8ZJ7uhdy.png';
+    // document.getElementById("img1").src = 'https://s2.loli.net/2022/01/05/E9MFBpY8ZJ7uhdy.png';
+    this.testuid = this.$cookies.get('uid');//获取cookie，返回 value
+    console.log(this.testuid);
   },
   methods: {
     backgameone() {
@@ -293,6 +305,7 @@ export default {
       var file = event.target.files;
       var reader = new FileReader();//读取文件
       reader.readAsDataURL(file[0]);
+      this.fileimg = file[0];
       reader.onload = function() {
         document.getElementById("img1").src = reader.result;
       };
@@ -306,6 +319,10 @@ export default {
       this.answer = this.input2;
       this.characteristic = this.textarea1;
       this.promptcontent = this.textarea2;
+      this.answeranotherlist[0]=this.textarea1;
+      this.answeranotherlist[1]=this.textarea2;
+      this.answeranotherlist[2]=this.textarea3;
+      console.log(this.answeranotherlist);
     },
     confirm() {
       this.promptview = 0;
@@ -316,6 +333,20 @@ export default {
         showClose: false,
         duration: 1000
       });
+
+      let data = new FormData();
+      console.log(this.testuid);
+      console.log(this.answer);
+      data.append("uid", this.testuid);
+      data.append("question", this.questionname);
+      data.append("answer", this.answer);
+      data.append("selectsions", this.answeranotherlist);
+      data.append("question_image", this.fileimg);
+           console.log(data);
+           axios.post("http://124.70.206.207/contest/uploadQA", data)
+           .then(res=>{
+               console.log(res);
+            })
     }
   }
 }

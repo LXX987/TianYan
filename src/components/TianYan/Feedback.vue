@@ -306,6 +306,7 @@
 <script>
 import Header from './Header'
 import Footer from './Footer'
+import axios from 'axios'
 export default {
   name: "feedback",
   components: {
@@ -314,39 +315,24 @@ export default {
   },
   data() {
     return {
+      testuid:'',
         input:'',
         textarea: ''
     }
   },
   methods: {
       commit() {
-        //   this.$router.push('/feedbacknotice');
-        // console.log(this.textarea);
-        // if(this.textarea!=''&&this.input!=''){
-        // this.$axios({
-        //   method:"post",
-        //   url: 'http://47.102.194.89:8080/feedback/feedback',
-        //   params: {
-        //     feedbackContent: this.textarea,
-        //   },
-        //   headers: { token:window.sessionStorage.getItem("token")},
-        // }).then(res=>{
-        //   console.log(res);
-        //   if(res.data.data.msg == "Success") {
-        //     this.$notify({
-        //   title: '成功',
-        //   message: '反馈成功，感谢您的使用！',
-        //   type: 'success'
-        // });
-        //   }
-        // })}
-        // else {
-        //   this.$notify({
-        //   title: '警告',
-        //   message: '输入不可以为空',
-        //   type: 'warning'
-        // });
-        // }
+        this.testuid = this.$cookies.get('uid');//获取cookie，返回 value
+        console.log(this.testuid);
+        console.log(this.textarea);
+        let data = new FormData();
+      data.append("uid", this.testuid);
+      data.append("content", this.textarea);
+           console.log(data);
+           axios.post("http://124.70.206.207/common/u2a", data)
+           .then(res=>{
+               console.log(res);
+            })
       },
       feedbacknotic() {
           this.$router.push('feedbacknotice');

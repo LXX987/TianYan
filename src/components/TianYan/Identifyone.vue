@@ -26,7 +26,7 @@
             <div class="introcontent">
                 <h3>{{plantname}}</h3>
                 <p>{{plantcontent}}</p>
-                <img src="../../assets/honor.png">
+                <!-- <img src="../../assets/honor.png"> -->
                 <h4 @click="open">您觉得本次识别效果怎么样呢？</h4>
             </div>
             <div class="block" v-show="estimateview">
@@ -54,6 +54,7 @@
     margin-left: 360px;
 }
 .block {
+    position: absolute;
     border-radius: 4px;
     background-color: white;
     border: 2px solid #49866a4b;
@@ -61,6 +62,7 @@
     padding: 20px 40px;
     width: 40%;
     margin-left: 170px;
+    z-index: 999;
 }
 .block .el-slider {
     margin-top: 10px;
@@ -218,14 +220,15 @@ export default {
   },
   data() {
       return {
+        //   filetest:'',
         estimateview: 0,
         value1: 0,
-        plantname: '番茄',
-        plantcontent: '番茄（学名:Lycopersicon esculentum），即西红柿，是 [9]  管状花目、茄科、番茄属的一种一年生或多年生草本植物，体高0.6～2米，全体生粘质腺毛，有强烈气味，茎易倒伏，叶羽状复叶或羽状深裂，花序总梗长2～5厘米，常3～7朵花，花萼辐状，花冠辐状，浆果扁球状或近球状，肉质而多汁液，种子黄色，花果期夏秋季。'
+        plantname: '',
+        plantcontent: ''
       }
   },
   mounted() {
-      document.getElementById("img1").src = require('../../assets/shuidao.jpg')
+      document.getElementById("img1").src = require('../../assets/kongtupian.png')
   },
    methods: {
        backbefore() {
@@ -233,21 +236,28 @@ export default {
        },
        tirggerFile(event) {
                 var file = event.target.files;
+                console.log(file)
+                var filetest = file[0];
                   var reader = new FileReader();//读取文件
                   console.log(reader);
                 reader.readAsDataURL(file[0]);
                    reader.onload = function() {
                  document.getElementById("img1").src = reader.result;
                  console.log(document.getElementById("img1"));
+                 console.log(document.getElementById("img1").src);
+                 console.log(filetest)
             };
 
             let data = new FormData();
-           data.append("image", document.getElementById("img1"));
+           data.append("image", filetest);
            console.log(data);
            axios.post("http://124.70.206.207/contest/identify", data)
            .then(res=>{
                console.log(res);
+               this.plantname = res.data.category;
+               this.plantcontent = res.data.description;
             })
+
        },
        open() {
         this.estimateview = 1;

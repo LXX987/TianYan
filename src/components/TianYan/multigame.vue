@@ -133,6 +133,7 @@
 <script>
 import Header from './Header'
 import Footer from './Footer'
+import axios from 'axios'
 export default {
     name: "multigame",
     components: {
@@ -141,8 +142,11 @@ export default {
   },
   data() {
     return {
-        headpic1: 'https://s2.loli.net/2022/01/06/TN4VmgL9i5pXdRq.png',
-        headpic2: 'https://s2.loli.net/2022/01/06/ghxNeYjOwc3v97K.png',
+        mid:-1,
+        end:0,
+        testuid:'',
+        headpic1: require('../../assets/serviceimg.png'),
+        headpic2: require('../../assets/tihuanpic.png'),
         input: '',
         gamename: '请输入姓名',
         show_pattern_block: 0,
@@ -152,18 +156,67 @@ export default {
     }
   },
     methods: {
+        onClear() {
+                let data = new FormData();
+                // console.log(this.testuid);
+      data.append("uid", this.testuid);
+      data.append("mid", this.mid);
+      data.append("is_end", this.end);
+        //    console.log(data);
+           axios.post("http://124.70.206.207/match/match", data)
+           .then(res=>{
+            //    console.log(i);
+               console.log(res);
+               this.mid = res.data.mid;
+               console.log(res.data.code);
+            })
+        },
         format(percentage) {
         return percentage === 100 ? '满' : `${percentage}%`;
       }
     },
     mounted:function() {
+        this.testuid = this.$cookies.get('uid');//获取cookie，返回 value
+
+        let i;
+        for(i=0;i<30;i++){
+            console.log(i);
+        }
+            
+
+    //     let data = new FormData();
+    //   data.append("uid", this.testuid);
+    //   data.append("mid", this.mid);
+    //   data.append("is_end", 1);
+    //     //    console.log(data);
+    //        axios.post("http://124.70.206.207/match/match", data)
+    //        .then(res=>{
+    //         //    console.log(i);
+    //         console.log("end");
+    //            console.log(res);
+    //            this.mid = res.data.mid;
+    //         })
+        
         //定义定时器开始时间为0
         var progressnuw =0;
         //顶一个定时器
         var timer=setInterval(()=>{
         //变量一直++
-        progressnuw++
-        if(progressnuw == 100) {
+        progressnuw+=0.1;
+        this.onClear();
+        if(progressnuw >= 100) {
+            let data = new FormData();
+      data.append("uid", this.testuid);
+      data.append("mid", this.mid);
+      data.append("is_end", 1);
+        //    console.log(data);
+           axios.post("http://124.70.206.207/match/match", data)
+           .then(res=>{
+            //    console.log(i);
+            console.log("end");
+               console.log(res);
+               this.mid = res.data.mid;
+            })
             this.$router.push('/vs1');
         }
         //清除定时器
@@ -173,9 +226,7 @@ export default {
         //获取重新赋值
         this.loading=progressnuw;
         // format(100);
-        },30)
-        
-        
+        },1)
     }
 
 }

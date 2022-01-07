@@ -85,8 +85,7 @@
                 </div>
                 <el-divider></el-divider>
             </el-tab-pane>
-            <el-tab-pane label="我的记录">
-            </el-tab-pane>
+            
         </el-tabs>
     </div>
     <div class="tian"></div>
@@ -367,6 +366,7 @@ export default {
       avatar: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fq_70%2Cc_zoom%2Cw_640%2Fimages%2F20190203%2F53463928a43447f78a4ff616bd86dbf7.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641135214&t=876527eda6f954bb21ebb63790b74ea9'
     },
           id: '',
+          testuid:'',
           popup: 0,
           logoutview: 0,
           username: "lxt123456",
@@ -392,6 +392,7 @@ export default {
   },
   mounted:function() {
     console.log(this.$route.query.ids);
+    this.testuid = this.$cookies.get('uid');//获取cookie，返回 value
   },
    methods: {
          uploadHeadImg: function () {
@@ -418,6 +419,17 @@ export default {
             type: 'success',
             message: '删除成功!'
           });
+
+          let data = new FormData();
+           data.append("uid", this.testuid);
+           data.append("delete_uid",this.testuid);
+           console.log(data);
+           axios.post("http://124.70.206.207/common/deleteUser", data)
+           .then(res=>{
+               console.log(res);
+            })
+            this.$router.push('/');
+
         }).catch(() => {
           this.$message({
             type: 'info',
@@ -455,7 +467,7 @@ export default {
         console.log(this.ruleForm.oldpass);
         console.log(this.ruleForm.pass);
         let data = new FormData();
-        data.append("uid", this.id);
+        data.append("uid", this.testuid);
         data.append("old_password", this.ruleForm.oldpass);
         data.append("new_password", this.ruleForm.pass);
         console.log(data);

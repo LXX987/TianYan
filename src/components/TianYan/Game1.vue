@@ -263,6 +263,8 @@ export default {
           this.$router.push('/game1page');
       },
       jump_vs() {
+        //   init();
+        //   console.log(666);
           this.$router.push('/multigame');
       },
       jumpback() {
