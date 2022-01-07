@@ -42,7 +42,7 @@
         <div v-for="(item) in resultList" :key="item.index" class="text-item">
             <div class="noticeblock">
                 <h3>通知</h3>
-                <p>{{item.messageHead}}</p>
+                <p>{{item.feedback}}</p>
             </div>
         </div>
     </el-card>
@@ -335,6 +335,7 @@
 <script>
 import Header from './Header'
 import Footer from './Footer'
+import axios from 'axios'
 export default {
   name: "feedbacknotice",
   components: {
@@ -346,6 +347,7 @@ export default {
         input:'',
         textarea:'',
         resultList:[],
+        testuid:'',
     }
   },
   methods: {
@@ -372,7 +374,14 @@ export default {
       }
     },
     mounted:function() {
-        
+        this.testuid = this.$cookies.get('uid');//获取cookie，返回 value
+        let data = new FormData();
+            data.append("uid", this.testuid);
+            console.log(data);
+            axios.post("http://124.70.206.207/common/get_feedback", data)
+            .then(res=>{
+                console.log(res);
+            })
     }
 }
 </script>

@@ -186,14 +186,15 @@ export default {
   },
   data() {
     return {
+        testuid:'',
         id:'',
       rank: '',
-      own_grade: '王者',
+      own_grade: '',
       myown_grade: 10020342,
       gradeList: [{
           gradeicon: require('../../assets/qingtong.png'),
           gradename:"青铜",
-          grade:100,
+          grade:0,
       },
       {
           gradeicon: require('../../assets/baiying.png'),
@@ -227,15 +228,29 @@ export default {
     console.log(this.$route.query.ids);
     this.id = this.$route.query.ids;
     console.log(this.id);
+    this.testuid = this.$cookies.get('uid');//获取cookie，返回 value
 
-    // let data = new FormData();
-    // data.append("uid", this.id);
-    // console.log(data);
-    // axios.post("http://124.70.206.207/record/userRecordsQuery", data)
-    // .then(res=>{
-    //     console.log(res);
-    //      console.log(res.data.records);
-    // })
+    let data = new FormData();
+    data.append("uid", this.testuid);
+    console.log(data);
+    axios.post("http://124.70.206.207/common/getScore", data)
+    .then(res=>{
+        console.log(res);
+        this.myown_grade = res.data.score;
+        console.log(this.myown_grade);
+        if(this.myown_grade < 300) {
+        this.own_grade = "青铜";
+    } else if(this.myown_grade < 500) {
+        this.own_grade = "白银";
+    } else if(this.myown_grade < 800) {
+        this.own_grade = "黄金";
+    } else if(this.myown_grade < 1000) {
+        this.own_grade = "钻石";
+    } else if(this.myown_grade >= 1000) {
+        this.own_grade = "王者";
+    }
+    })
+    
   },
   methods: {
       handleOpen(key, keyPath) {

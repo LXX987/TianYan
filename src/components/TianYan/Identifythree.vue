@@ -220,12 +220,12 @@ export default {
       return {
           estimateview: 0,
         value1: 0,
-        plantname: '稻飞虱',
-        plantcontent: '稻飞虱，属于同翅目(Homoptera)飞虱科(Delphacidae)，俗称蠓子虫、火蠓虫、响虫。以刺吸植株汁液危害水稻等作物。我国为害水稻的飞虱主要有三种：褐飞虱 (Nilaparvata lugens Stal)、白背飞虱 (Sogatella furcifera (Horvath)) 和灰飞虱 (Laodelphax striatellus Fallén)，其中以褐飞虱发生和为害最重，白背飞虱次之。'
+        plantname: '',
+        plantcontent: ''
       }
   },
   mounted() {
-      document.getElementById("img1").src = 'https://s4.aconvert.com/convert/p3r68-cdx67/ab4k3-qe488.png'
+      document.getElementById("img1").src = require('../../assets/kongtupian.png')
   },
    methods: {
        backbefore() {

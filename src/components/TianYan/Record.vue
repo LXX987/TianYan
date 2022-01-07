@@ -60,7 +60,7 @@
              <el-table-column prop="type" label="游戏模式" width="180"></el-table-column>
              <el-table-column prop="nick_name" label="玩家姓名" width="180"></el-table-column>
              <!-- <el-table-column prop="nick_name" label="" width="180"></el-table-column> -->
-             <el-table-column prop="score" label="准确率"></el-table-column>
+             <el-table-column prop="score" label="得分"></el-table-column>
             </el-table>
          </div>
          <div class="honor-img">

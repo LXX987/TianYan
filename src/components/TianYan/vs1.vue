@@ -14,11 +14,11 @@
         <div class="progress_bar">
             <div class="bar" id="bar1">
                 <img class="user1" id="pic1" :src="headpic1" />
-                <el-progress  class="user1" :percentage="50"></el-progress>
+                <el-progress  class="user1" :percentage="per1"></el-progress>
             </div>
             <div class="bar" id="barword">VS</div>
             <div class="bar" id="bar2">
-                <el-progress  class="user2" :percentage="50"></el-progress>
+                <el-progress  class="user2" :percentage="per2"></el-progress>
                 <img class="user2" id="pic2" :src="headpic2" />
             </div>
         </div>
@@ -40,17 +40,21 @@
                 <p>看看最后谁答题正确率最高呢？</p>
             </div>
             <div class="next_question">
-                <el-button v-show="nextshow" @click="changenextquestion" icon="el-icon-right">下一题</el-button>
+                <el-button v-show="nextshow" @click="changenextquestion" icon="el-icon-right">{{wordcontent}}</el-button>
                 <el-button v-show="endshow" @click="endanswer" icon="el-icon-right">结束</el-button>
             </div>
             <h2>第{{question_number}}题</h2>
             <img style="margin-left:320px;" :src="question_pic" />
-            <div v-for="(item) in resultList" :key="item.index" class="text-item">
+            <!-- <div v-for="(item) in resultList" :key="item.index" class="text-item">
             <el-radio v-model="radio" label="1">{{item.select1}}</el-radio>
             <el-radio v-model="radio" label="2">{{item.select2}}</el-radio>
             <el-radio v-model="radio" label="3">{{item.select3}}</el-radio>
             <el-radio v-model="radio" label="4">{{item.select4}}</el-radio>
-            </div>
+            </div> -->
+            <el-radio v-model="radio" label="1">{{select11}}</el-radio>
+            <el-radio v-model="radio" label="2">{{select22}}</el-radio>
+            <el-radio v-model="radio" label="3">{{select33}}</el-radio>
+            <el-radio v-model="radio" label="4">{{select44}}</el-radio>
         </div>
     </div>
     <div class="tian"></div>
@@ -335,27 +339,24 @@ export default {
   },
   data() {
     return {
+        per1:0,
+        per2:0,
+        wordcontent:'下一题',
+        // question_count:1,
+        ownanswer:'',
+        select11:'',
+        select22:'',
+        select33:'',
+        select44:'',
+        qid:-1,
         testuid:'',
         question_pic: require('../../assets/upload_identify_pic.png'),
         question_number: 1,
         input:'',
         radio: '0',
-        resultList:[
-            {
-                select1:'A',
-                select2:'B',
-                select3:'C',
-                select4:'D',
-            }
-        ],
-        // input1: '',
-        // input2: '',
-        // input3: '',
-        // input4: '',
-        // input5: '',
-        // input6: '',
+        resultList:[],
         gameovershow: 0,
-        showintro: 1,
+        showintro: 0,
         // disabledinput1: false,
         // disabledinput2: false,
         // disabledinput3: false,
@@ -376,9 +377,67 @@ export default {
     //   question6: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpfsc.agri.cn%2Fncpflzs%2F201104%2FW020110408374232979423.jpg&refer=http%3A%2F%2Fpfsc.agri.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310816&t=a8a6ebdd86a1d27c257274ec00acaa9e'
     }
   },
+//   created: function () {
+//     setInterval(this.timer, 1000);
+//   },
   methods: {
-      changenextquestion() {
 
+      getper() {
+          let data = new FormData();
+          data.append("uid",this.testuid);
+        console.log(data);
+        axios.post("http://124.70.206.207/match/getStatus", data)
+        .then(res=>{
+            console.log(res);
+            this.per2 = res.data.progress2 * 10;
+        })
+      },
+      changenextquestion() {
+          console.log(this.radio);
+          if(this.radio==1) {
+              this.ownanswer = this.select11;
+          } else if(this.radio ==2 ) {
+              this.ownanswer = this.select22;
+          } else if(this.radio == 3) {
+              this.ownanswer = this.select33;
+          } else if(this.radio == 4) {
+              this.ownanswer = this.select44;
+          }
+          let data = new FormData();
+          data.append("uid",this.testuid);
+        data.append("qid",this.qid);
+        data.append("answer",this.ownanswer);
+        console.log(data);
+        axios.post("http://124.70.206.207/match/check", data)
+        .then(res=>{
+            console.log(res);
+            this.radio = 0;
+        })
+        this.question_number += 1;
+        this.per1 += 10;
+        if(this.question_number == 10) {
+            //换到结束
+            this.wordcontent = '结束';
+        }
+        if(this.question_number == 11) {
+            //跳转
+            this.$router.push('/gameresult3');
+        }
+        let data1 = new FormData();
+        data.append("qid",this.qid);
+        console.log(data1);
+        axios.post("http://124.70.206.207/match/getQuestion", data)
+        .then(res=>{
+            console.log(res)
+            this.qid = res.data.qid;
+            this.resultList = res.data.selection;
+            console.log(this.resultList);
+            this.select11 = this.resultList[0];
+            this.select22 = this.resultList[1];
+            this.select33 = this.resultList[2];
+            this.select44 = this.resultList[3];
+            this.question_pic = res.data.url;
+        })
       },
       endanswer() {
 
@@ -426,17 +485,36 @@ export default {
         var timer=setInterval(()=>{
         //变量一直++
         progressnuw++
+        this.getper();
+        console.log(666);
         if(progressnuw == 100) {
-            this.showintro = 0;
+            // this.showintro = 0;
         }
         //清除定时器
-        if(progressnuw>= 100){
-            clearInterval(timer);
-        }
+        // if(progressnuw>= 100){
+        //     clearInterval(timer);
+        // }
         //获取重新赋值
         this.loading=progressnuw;
         // format(100);
-        },10)
+        },1000)
+    
+
+        let data = new FormData();
+        data.append("qid",this.qid);
+        console.log(data);
+        axios.post("http://124.70.206.207/match/getQuestion", data)
+        .then(res=>{
+            console.log(res)
+            this.qid = res.data.qid;
+            this.resultList = res.data.selection;
+            console.log(this.resultList);
+            this.select11 = this.resultList[0];
+            this.select22 = this.resultList[1];
+            this.select33 = this.resultList[2];
+            this.select44 = this.resultList[3];
+            this.question_pic = res.data.url;
+        })
 
     //     let data = new FormData();
     //   data.append("uid", this.testuid);

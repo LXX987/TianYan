@@ -32,7 +32,7 @@
             <div class="block" v-show="estimateview">
                 <div id="closebutton" @click="closekey">×</div>
                         <h5 style="margin-top: 5px;">请为本次识别结果准确度打分，以帮助我们更好的改进产品，谢谢您的参与!</h5>
-                      <el-slider v-model="value1" :step="1" :max="10"></el-slider>
+                      <el-slider v-model="value1" :step="1" :max="5"></el-slider>
                       <el-button @click="commitbutton" style="margin: 5px 120px;">确认</el-button>
             </div>
         </div>
@@ -220,6 +220,7 @@ export default {
   },
   data() {
       return {
+          picid:-1,
         //   filetest:'',
         estimateview: 0,
         value1: 0,
@@ -256,6 +257,7 @@ export default {
                console.log(res);
                this.plantname = res.data.category;
                this.plantcontent = res.data.description;
+               this.picid = res.data.id;
             })
 
        },
@@ -269,6 +271,17 @@ export default {
       },
       commitbutton() {
           this.estimateview = 0;
+          console.log(this.value1);
+            let data = new FormData();
+           data.append("id", this.picid);
+           data.append("mark", this.value1);
+           console.log(data);
+           axios.post("http://124.70.206.207/contest/mark", data)
+           .then(res=>{
+               console.log(res);
+            })
+
+
           this.$notify({
           title: '成功',
           message: '感谢您的打分！',

@@ -142,6 +142,7 @@ export default {
   },
   data() {
     return {
+        code:-1,
         mid:-1,
         end:0,
         testuid:'',
@@ -169,6 +170,10 @@ export default {
                console.log(res);
                this.mid = res.data.mid;
                console.log(res.data.code);
+               if(res.data.code == 0) {
+                   //跳转
+                   this.$router.push('/vs1');
+               }
             })
         },
         format(percentage) {
@@ -202,9 +207,9 @@ export default {
         //顶一个定时器
         var timer=setInterval(()=>{
         //变量一直++
-        progressnuw+=0.1;
+        progressnuw+=1;
         this.onClear();
-        if(progressnuw >= 100) {
+        if(progressnuw == 100) {
             let data = new FormData();
       data.append("uid", this.testuid);
       data.append("mid", this.mid);
@@ -217,7 +222,12 @@ export default {
                console.log(res);
                this.mid = res.data.mid;
             })
-            this.$router.push('/vs1');
+            if(res.data.code == 1) {
+                alert("匹配失败");
+                this.$router.push('/game1')
+            }
+            
+            // this.$router.push('/vs1');
         }
         //清除定时器
         if(progressnuw>=100){
@@ -226,7 +236,7 @@ export default {
         //获取重新赋值
         this.loading=progressnuw;
         // format(100);
-        },1)
+        },500)
     }
 
 }

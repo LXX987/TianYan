@@ -23,7 +23,7 @@
               <div class="section-word">
                 识别
                 <div class="section_buttom">
-                  <a href="http://www.baidu.com" style="font-size:15px;line-height: 20px;text-decoration:none">identify your pictures</a>
+                  <a href="http://www.baidu.com" style="font-size:19px;line-height: 20px;text-decoration:none">识别图片</a>
                 </div>
               </div>
             </div>
@@ -32,7 +32,7 @@
               <div class="section-word">
                 游戏
                 <div class="section_buttom">
-                  <a href="#" style="font-size:19px;line-height: 20px;text-decoration:none" @click="gameparams">start funny games</a>
+                  <a href="#" style="font-size:19px;line-height: 20px;text-decoration:none" @click="gameparams">开始游戏</a>
                 </div>
               </div>
             </div>
@@ -41,32 +41,32 @@
               <div class="section-word">
                 反馈
                 <div class="section_buttom">
-                  <a href="http://www.baidu.com" style="font-size:18px;line-height: 20px;text-decoration:none">give valuable advice</a>
+                  <a href="http://www.baidu.com" style="font-size:19px;line-height: 20px;text-decoration:none">反馈</a>
                 </div>
               </div>
             </div>
           </div>
           <br>
           <div class="main-introduction">
-            <p style="font-size:35px;margin-left:11%;">
+            <p style="font-size:35px;margin-left:11%;font-family: cursive;">
               <br>
-              Document Scanning & Document Imaging
+              趣味科普 & 教育
             </p>
-            <p style="font-size:18px;margin-left:11%;width:80%">
-              Reap the rewards of going paperless. Pioneer Records Management provides Document Scanning, Document Imaging, Document Management, and Document Storage services for a wide range of businesses and organizations throughout Florida, including Orlando, Tampa, and Daytona Beach. Contact Pioneer Records Management today to learn how your business can start benefiting from a paper-free workplace.
+            <p style="font-size:21px;margin-left:11%;width:80%;font-family: cursive;">
+              趣味农作物科普知识教育平台是一个集农作物科普、教育与趣味游戏体验一体化的智能平台，帮助每一个想要了解农作物的人去学习更多的农作物知识
             </p>
-            <p style="font-size:35px;margin-left:11%;">
-              Our Services & Products
+            <p style="font-size:35px;margin-left:11%;font-family: cursive;">
+              图片识别 & 知识科普
             </p>
             <div class="product-word">
               <div class="product">
-                <p>Document Scanning and Imaging</p>
-                <p style="font-size:15px;">We utilize the very latest Document Imaging Technology and Software and Document Scanning equipment, to provide our customers with proven, cost effective solutions to their Document Storage challenges.</p>
+                <p style="font-size:21px;font-family: cursive;">机器学习</p>
+                <p style="font-size:21px;font-family: cursive;">通过机器学习进行图片识别，精准回答农作物图片的种类，健康程度等相关知识</p>
                 <a href="http://www.baidu.com" style="color:white;text-decoration:none;" id="intro-buttom">identity</a>
               </div>
               <div class="product">
-                <p>Document Management</p>
-                <p style="font-size:15px;">With Enterprise Content Management services from Pioneer Records Management, you can turn your paper documents into searchable, instantly accessible information, that is ready when you need it.</p>
+                <p style="font-size:21px;font-family: cursive;">寓教于乐</p>
+                <p style="font-size:21px;font-family: cursive;">在平台中，我们采用游戏与学习相结合的方式，让每一位先要了解农作物知识的人在学习的过程中不在感受到枯燥，充满乐趣</p>
                 <a href="http://www.baidu.com" style="color:white;text-decoration:none;" id="intro-buttom">game</a>
               </div>
             </div>
@@ -301,6 +301,7 @@ div#userid {
 </style>
 <script>
 import Header from './Header'
+import axios from 'axios'
 export default {
     name: "Home",
     components: {
@@ -308,7 +309,8 @@ export default {
     },
     data() {
       return {
-        id: ''
+        id: '',
+        qid:-1,
       }
     },
     mounted:function() {
@@ -322,7 +324,20 @@ export default {
       this.$router.push({ name: 'gameintro',query:{ids:this.id} });
     },
     jumpidentify() {
-      this.$router.push('/identify');
+      // // this.$router.push('/identify');
+      // let data = new FormData();
+      //       data.append("qid", this.qid);
+      //       // data.append("email_captcha", this.emailcode);
+      //       // data.append("email", this.useremail);
+      //       // // data.append("captcha_input", this.inputcode);
+      //       // data.append("password", this.password);
+      //       // data.append("pwd_verification", this.password);
+      //       // // data.append("captcha_hashkey", this.codehash);
+      //       // console.log(data);
+      //       axios.post("http://124.70.206.207/match/getQuestion", data)
+      //       .then(res=>{
+      //         console.log(res)
+      //       })
     }
     }
 }

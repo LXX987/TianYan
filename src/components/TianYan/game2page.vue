@@ -26,20 +26,20 @@
               <p>题目数：</p><p style="margin-left:55px;font-size:20px;color:rgb(228, 167, 80)">{{questionnumber}}</p><p>说明：</p><p style="margin-left:55px;">依据题目内容，选择对应农作物种类的图片，作答结束，点击提交按钮即可查看结果。</p>
               <el-divider></el-divider>
               <h3>1.【选择题】（2分）</h3>
-              <h style="color:#ff5722;margin-left:50px;font-size:25px;">题目：玉米</h>
+              <h style="color:#ff5722;margin-left:50px;font-size:25px;">题目：胡萝卜</h>
               <h3 style="margin-left: 50px;">请选择答案：</h3>
               <el-row style="left:-150px;">
                 <el-col span="6">
                   <img :src="question1"/>
                 </el-col>
                 <el-col span="6">
-                  <img :src="question1"/>
+                  <img :src="question2"/>
                 </el-col>
                 <el-col span="6">
-                  <img :src="question1"/>
+                  <img :src="question3"/>
                 </el-col>
                 <el-col span="6">
-                  <img :src="question1"/>
+                  <img :src="question4"/>
                 </el-col>
               </el-row>
 
@@ -163,7 +163,7 @@
               <el-divider></el-divider>
 
               <h3>5.【选择题】（2分）</h3>
-              <h style="color:#ff5722;margin-left:50px;font-size:25px;">题目：玉米</h>
+              <h style="color:#ff5722;margin-left:50px;font-size:25px;">题目：胡萝卜</h>
               <h3 style="margin-left: 50px;">请选择答案：</h3>
               <el-row style="left:-150px;">
                 <el-col span="6">
@@ -415,12 +415,12 @@ export default {
       input4: '',
       input5: '',
       input6: '',
-      radio1:'1',
-      radio2:'2',
-      radio3:'3',
-      radio4:'4',
-      radio5:'5',
-      radio6:'6',
+      radio1:'0',
+      radio2:'0',
+      radio3:'0',
+      radio4:'0',
+      radio5:'0',
+      radio6:'0',
       gameovershow: 0,
       disabledinput1: false,
       disabledinput2: false,
@@ -430,7 +430,7 @@ export default {
       disabledinput6: false,
       disabledbutton: false,
       questionnumber: '6',
-      question1: 'http://inews.gtimg.com/newsapp_match/0/10351417074/0.jpg',
+      question1: reuqire('../../assets/pic1.png'),
       question2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg010.hc360.cn%2Fm3%2FM01%2FE2%2F46%2FwKhQ5lTS1cWERqlbAAAAAF5XH74692.jpg&refer=http%3A%2F%2Fimg010.hc360.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=9b751b4f2aa4c552d9f8c183b2d787ca',
       question3: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg004.hc360.cn%2Fm7%2FM03%2F00%2F1B%2FwKhQo1XC20yEdNTfAAAAAHqzUFA421.jpg&refer=http%3A%2F%2Fimg004.hc360.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=9b32908147c78576377e42b390fb1091',
       question4: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg3.99114.com%2Fgroup1%2FM00%2FD5%2F69%2FwKgGTFaoWhWASgh0AAPEqd5Qb0Y760.jpg&refer=http%3A%2F%2Fimg3.99114.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=1c36309ca5f67e40b8f333844d6cef66',

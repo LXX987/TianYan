@@ -319,9 +319,12 @@ export default {
       this.answer = this.input2;
       this.characteristic = this.textarea1;
       this.promptcontent = this.textarea2;
-      this.answeranotherlist[0]=this.textarea1;
-      this.answeranotherlist[1]=this.textarea2;
-      this.answeranotherlist[2]=this.textarea3;
+      // this.answeranotherlist.push(this.textarea1);
+      // this.answeranotherlist.push(this.textarea2);
+      // this.answeranotherlist.push(this.textarea3);
+      // this.answeranotherlist.append("0",this.textarea1);
+      // this.answeranotherlist.append("1",this.textarea2);
+      // this.answeranotherlist.append("2",this.textarea3);
       console.log(this.answeranotherlist);
     },
     confirm() {
@@ -340,7 +343,10 @@ export default {
       data.append("uid", this.testuid);
       data.append("question", this.questionname);
       data.append("answer", this.answer);
-      data.append("selectsions", this.answeranotherlist);
+      // data.append("selectsions", this.answeranotherlist);
+      data.append("selection1", this.textarea1);
+      data.append("selection2", this.textarea2);
+      data.append("selection3", this.textarea3);
       data.append("question_image", this.fileimg);
            console.log(data);
            axios.post("http://124.70.206.207/contest/uploadQA", data)

@@ -14,7 +14,7 @@
     },
     props: {
       remainTime: {    // 倒计时间总秒数
-        default: '30'
+        default: '3000000'
       }
     },
     mounted () {

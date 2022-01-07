@@ -24,7 +24,7 @@
     </div>
 </div>
 </template>
- scoped>
+<style scoped>
 .el-button:active {
     color: #67c23a;
     border-color: #67c23a70;
@@ -204,7 +204,7 @@ export default {
             data.append("pwd_verification", this.password);
             // data.append("captcha_hashkey", this.codehash);
             console.log(data);
-            axios.post("http://127.0.0.1:8081/register/checkAccount", data)
+            axios.post("http://124.70.206.207/register/checkAccount", data)
             .then(res=>{
                 console.log(res);
             })
@@ -233,24 +233,29 @@ export default {
         //     })
         // },
         login() {
+            
             let data = new FormData();
-            data.append("name", this.username);
             data.append("email", this.useremail);
-            // data.append("captcha_input", this.inputcode);
-            data.append("password", this.password);
-            data.append("pwd_verification", this.password);
-            // data.append("captcha_hashkey", this.codehash);
-            console.log(data);
-            axios.post("http://127.0.0.1:8081/register/checkAccount", data)
+            data.append("email_captcha", this.emailcode);
+            // data.append("email", this.useremail);
+            // // data.append("captcha_input", this.inputcode);
+            // data.append("password", this.password);
+            // data.append("pwd_verification", this.password);
+            // // data.append("captcha_hashkey", this.codehash);
+            // console.log(data);
+            axios.post("http://124.70.206.207/register/verificationEmailCaptcha", data)
             .then(res=>{
                 console.log(res);
-                this.userid = res.data.uid;
-                // console.log(this.userid);
                 if(res.data.code == 0) {
-                    // this.$router.push('/home');
-                    this.$router.push({ name: 'login',query:{ids:this.userid} });
-                    // this.$options.methods.jumphome(this.userid);
+                    this.$router.push("/");
                 }
+            //     this.userid = res.data.uid;
+            //     // console.log(this.userid);
+            //     if(res.data.code == 0) {
+            //         // this.$router.push('/home');
+            //         this.$router.push({ name: 'login',query:{ids:this.userid} });
+            //         // this.$options.methods.jumphome(this.userid);
+            //     }
             })
         },
     }

@@ -55,7 +55,7 @@
          <el-divider></el-divider>
          <span>
              <div class="own-rank-block">
-             <h3 style="text-align:center;font-family:cursive;font-weight: bold;">我的排名：第{{rank}}名</h3>
+             <!-- <h3 style="text-align:center;font-family:cursive;font-weight: bold;">我的排名：第{{rank}}名</h3> -->
              </div>
          </span>
          <br>
@@ -66,21 +66,17 @@
       <el-table-column
         prop="time"
         label="游戏日期"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="rid"
-        label="排名"
-        width="180">
+        width="280">
       </el-table-column>
       <el-table-column
         prop="nick_name"
         label="玩家姓名"
-        width="180">
+        width="280">
       </el-table-column>
       <el-table-column
         prop="score"
-        label="分值">
+        label="分值"
+        width="180">
       </el-table-column>
     </el-table>
          </div>  

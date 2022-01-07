@@ -25,6 +25,7 @@ import Uploadtwo from '@/components/TianYan/Uploadtwo'
 import Feedback from '@/components/TianYan/Feedback'
 import Gameresult1 from '@/components/TianYan/Gameresult1'
 import Gameresult2 from '@/components/TianYan/Gameresult2'
+import Gameresult3 from '@/components/TianYan/Gameresult3'
 import AccuracyCount from '@/components/TianYan/Administrator/AccuracyCount'
 import Admin from '@/components/TianYan/Administrator/Admin'
 import Check from '@/components/TianYan/Administrator/Check'
@@ -67,6 +68,7 @@ export default new Router({
     {path:'/feedback',name: 'feedback',component:Feedback},
     {path:'/gameresult1',name: 'gameresult1',component:Gameresult1},
     {path:'/gameresult2',name: 'gameresult2',component:Gameresult2},
+    {path:'/gameresult3',name: 'gameresult3',component:Gameresult3},
     {path:'/admin',name:'admin',component:Admin},
     {path:'/accuracycount',name:'accuracycount',component:AccuracyCount},
     {path:'/check',name:'check',component:Check},

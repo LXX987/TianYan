@@ -20,8 +20,8 @@
                 </div>
                 <div class="user1">
                     <h3 style="margin-left:180px;margin-top:-10px;">{{name_1}}</h3>
-                    <h4 style="margin-left:140px;">共计时间：{{score1}}秒</h4>
-                    <h4 style="margin-left:150px;">正确率：{{correct_number1}}/{{question_number}}</h4>
+                    <!-- <h4 style="margin-left:140px;">共计时间：{{score1}}秒</h4> -->
+                    <h4 style="margin-left:150px;">得分：{{score1}}</h4>
                     <img id="crown11" src="../../assets/successsful.png" v-show="win1view"/>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                 <div class="user2">
                     <h3 style="margin-left:180px;margin-top:-10px;">{{name_2}}</h3>
                     <h4 style="margin-left:140px;">共计时间：{{score2}}秒</h4>
-                    <h4 style="margin-left:150px;">正确率：{{correct_number2}}/{{question_number}}</h4>
+                    <h4 style="margin-left:150px;">得分：{{score2}}</h4>
                     <img id="crown22" src="../../assets/successsful.png" v-show="win2view"/>
                 </div>
             </div>
@@ -205,18 +205,20 @@ import Header from './Header'
 import Footer from './Footer'
 import axios from 'axios'
 export default {
-  name: "gameresult1",
+  name: "gameresult3",
   components: {
     Header,
     Footer,
   },
   data() {
       return {
+          testuid:'',
+          per2:'',
           id: '',
           name_1: '小易',
           name_2: '小济',
-          score1: 12,
-          score2: 14,
+          score1: 0,
+          score2: 0,
           win1view: 0,
           win2view: 0,
           correct_number1: 2,
@@ -231,12 +233,36 @@ export default {
       }
   },
   mounted: function() {
+      this.testuid = this.$cookies.get('uid');//获取cookie，返回 value
+        //定义定时器开始时间为0
+        var progressnuw =0;
+        //顶一个定时器
+        var timer=setInterval(()=>{
+        //变量一直++
+        progressnuw++
+        this.getper();
+        // console.log(666);
+        if(this.per2 == 100 ){
+        //     let data = new FormData();
+        //   data.append("uid",this.testuid);
+        // console.log(data);
+        // axios.post("http://124.70.206.207/match/delete", data)
+        // .then(res=>{
+        //     console.log(res);
+        // })
+        }
+        // if(progressnuw == 100) {
+        //     // this.showintro = 0;
+        // }
+        //清除定时器
+        // if(progressnuw>= 100){
+        //     clearInterval(timer);
+        // }
+        //获取重新赋值
+        this.loading=progressnuw;
+        // format(100);
+        },1000)
 
-      
-        axios.post("http://124.70.206.207/contest/getScore")
-        .then(res=>{
-            console.log(res);
-        })
     //   if(this.correct_number1>this.correct_number2) {
     //       this.win1view = 1;
     //       this.win2view = 0;
@@ -247,7 +273,28 @@ export default {
     //   }
   },
    methods: {
+       getper() {
+          let data = new FormData();
+          data.append("uid",this.testuid);
+        console.log(data);
+        axios.post("http://124.70.206.207/match/getStatus", data)
+        .then(res=>{
+            console.log(res);
+            this.per2 = res.data.progress2 * 10;
+            this.score1 = res.data.score1;
+            this.score2 = res.data.score2;
+            this.name_1 = res.data.user1;
+            this.name_2 = res.data.user2;
+        })
+      },
        backmain() {
+           let data = new FormData();
+          data.append("uid",this.testuid);
+        console.log(data);
+        axios.post("http://124.70.206.207/match/delete", data)
+        .then(res=>{
+            console.log(res);
+        })
            this.$router.push('/gameintro');
        }
     //   recordid() {
