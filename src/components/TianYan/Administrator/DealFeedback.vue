@@ -71,29 +71,37 @@ export default{
   },
   data(){
     return{
-      feedback:[],
+      feedback:[
+        {
+          name:'11',
+          time:'111',
+          IsFeedbackShow:false,
+          finish:'确认',
+          send:"el-icon-circle-check"
+        }
+      ],
       readonly:true,
     }
   },
   mounted() {
-    getFeedback().then(res =>{
-      let feedbacks = res.data.feedback
-      for(let i=0; i<feedbacks.length; i++){
-        this.feedback.push({
-          name: feedbacks[i].user_name,
-          time: feedbacks[i].time,
-          content:feedbacks[i].content,
-          fid: feedbacks[i].fid,
-          IsFeedbackShow:false,
-          IsFeedbackSend:false,
-          reply:'',
-          finish:"确认",
-          send:"el-icon-message",
-        })
-      }
-    }).catch(function (error) {
-      console.log(error)
-    });
+    // getFeedback().then(res =>{
+    //   let feedbacks = res.data.feedback
+    //   for(let i=0; i<feedbacks.length; i++){
+    //     this.feedback.push({
+    //       name: feedbacks[i].user_name,
+    //       time: feedbacks[i].time,
+    //       content:feedbacks[i].content,
+    //       fid: feedbacks[i].fid,
+    //       IsFeedbackShow:false,
+    //       IsFeedbackSend:false,
+    //       reply:'',
+    //       finish:"确认",
+    //       send:"el-icon-message",
+    //     })
+    //   }
+    // }).catch(function (error) {
+    //   console.log(error)
+    // });
   },
   methods: {
     clickreply:function(item){
@@ -102,18 +110,18 @@ export default{
     clickignore:function(item){
       item.IsFeedbackShow=false;
     },
-    clickfinish:function(item){
-      if(item.finish==="确认"){
-        feedback(item.name, item.reply, item.fid).then(res =>{
-          alert("发送成功")
-        }).catch(function (error) {
-          console.log(error)
-        });
-        item.IsFeedbackSend=true;
-      }
-      item.finish="完成";
-      item.send="el-icon-circle-check";
-    },
+    // clickfinish:function(item){
+    //   if(item.finish==="确认"){
+    //     feedback(item.name, item.reply, item.fid).then(res =>{
+    //       alert("发送成功")
+    //     }).catch(function (error) {
+    //       console.log(error)
+    //     });
+    //     item.IsFeedbackSend=true;
+    //   }
+    //   item.finish="完成";
+    //   item.send="el-icon-circle-check";
+    // },
     clickcancel:function(item){
       if(item.finish=="完成"){
         item.finish="确认";

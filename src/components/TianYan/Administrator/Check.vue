@@ -43,28 +43,6 @@
               </el-input>
 
               <p></p>
-              <h style="margin-left:20px;">问题特点</h>
-              <el-input
-                type="textarea"
-                autosize
-                v-model="item.feature"
-                readonly
-                class="input-border"
-                style="width:600px;margin-top:5px;margin-left:20px;"
-              >
-              </el-input>
-
-              <p></p>
-              <h style="margin-left:20px;">问题备注</h>
-              <el-input
-                type="textarea"
-                autosize
-                v-model="item.remark"
-                readonly
-                class="input-border"
-                style="width:600px;margin-top:5px;margin-left:20px;"
-              >
-              </el-input>
 
               <div class="operate">
                 <span style="margin:10px;">
@@ -109,40 +87,30 @@ export default {
         time:'2021.1.1',
         title:'种子',
         answer:'key',
-        feature:'ke',
-        remark:'11',
         photourl:require('../../../assets/section1.png')
       },{
         name:'111',
         time:'2021.1.1',
         title:'11',
         answer:'1',
-        feature:'1',
-        remark:'1',
         photourl:require('../../../assets/section1.png')
       },{
         name:'111',
         time:'2021.1.1',
         title:'11',
         answer:'1',
-        feature:'1',
-        remark:'1',
         photourl:require('../../../assets/section1.png')
       },{
         name:'111',
         time:'2021.1.1',
         title:'11',
         answer:'1',
-        feature:'1',
-        remark:'1',
         photourl:require('../../../assets/section1.png')
       },{
         name:'111',
         time:'2021.1.1',
         title:'11',
         answer:'1',
-        feature:'1',
-        remark:'1',
         photourl:require('../../../assets/section1.png')
       }
       ]
