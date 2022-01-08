@@ -30,17 +30,22 @@
 <script>
 import Header from './Header'
 import AdminSidebar from './AdminSidebar'
+import axios from 'axios'
 export default {
   name: 'AccuracyCount',
   components:{Header,AdminSidebar},
   methods:{
     drawNumber(){
-      let number=this.$echarts.init(document.getElementById('number'))
+      
+            axios.post("http://124.70.206.207/contest/getIdentifyMark")
+            .then(res=>{
+                console.log(res);
+                let number=this.$echarts.init(document.getElementById('number'))
       number.setOption({
         title:{text:'不同作物的识别评分',left:'center'},
         tooltip:{},
         xAxis:{
-          data:["大豆","西红柿","茄子","土豆","玉米"]
+          data:[res.data.data[0].name,res.data.data[1].name,res.data.data[2].name,res.data.data[3].name,res.data.data[4].name]
         },
         yAxis:{
         },
@@ -49,14 +54,18 @@ export default {
           type:'bar',
           barWidth:'50%',
           data:[
-            {value:9,itemStyle:{color:'#4db6ac'}},
-            {value:5,itemStyle:{color:'#d32f2f'}},
-            {value:2,itemStyle:{color:'#7b1fa2'}},
-            {value:6,itemStyle:{color:'#ffa000'}},
-            {value:8,itemStyle:{color:'#ffd600'}}
+            {value:res.data.data[0].mark,itemStyle:{color:'#4db6ac'}},
+            {value:res.data.data[1].mark,itemStyle:{color:'#d32f2f'}},
+            {value:res.data.data[2].mark,itemStyle:{color:'#7b1fa2'}},
+            {value:res.data.data[3].mark,itemStyle:{color:'#ffa000'}},
+            {value:res.data.data[4].mark,itemStyle:{color:'#ffd600'}}
           ]
         }]
       })
+            })
+
+
+      
     },
     drawPie(){
       let proportion=this.$echarts.init(document.getElementById('proportion'))

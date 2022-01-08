@@ -30,6 +30,7 @@
 <script>
 import Header from './Header'
 import AdminSidebar from './AdminSidebar'
+import axios from 'axios'
 export default {
   name: 'IdentifyCount',
   components:{Header,AdminSidebar},
@@ -159,7 +160,24 @@ export default {
       })
     },
     drawIdentifyNumber(){
-      let identifynumber=this.$echarts.init(document.getElementById('identifynumber'))
+      // let class1,class2,class3,class4,name1,name2,name3,name4;
+
+      
+            axios.post("http://124.70.206.207/contest/getIdentifyCount")
+            .then(res=>{
+                console.log(res);
+                console.log(res.data.data[0].name)
+                console.log(res.data.data[3].times+1)
+                  this.name1 = res.data.data[0].name;
+                  this.name2 = res.data.data[1].name;
+                  this.name3 = res.data.data[2].name;
+                  this.name4 = res.data.data[3].name;
+                  this.class1 = res.data.data[0].times+1;
+                  console.log(this.class1)
+                  this.class2 = res.data.data[1].times+1;
+                  this.class3 = res.data.data[2].times+1;
+                  this.class4 = res.data.data[3].times+1;
+                    let identifynumber=this.$echarts.init(document.getElementById('identifynumber'))
       identifynumber.setOption({
         title: {
           text: '不同农作物的识别次数',
@@ -180,10 +198,10 @@ export default {
             radius: '50%',
             top:'11%',
             data: [
-              { value: 580, name: '大豆',itemStyle:{color:'#0277bd'}},
-              { value: 484, name: '西红柿' },
-              { value: 300, name: '土豆' },
-              {value:220,name:'茄子',itemStyle:{color:'#e64a19'}}
+              { value: this.class1, name: this.name1 ,itemStyle:{color:'#0277bd'}},
+              { value: this.class2, name: this.name2 },
+              { value: this.class3, name: this.name3 },
+              { value: this.class4, name: this.name4 ,itemStyle:{color:'#e64a19'}}
             ],
             emphasis: {
               itemStyle: {
@@ -195,6 +213,9 @@ export default {
           }
         ]
       })
+            })
+            console.log(this.class1);
+    
     }
   },
   mounted(){
@@ -203,6 +224,7 @@ export default {
   },
   data(){
     return {
+      class1:0,class2:0,class3:0,class4:0,name1:'',name2:'',name3:'',name4:'',
       input:'',
     }
   },

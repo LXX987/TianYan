@@ -381,6 +381,7 @@ export default {
             axios.post("http://124.70.206.207/common/get_feedback", data)
             .then(res=>{
                 console.log(res);
+                this.resultList = res.data.feedback;
             })
     }
 }

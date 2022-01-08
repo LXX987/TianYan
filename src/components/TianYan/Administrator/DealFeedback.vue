@@ -64,6 +64,7 @@
 <script>
 import Header from './Header'
 import AdminSidebar from './AdminSidebar'
+import axios from 'axios'
 export default{
   name:"DealFeedback",
   components:{
@@ -71,37 +72,30 @@ export default{
   },
   data(){
     return{
-      feedback:[
-        {
-          name:'11',
-          time:'111',
-          IsFeedbackShow:false,
-          finish:'确认',
-          send:"el-icon-circle-check"
-        }
-      ],
+      feedback:[],
       readonly:true,
     }
   },
-  mounted() {
-    // getFeedback().then(res =>{
-    //   let feedbacks = res.data.feedback
-    //   for(let i=0; i<feedbacks.length; i++){
-    //     this.feedback.push({
-    //       name: feedbacks[i].user_name,
-    //       time: feedbacks[i].time,
-    //       content:feedbacks[i].content,
-    //       fid: feedbacks[i].fid,
-    //       IsFeedbackShow:false,
-    //       IsFeedbackSend:false,
-    //       reply:'',
-    //       finish:"确认",
-    //       send:"el-icon-message",
-    //     })
-    //   }
-    // }).catch(function (error) {
-    //   console.log(error)
-    // });
+  mounted:function() {
+    // this.$axios.post("http://124.70.206.207/common/get_feedback_ad", {
+    //         }).then( res=> {
+    //             console.log (res)
+    //         })
+    
+           axios.post("http://124.70.206.207/common/getFeedbackAdmin")
+           .then(res=>{
+               console.log(res);
+               for(let i=0; i<res.data.feedback.length; i++){
+                 this.feedback.push({
+                      fid: res.data.feedback[i].fid,
+                      content: res.data.feedback[i].content,
+                      IsFeedbackShow:false,
+                      finish:'确认',
+                      send:"el-icon-circle-check"
+                 })
+               }
+               
+            })
   },
   methods: {
     clickreply:function(item){
@@ -110,18 +104,26 @@ export default{
     clickignore:function(item){
       item.IsFeedbackShow=false;
     },
-    // clickfinish:function(item){
-    //   if(item.finish==="确认"){
-    //     feedback(item.name, item.reply, item.fid).then(res =>{
-    //       alert("发送成功")
-    //     }).catch(function (error) {
-    //       console.log(error)
-    //     });
-    //     item.IsFeedbackSend=true;
-    //   }
-    //   item.finish="完成";
-    //   item.send="el-icon-circle-check";
-    // },
+    clickfinish:function(item){
+      let data = new FormData();
+            data.append("fid", item.fid);
+            data.append("content", item.reply);
+            console.log(data);
+            axios.post("http://124.70.206.207/common/a2u", data)
+            .then(res=>{
+                console.log(res);
+            })
+      // if(item.finish==="确认"){
+      //   feedback(item.name, item.reply, item.fid).then(res =>{
+      //     alert("发送成功")
+      //   }).catch(function (error) {
+      //     console.log(error)
+      //   });
+      //   item.IsFeedbackSend=true;
+      // }
+      // item.finish="完成";
+      // item.send="el-icon-circle-check";
+    },
     clickcancel:function(item){
       if(item.finish=="完成"){
         item.finish="确认";
