@@ -38,7 +38,7 @@
                   <el-button type="primary" icon="el-icon-edit" size="mini" @click="clickchangeaw(item)">修改</el-button>
                 </span>
                 <span style="margin:10px;">
-                  <el-button type="danger" icon="el-icon-check" size="mini" @click="clickconfirm(item)">确认</el-button>
+                  <el-button type="danger" icon="el-icon-check" size="mini" @click="clickyes">确认</el-button>
                 </span>
               </div>
               <el-dialog
@@ -262,7 +262,14 @@ export default {
     },
     clickasno(item){
       item.showasdialogue=false;
-    }
+    },
+
+    clickyes(){
+      this.$message({
+        message:"正确！",
+        type:'success'
+      })
+    },
 
 
   },

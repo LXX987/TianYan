@@ -10,11 +10,11 @@
         </el-card>
         <el-card class="box-card2" style="background-color: #26c6da">
           <i class="el-icon-top" style="font-size:50px;margin-top:20px;"></i>
-          <h style="font-size:45px;margin-left:100px;">8</h>
+          <h style="font-size:45px;margin-left:100px;">5</h>
         </el-card>
         <el-card class="box-card3" style="background-color: #ffee58">
           <i class="el-icon-bottom" style="font-size:50px;margin-top:20px;"></i>
-          <h style="font-size:45px;margin-left:100px;">6</h>
+          <h style="font-size:45px;margin-left:100px;">1</h>
         </el-card>
         <el-card class="boxcard4">
           <div id="number" style="width:700px;height:400px;"></div>
@@ -36,7 +36,7 @@ export default {
   components:{Header,AdminSidebar},
   methods:{
     drawNumber(){
-      
+
             axios.post("http://124.70.206.207/contest/getIdentifyMark")
             .then(res=>{
                 console.log(res);
@@ -65,7 +65,7 @@ export default {
             })
 
 
-      
+
     },
     drawPie(){
       let proportion=this.$echarts.init(document.getElementById('proportion'))
@@ -91,9 +91,9 @@ export default {
             radius: '48%',
             top:'10%',
             data: [
-              { value: 580, name: '较差(0~3)' },
-              { value: 484, name: '一般(4~6)' },
-              { value: 300, name: '良好(7~10)' }
+              { value: 5, name: '较差(0~2)' },
+              { value: 8, name: '一般(3)' },
+              { value: 20, name: '良好(4~5)' }
             ],
             emphasis: {
               itemStyle: {
