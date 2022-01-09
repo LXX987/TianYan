@@ -511,14 +511,16 @@ export default {
           data.append("answer7", this.ownanswer8);
           data.append("answer8", this.ownanswer9);
           data.append("answer9", this.ownanswer10);
+          console.log(data);
         axios.post("http://124.70.206.207/contest/checkAnswer0",data)
         .then(res=>{
             console.log(res);
+            this.$router.push({ name: 'gameresult1',query:{scores:res.data.score} });
         })
 
 
-
-          this.$router.push('/gameresult1');
+            
+        //   this.$router.push('/gameresult1');
       },
       closewarn() {
           this.gameovershow = 0 ;

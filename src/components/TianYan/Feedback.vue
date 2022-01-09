@@ -322,6 +322,11 @@ export default {
   },
   methods: {
       commit() {
+        this.$notify({
+          title: '成功',
+          message: '感谢您的反馈！',
+          type: 'success'
+        });
         this.testuid = this.$cookies.get('uid');//获取cookie，返回 value
         console.log(this.testuid);
         console.log(this.textarea);
@@ -332,6 +337,8 @@ export default {
            axios.post("http://124.70.206.207/common/u2a", data)
            .then(res=>{
                console.log(res);
+               this.textarea = '';
+               this.input = ''
             })
       },
       feedbacknotic() {

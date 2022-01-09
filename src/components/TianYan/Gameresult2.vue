@@ -215,11 +215,11 @@ export default {
           name_1: '小易',
           name_2: '小济',
           score1: 12,
-          score2: 14,
+          score2: 3,
           win1view: 0,
           win2view: 0,
-          correct_number1: 2,
-          correct_number2: 3,
+          correct_number1: 4,
+          correct_number2: 5,
           question_number: 6,
           userInfo: {
               avatar: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fq_70%2Cc_zoom%2Cw_640%2Fimages%2F20190203%2F53463928a43447f78a4ff616bd86dbf7.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641135214&t=876527eda6f954bb21ebb63790b74ea9'

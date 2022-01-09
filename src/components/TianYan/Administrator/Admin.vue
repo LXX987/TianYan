@@ -78,65 +78,65 @@ export default {
         return {
             input:'',
             tableData:[{
-                id:'2018',
-                name:'1',
-                email:'1',
-                score:'1',
-                or:'是'
+                id:'4',
+                name:'test',
+                email:'123456@qq.com',
+                score:'550',
+                or:'否'
             },{
-                id:'2018',
-                name:'1',
-                email:'1',
-                score:'1',
-                or:'是'
+                id:'7',
+                name:'lxt',
+                email:'lxt@163.com',
+                score:'130',
+                or:'否'
             },{
-                id:'2018',
-                name:'1',
-                email:'1',
-                score:'1',
-                or:'是'
+                id:'2',
+                name:'1128',
+                email:'2372@126.com',
+                score:'340',
+                or:'否'
             },{
-                id:'2018',
-                name:'1',
-                email:'1',
-                score:'1',
-                or:'是'
+                id:'21',
+                name:'小小',
+                email:'56383ff@qq.com',
+                score:'80',
+                or:'否'
             },{
-                id:'2018',
-                name:'1',
-                email:'1',
-                score:'1',
-                or:'是'
+                id:'12',
+                name:'lll',
+                email:'hfj@748.com',
+                score:'110',
+                or:'否'
             },{
-                id:'2018',
-                name:'1',
-                email:'1',
-                score:'1',
-                or:'是'
+                id:'43',
+                name:'yffiffff',
+                email:'758449huu@ls.com',
+                score:'20',
+                or:'否'
             },{
-                id:'2018',
-                name:'1',
-                email:'1',
-                score:'1',
-                or:'是'
+                id:'328',
+                name:'yrr',
+                email:'yfu844@jd3.com',
+                score:'470',
+                or:'否'
             },{
-                id:'2018',
-                name:'1',
-                email:'1',
-                score:'1',
-                or:'是'
+                id:'19',
+                name:'7494j',
+                email:'84dcn@eir.com',
+                score:'290',
+                or:'否'
             },{
-                id:'2018',
-                name:'1',
-                email:'1',
-                score:'1',
-                or:'是'
+                id:'28',
+                name:'hfj9',
+                email:'s6dyf@ie3.com',
+                score:'290',
+                or:'否'
             },{
-                id:'2018',
-                name:'1',
-                email:'1',
-                score:'1',
-                or:'是'
+                id:'223',
+                name:'83j',
+                email:'8djd32@do.com',
+                score:'260',
+                or:'否'
             }]
         }
     }

@@ -26,7 +26,7 @@
             <div class="introcontent">
                 <h3>{{plantname}}</h3>
                 <p>{{plantcontent}}</p>
-                <img src="../../assets/honor.png">
+                <!-- <img src="../../assets/honor.png"> -->
                 <h4 @click="open">您觉得本次识别效果怎么样呢？</h4>
             </div>
             <div class="block" v-show="estimateview">

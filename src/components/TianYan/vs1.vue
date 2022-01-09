@@ -51,10 +51,12 @@
             <el-radio v-model="radio" label="3">{{item.select3}}</el-radio>
             <el-radio v-model="radio" label="4">{{item.select4}}</el-radio>
             </div> -->
+            <div style="margin-top:20px;">
             <el-radio v-model="radio" label="1">{{select11}}</el-radio>
             <el-radio v-model="radio" label="2">{{select22}}</el-radio>
             <el-radio v-model="radio" label="3">{{select33}}</el-radio>
             <el-radio v-model="radio" label="4">{{select44}}</el-radio>
+            </div>
         </div>
     </div>
     <div class="tian"></div>
@@ -486,7 +488,7 @@ export default {
         //变量一直++
         progressnuw++
         this.getper();
-        console.log(666);
+        // console.log(666);
         if(progressnuw == 100) {
             // this.showintro = 0;
         }

@@ -230,7 +230,8 @@ export default {
         console.log(key, keyPath);
       },
       recordid() {
-          this.$router.push({ name: 'record',query:{ids:this.id} });
+        //   this.$router.push({ name: 'record',query:{ids:this.id} });
+          this.$router.push('/record');
       },
       jumpgame1() {
           this.$router.push('/game1');

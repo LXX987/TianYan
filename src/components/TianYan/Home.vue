@@ -23,7 +23,7 @@
               <div class="section-word">
                 识别
                 <div class="section_buttom">
-                  <a href="http://www.baidu.com" style="font-size:19px;line-height: 20px;text-decoration:none">识别图片</a>
+                  <a href="#" style="font-size:19px;line-height: 20px;text-decoration:none" @click="openidentify">识别图片</a>
                 </div>
               </div>
             </div>
@@ -41,7 +41,7 @@
               <div class="section-word">
                 反馈
                 <div class="section_buttom">
-                  <a href="http://www.baidu.com" style="font-size:19px;line-height: 20px;text-decoration:none">反馈</a>
+                  <a href="#" style="font-size:19px;line-height: 20px;text-decoration:none" @click="openfeedback">反馈</a>
                 </div>
               </div>
             </div>
@@ -62,18 +62,18 @@
               <div class="product">
                 <p style="font-size:21px;font-family: cursive;">机器学习</p>
                 <p style="font-size:21px;font-family: cursive;">通过机器学习进行图片识别，精准回答农作物图片的种类，健康程度等相关知识</p>
-                <a href="http://www.baidu.com" style="color:white;text-decoration:none;" id="intro-buttom">identity</a>
+                <a href="#" style="color:white;text-decoration:none;" id="intro-buttom" @click="openidentify">identity</a>
               </div>
               <div class="product">
                 <p style="font-size:21px;font-family: cursive;">寓教于乐</p>
                 <p style="font-size:21px;font-family: cursive;">在平台中，我们采用游戏与学习相结合的方式，让每一位先要了解农作物知识的人在学习的过程中不在感受到枯燥，充满乐趣</p>
-                <a href="http://www.baidu.com" style="color:white;text-decoration:none;" id="intro-buttom">game</a>
+                <a href="#" style="color:white;text-decoration:none;" id="intro-buttom" @click="gameparams">game</a>
               </div>
             </div>
             <div class="pronext">
-              <p>Secure Destruction</p>
-              <p style="font-size:15px;">Pioneer offers a variety of destruction services. Whether it is a one time purge of documents to help you take back control of your space, or an ongoing scheduled pick up, Pioneer will customize a plan to fit your needs.</p>
-              <a href="http://www.baidu.com" style="color:white;text-decoration:none;" id="intro-buttom">feedback</a>
+              <p style="font-size:21px;font-family: cursive;">反馈处理</p>
+              <p style="font-size:21px;font-family: cursive;">您可以通过这里进入反馈页面，向我们反馈您在使用软件的过程中遇到的问题或向我们的建议，帮助我们实现更好的软件。</p>
+              <a href="#" style="color:white;text-decoration:none;" id="intro-buttom" @click="openfeedback">feedback</a>
             </div>
           </div>
         </div>
@@ -320,6 +320,12 @@ export default {
       console.log(this.id);
     },
     methods: {
+      openfeedback() {
+        this.$router.push('/feedback');
+      },
+      openidentify() {
+        this.$router.push('/identify');
+      },
       gameparams() {
       this.$router.push({ name: 'gameintro',query:{ids:this.id} });
     },

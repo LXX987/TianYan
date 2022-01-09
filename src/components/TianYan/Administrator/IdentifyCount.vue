@@ -6,15 +6,15 @@
       <el-main>
         <el-card class="box-card1" style="background-color:#4fc3f7">
           <i class="el-icon-user" style="font-size:50px;margin-top:20px;"></i>
-          <h style="font-size:45px;margin-left:100px;">11</h>
+          <h style="font-size:45px;margin-left:100px;">20</h>
         </el-card>
         <el-card class="box-card2" style="background-color: #26c6da">
           <i class="el-icon-zoom-in" style="font-size:50px;margin-top:20px;"></i>
-          <h style="font-size:45px;margin-left:100px;">11</h>
+          <h style="font-size:45px;margin-left:100px;">32</h>
         </el-card>
         <el-card class="box-card3" style="background-color: #ffee58">
           <i class="el-icon-s-comment" style="font-size:50px;margin-top:20px;"></i>
-          <h style="font-size:45px;margin-left:100px;">11</h>
+          <h style="font-size:45px;margin-left:100px;">4</h>
         </el-card>
         <el-card class="boxcard4">
           <div id="threepercent" style="width:700px;height:400px;"></div>
@@ -39,55 +39,55 @@ export default {
       const data1=[
         {
           name:'茄子',
-          value:11
+          value: 3
         },
         {
           name:'大豆',
-          value:22
+          value:2
         },
         {
           name:'土豆',
-          value:33
+          value:1
         },
         {
           name:'玉米',
-          value:44
+          value:3
         }
       ];
       const data2=[
         {
           name:'茄子',
-          value:11,
+          value:12,
         },
         {
           name:'大豆',
-          value:22
+          value:2
         },
         {
           name:'土豆',
-          value:33
+          value:14
         },
         {
           name:'玉米',
-          value:44
+          value:18
         }
       ];
       const data3=[
         {
           name:'茄子',
-          value:11
+          value:67
         },
         {
           name:'大豆',
-          value:22
+          value:48
         },
         {
           name:'土豆',
-          value:33
+          value:74
         },
         {
           name:'玉米',
-          value:44
+          value:59
         }
       ];
       let threepercent=this.$echarts.init(document.getElementById('threepercent'))

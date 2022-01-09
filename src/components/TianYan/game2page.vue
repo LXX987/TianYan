@@ -29,31 +29,31 @@
               <h style="color:#ff5722;margin-left:50px;font-size:25px;">题目：胡萝卜</h>
               <h3 style="margin-left: 50px;">请选择答案：</h3>
               <el-row style="left:-150px;">
-                <el-col span="6">
+                <el-col :span="6">
                   <img :src="question1"/>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <img :src="question2"/>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <img :src="question3"/>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <img :src="question4"/>
                 </el-col>
               </el-row>
 
               <el-row style="left:110px;">
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio1" label="1">A</el-radio>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio1" label="2">B</el-radio>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio1" label="3">C</el-radio>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio1" label="4">D</el-radio>
                 </el-col>
               </el-row>
@@ -61,170 +61,170 @@
               <el-divider></el-divider>
 
               <h3>2.【选择题】（2分）</h3>
-              <h style="color:#ff5722;margin-left:50px;font-size:25px;">题目：玉米</h>
+              <h style="color:#ff5722;margin-left:50px;font-size:25px;">题目：洋葱</h>
               <h3 style="margin-left: 50px;">请选择答案：</h3>
               <el-row style="left:-150px;">
-                <el-col span="6">
-                  <img :src="question1"/>
+                <el-col :span="6">
+                  <img :src="question5"/>
                 </el-col>
-                <el-col span="6">
-                  <img :src="question1"/>
+                <el-col :span="6">
+                  <img :src="question6"/>
                 </el-col>
-                <el-col span="6">
-                  <img :src="question1"/>
+                <el-col :span="6">
+                  <img :src="question7"/>
                 </el-col>
-                <el-col span="6">
-                  <img :src="question1"/>
+                <el-col :span="6">
+                  <img :src="question9"/>
                 </el-col>
               </el-row>
 
               <el-row style="left:110px;">
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio2" label="1">A</el-radio>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio2" label="2">B</el-radio>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio2" label="3">C</el-radio>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio2" label="4">D</el-radio>
                 </el-col>
               </el-row>
               <el-divider></el-divider>
 
               <h3>3.【选择题】（2分）</h3>
-              <h style="color:#ff5722;margin-left:50px;font-size:25px;">题目：玉米</h>
+              <h style="color:#ff5722;margin-left:50px;font-size:25px;">题目：白菜</h>
               <h3 style="margin-left: 50px;">请选择答案：</h3>
               <el-row style="left:-150px;">
-                <el-col span="6">
-                  <img :src="question1"/>
+                <el-col :span="6">
+                  <img :src="question8"/>
                 </el-col>
-                <el-col span="6">
-                  <img :src="question1"/>
+                <el-col :span="6">
+                  <img :src="question10"/>
                 </el-col>
-                <el-col span="6">
-                  <img :src="question1"/>
+                <el-col :span="6">
+                  <img :src="question11"/>
                 </el-col>
-                <el-col span="6">
-                  <img :src="question1"/>
+                <el-col :span="6">
+                  <img :src="question12"/>
                 </el-col>
               </el-row>
 
               <el-row style="left:110px;">
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio3" label="1">A</el-radio>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio3" label="2">B</el-radio>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio3" label="3">C</el-radio>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio3" label="4">D</el-radio>
                 </el-col>
               </el-row>
               <el-divider></el-divider>
 
               <h3>4.【选择题】（2分）</h3>
-              <h style="color:#ff5722;margin-left:50px;font-size:25px;">题目：玉米</h>
+              <h style="color:#ff5722;margin-left:50px;font-size:25px;">题目：黄瓜</h>
               <h3 style="margin-left: 50px;">请选择答案：</h3>
               <el-row style="left:-150px;">
-                <el-col span="6">
-                  <img :src="question1"/>
+                <el-col :span="6">
+                  <img :src="question13"/>
                 </el-col>
-                <el-col span="6">
-                  <img :src="question1"/>
+                <el-col :span="6">
+                  <img :src="question14"/>
                 </el-col>
-                <el-col span="6">
-                  <img :src="question1"/>
+                <el-col :span="6">
+                  <img :src="question15"/>
                 </el-col>
-                <el-col span="6">
-                  <img :src="question1"/>
+                <el-col :span="6">
+                  <img :src="question16"/>
                 </el-col>
               </el-row>
 
               <el-row style="left:110px;">
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio4" label="1">A</el-radio>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio4" label="2">B</el-radio>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio4" label="3">C</el-radio>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio4" label="4">D</el-radio>
                 </el-col>
               </el-row>
               <el-divider></el-divider>
 
               <h3>5.【选择题】（2分）</h3>
-              <h style="color:#ff5722;margin-left:50px;font-size:25px;">题目：胡萝卜</h>
+              <h style="color:#ff5722;margin-left:50px;font-size:25px;">题目：玉米</h>
               <h3 style="margin-left: 50px;">请选择答案：</h3>
               <el-row style="left:-150px;">
-                <el-col span="6">
-                  <img :src="question1"/>
+                <el-col :span="6">
+                  <img :src="question17"/>
                 </el-col>
-                <el-col span="6">
-                  <img :src="question1"/>
+                <el-col :span="6">
+                  <img :src="question18"/>
                 </el-col>
-                <el-col span="6">
-                  <img :src="question1"/>
+                <el-col :span="6">
+                  <img :src="question19"/>
                 </el-col>
-                <el-col span="6">
-                  <img :src="question1"/>
+                <el-col :span="6">
+                  <img :src="question20"/>
                 </el-col>
               </el-row>
 
               <el-row style="left:110px;">
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio5" label="1">A</el-radio>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio5" label="2">B</el-radio>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio5" label="3">C</el-radio>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio5" label="4">D</el-radio>
                 </el-col>
               </el-row>
               <el-divider></el-divider>
 
               <h3>6.【选择题】（2分）</h3>
-              <h style="color:#ff5722;margin-left:50px;font-size:25px;">题目：玉米</h>
+              <h style="color:#ff5722;margin-left:50px;font-size:25px;">题目：红薯</h>
               <h3 style="margin-left: 50px;">请选择答案：</h3>
               <el-row style="left:-150px;">
-                <el-col span="6">
-                  <img :src="question1"/>
+                <el-col :span="6">
+                  <img :src="question21"/>
                 </el-col>
-                <el-col span="6">
-                  <img :src="question1"/>
+                <el-col :span="6">
+                  <img :src="question22"/>
                 </el-col>
-                <el-col span="6">
-                  <img :src="question1"/>
+                <el-col :span="6">
+                  <img :src="question23"/>
                 </el-col>
-                <el-col span="6">
-                  <img :src="question1"/>
+                <el-col :span="6">
+                  <img :src="question24"/>
                 </el-col>
               </el-row>
 
               <el-row style="left:110px;">
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio6" label="1">A</el-radio>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio6" label="2">B</el-radio>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio6" label="3">C</el-radio>
                 </el-col>
-                <el-col span="6">
+                <el-col :span="6">
                   <el-radio v-model="radio6" label="4">D</el-radio>
                 </el-col>
               </el-row>
@@ -244,7 +244,7 @@
 .body{
     overflow-x: hidden;
     margin: 0px;
-    height: 3374px;
+    height: 2974px;
 }
 .el-result__extra {
     margin-top: 10px;
@@ -276,7 +276,7 @@
   border-radius: 5px;
   z-index: 99999;
 	position: fixed;
-  left: 1300px;
+  left: 1050px;
   top: 250px;
   width: 180px;
   height: 120px;
@@ -311,7 +311,7 @@
 }
 .paper{
     width:70%;
-    height:3050px;
+    height:2600px;
     background-color: rgb(255, 239, 220);
     margin-left: 90px;
     box-shadow: inset 0px 8px 20px 0 rgb(239 225 204);
@@ -357,7 +357,7 @@
 }
 .slow{
     width:1280px;
-    height: 3070px;
+    height: 2670px;
     background-color: #fff6e6;
 }
 #word{
@@ -401,7 +401,7 @@ import Header from './Header'
 import Footer from './Footer'
 import CountDown from './CountDown'
 export default {
-  name: "game1page",
+  name: "game2page",
   components: {
     Header,
     Footer,
@@ -431,11 +431,29 @@ export default {
       disabledbutton: false,
       questionnumber: '6',
       question1: require('../../assets/pic1.png'),
-      question2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg010.hc360.cn%2Fm3%2FM01%2FE2%2F46%2FwKhQ5lTS1cWERqlbAAAAAF5XH74692.jpg&refer=http%3A%2F%2Fimg010.hc360.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=9b751b4f2aa4c552d9f8c183b2d787ca',
-      question3: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg004.hc360.cn%2Fm7%2FM03%2F00%2F1B%2FwKhQo1XC20yEdNTfAAAAAHqzUFA421.jpg&refer=http%3A%2F%2Fimg004.hc360.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=9b32908147c78576377e42b390fb1091',
-      question4: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg3.99114.com%2Fgroup1%2FM00%2FD5%2F69%2FwKgGTFaoWhWASgh0AAPEqd5Qb0Y760.jpg&refer=http%3A%2F%2Fimg3.99114.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=1c36309ca5f67e40b8f333844d6cef66',
-      question5: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.168mh.com%2Fwp-content%2Fuploads%2F2019%2F11%2F87555edf6b5667e.jpg&refer=http%3A%2F%2Fwww.168mh.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310218&t=c39aeba0d3f3b6c65df3ca641528b3a4',
-      question6: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpfsc.agri.cn%2Fncpflzs%2F201104%2FW020110408374232979423.jpg&refer=http%3A%2F%2Fpfsc.agri.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641310816&t=a8a6ebdd86a1d27c257274ec00acaa9e'
+      question2: require('../../assets/pic2.jpg'),
+      question3: require('../../assets/pic3.png'),
+      question4: require('../../assets/pic4.jpg'),
+      question5: require('../../assets/pic5.jpg'),
+      question6: require('../../assets/pic6.png'),
+      question7: require('../../assets/pic7.png'),
+      question8: require('../../assets/pic8.png'),
+      question9: require('../../assets/pic9.png'),
+      question10: require('../../assets/pic10.png'),
+      question11: require('../../assets/pic11.png'),
+      question12: require('../../assets/pic12.png'),
+      question13: require('../../assets/pic13.jpg'),
+      question14: require('../../assets/pic14.jpg'),
+      question15: require('../../assets/pic15.png'),
+      question16: require('../../assets/pic16.jpg'),
+      question17: require('../../assets/pic17.jpg'),
+      question18: require('../../assets/pic18.jpg'),
+      question19: require('../../assets/pic19.jpg'),
+      question20: require('../../assets/pic20.jpg'),
+      question21: require('../../assets/pic21.jpg'),
+      question22: require('../../assets/pic22.jpg'),
+      question23: require('../../assets/pic23.jpg'),
+      question24: require('../../assets/pic24.jpg'),
     }
   },
   methods: {
@@ -453,12 +471,12 @@ export default {
           console.log("ok");
           //计时结束
           this.gameovershow = 1;
-          this.disabledinput1 = true;
-          this.disabledinput2 = true;
-          this.disabledinput3 = true;
-          this.disabledinput4 = true;
-          this.disabledinput5 = true;
-          this.disabledinput6 = true;
+          // this.disabledinput1 = true;
+          // this.disabledinput2 = true;
+          // this.disabledinput3 = true;
+          // this.disabledinput4 = true;
+          // this.disabledinput5 = true;
+          // this.disabledinput6 = true;
           this.disabledbutton = true;
       }
     },

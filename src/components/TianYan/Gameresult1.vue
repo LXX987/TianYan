@@ -20,8 +20,8 @@
                 </div>
                 <div class="user1">
                     <h3 style="margin-left:180px;margin-top:-10px;">{{name_1}}</h3>
-                    <h4 style="margin-left:140px;">共计时间：{{score1}}秒</h4>
-                    <h4 style="margin-left:150px;">正确率：{{correct_number1}}/{{question_number}}</h4>
+                    <!-- <h4 style="margin-left:140px;">共计时间：{{score1}}秒</h4> -->
+                    <h4 style="margin-left:150px;">正确率：{{score1}}</h4>
                     <img id="crown11" src="../../assets/successsful.png" v-show="win1view"/>
                 </div>
             </div>
@@ -34,8 +34,8 @@
                 </div>
                 <div class="user2">
                     <h3 style="margin-left:180px;margin-top:-10px;">{{name_2}}</h3>
-                    <h4 style="margin-left:140px;">共计时间：{{score2}}秒</h4>
-                    <h4 style="margin-left:150px;">正确率：{{correct_number2}}/{{question_number}}</h4>
+                    <!-- <h4 style="margin-left:140px;">共计时间：{{score2}}秒</h4> -->
+                    <h4 style="margin-left:150px;">得分：{{score2}}</h4>
                     <img id="crown22" src="../../assets/successsful.png" v-show="win2view"/>
                 </div>
             </div>
@@ -215,8 +215,8 @@ export default {
           id: '',
           name_1: '小易',
           name_2: '小济',
-          score1: 12,
-          score2: 14,
+          score1: -1,
+          score2: -1,
           win1view: 0,
           win2view: 0,
           correct_number1: 2,
@@ -231,33 +231,56 @@ export default {
       }
   },
   mounted: function() {
-
-      
-        axios.post("http://124.70.206.207/contest/getScore")
-        .then(res=>{
-            console.log(res);
-        })
-    //   if(this.correct_number1>this.correct_number2) {
-    //       this.win1view = 1;
-    //       this.win2view = 0;
-    //   }
-    //   else {
-    //       this.win1view = 0;
-    //       this.win2view = 1;
-    //   }
+      this.score1 = this.$route.query.scores;
+        // axios.post("http://124.70.206.207/contest/getScore")
+        // .then(res=>{
+        //     console.log(res);
+        //     this.score1 = res.data.score;
+        // })
+        this.getscore();
+        console.log(this.score1);
+        console.log(this.score2);
+        console.log(this.win1view);
+        console.log(this.win2view);
+        
   },
    methods: {
        backmain() {
            this.$router.push('/gameintro');
+       },
+       getscore() {
+        //    let i = -1;
+        //    while(i<=7){
+        //        i = Math.round(Math.random()*10);
+        //    }
+        //    console.log(i);
+        //    this.score2 = i * 10;
+        // this.score1 = this.$router.query.scores;
+           axios.post("http://124.70.206.207/contest/getScore")
+        .then(res=>{
+            console.log(res);
+            this.score2 = res.data.score;
+            this.judge();
+           console.log(this.score1);
+        console.log(this.score2);
+        console.log(this.win1view);
+        console.log(this.win2view);
+        })
+        //    this.judge();
+        //    console.log(this.score1);
+        // console.log(this.score2);
+        // console.log(this.win1view);
+        // console.log(this.win2view);
+       },
+       judge() {
+           if(this.score1 > this.score2) {
+               this.win1view = 1;
+               this.win2view = 0;
+           } else if(this.score1 < this.score2) {
+               this.win1view = 0;
+               this.win2view = 1;
+           }
        }
-    //   recordid() {
-    //       this.$router.push({ name: 'record',params:{ids:this.id} });
-    //   }
     },
-    // mounted:function() {
-    //     console.log(this.$route.params.ids);
-    //     this.id = this.$route.params.ids;
-    //     console.log(this.id);
-    // }
 }
 </script>

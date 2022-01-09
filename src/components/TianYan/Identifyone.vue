@@ -33,7 +33,7 @@
                 <div id="closebutton" @click="closekey">×</div>
                         <h5 style="margin-top: 5px;">请为本次识别结果准确度打分，以帮助我们更好的改进产品，谢谢您的参与!</h5>
                       <el-slider v-model="value1" :step="1" :max="5"></el-slider>
-                      <el-button @click="commitbutton" style="margin: 5px 120px;">确认</el-button>
+                      <el-button @click="commitbutton" style="margin: 5px 220px;">确认</el-button>
             </div>
         </div>
     </div>
@@ -51,7 +51,7 @@
     /* background: url('../../assets/close.png') no-repeat;
     background-size: 100% 100%; */
     margin-top: -5px;
-    margin-left: 360px;
+    margin-left: 470px;
 }
 .block {
     position: absolute;
@@ -60,12 +60,13 @@
     border: 2px solid #49866a4b;
     margin-top: -200px;
     padding: 20px 40px;
-    width: 40%;
+    width: 38%;
     margin-left: 170px;
     z-index: 999;
 }
 .block .el-slider {
     margin-top: 10px;
+    margin-left: 80px;
     width:300px;
 }
 .identifybody .introcontent h4{

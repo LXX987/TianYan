@@ -44,12 +44,12 @@
         </div>
         <div class="questioreason">
           <p style="font-size:20px;font-weight:bold;margin-left:20px;color:red;display:inline-block;vertical-align:top;">*</p><p style="font-size:18px;margin-left:10px;display:inline-block;vertical-align:top;">其他答案</p>
-          <p>选项1</p>
-          <el-input type="textarea" :rows="2" placeholder="请输入您认为题目与什么特点" v-model="textarea1"></el-input>
-          <p>选项2</p>
-          <el-input type="textarea" :rows="2" placeholder="请输入您认为题目与什么特点" v-model="textarea2"></el-input>
-          <p>选项3</p>
-          <el-input type="textarea" :rows="2" placeholder="请输入您认为题目与什么特点" v-model="textarea3"></el-input>
+          <p style="margin-left:40px;">选项1</p>
+          <el-input type="textarea" :rows="2" placeholder="请输入其它选项一" v-model="textarea1"></el-input>
+          <p style="margin-left:40px;">选项2</p>
+          <el-input type="textarea" :rows="2" placeholder="请输入其它选项二" v-model="textarea2"></el-input>
+          <p style="margin-left:40px;">选项3</p>
+          <el-input type="textarea" :rows="2" placeholder="请输入其它选项三" v-model="textarea3"></el-input>
         </div>
         <!-- <div class="questionote">
           <p style="font-size:20px;font-weight:bold;margin-left:20px;color:red;display:inline-block;vertical-align:top;">*</p><p style="font-size:18px;margin-left:10px;display:inline-block;vertical-align:top;">题目备注</p>
@@ -116,15 +116,10 @@
   font-family: cursive;
   border-radius: 10px;
 }
-.questionote .el-textarea {
-  width: 80%;
-  margin-left: -20px;
-  margin-top: 60px;
-}
 .questioreason .el-textarea {
   width: 80%;
-  margin-left: -20px;
-  margin-top: 60px;
+  margin-left: 100px;
+  margin-top: 10px;
 }
 .questionanswer .el-input {
   width: 80%;
@@ -159,7 +154,7 @@
 }
 .uploadquestionbody {
   width: 900px;
-  height: 1000px;
+  height: 1200px;
   border: 1px solid rgb(132, 156, 86);
   border-radius: 10px;
   margin-left: 180px;
@@ -293,7 +288,7 @@ export default {
     }
   },
   mounted() {
-    // document.getElementById("img1").src = 'https://s2.loli.net/2022/01/05/E9MFBpY8ZJ7uhdy.png';
+    document.getElementById("img1").src = require('../../assets/kongtupian.png');
     this.testuid = this.$cookies.get('uid');//获取cookie，返回 value
     console.log(this.testuid);
   },

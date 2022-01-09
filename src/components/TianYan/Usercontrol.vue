@@ -123,9 +123,9 @@
   margin-top: 17px;
 }
 #owner_img{
-  background: url('../../assets/user.png') no-repeat center 0;
-  background-color: #E4E7ED;
-  background-size: 100% 100%;
+  /* background: url('../../assets/user.png') no-repeat center 0; */
+  /* background-color: #E4E7ED; */
+  /* background-size: 100% 100%; */
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -391,6 +391,7 @@ export default {
       }
   },
   mounted:function() {
+    this.userInfo.avatar = require('../../assets/serviceimg.png')
     console.log(this.$route.query.ids);
     this.testuid = this.$cookies.get('uid');//获取cookie，返回 value
   },

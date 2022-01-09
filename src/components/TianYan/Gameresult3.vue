@@ -20,7 +20,7 @@
                 </div>
                 <div class="user1">
                     <h3 style="margin-left:180px;margin-top:-10px;">{{name_1}}</h3>
-                    <!-- <h4 style="margin-left:140px;">共计时间：{{score1}}秒</h4> -->
+                    <h4 style="margin-left:140px;">共计时间：{{time1}}秒</h4>
                     <h4 style="margin-left:150px;">得分：{{score1}}</h4>
                     <img id="crown11" src="../../assets/successsful.png" v-show="win1view"/>
                 </div>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="user2">
                     <h3 style="margin-left:180px;margin-top:-10px;">{{name_2}}</h3>
-                    <h4 style="margin-left:140px;">共计时间：{{score2}}秒</h4>
+                    <h4 style="margin-left:140px;">共计时间：{{time2}}秒</h4>
                     <h4 style="margin-left:150px;">得分：{{score2}}</h4>
                     <img id="crown22" src="../../assets/successsful.png" v-show="win2view"/>
                 </div>
@@ -212,6 +212,8 @@ export default {
   },
   data() {
       return {
+          time1:'',
+          time2:'',
           testuid:'',
           per2:'',
           id: '',
@@ -225,10 +227,10 @@ export default {
           correct_number2: 3,
           question_number: 6,
           userInfo: {
-              avatar: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fq_70%2Cc_zoom%2Cw_640%2Fimages%2F20190203%2F53463928a43447f78a4ff616bd86dbf7.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641135214&t=876527eda6f954bb21ebb63790b74ea9'
+              avatar: require('../../assets/serviceimg.png')
               },
           userInfo2: {
-              avatar: 'https://img0.baidu.com/it/u=781976885,3390272591&fm=253&fmt=auto&app=138&f=PNG?w=500&h=500'
+              avatar: require('../../assets/tihuanpic.png')
               },
       }
   },
@@ -273,6 +275,21 @@ export default {
     //   }
   },
    methods: {
+       checkavatar() {
+           if(this.name_1 == 'test2') {
+               this.userInfo.avatar = require('../../assets/tihuanpic.png');
+               this.userInfo2.avatar = require('../../assets/serviceimg.png');
+           }
+       },
+       judge() {
+           if(this.score1 > this.score2) {
+               this.win1view = 1;
+               this.win2view = 0;
+           } else if(this.score1 < this.score2) {
+               this.win1view = 0;
+               this.win2view = 1;
+           }
+       },
        getper() {
           let data = new FormData();
           data.append("uid",this.testuid);
@@ -285,6 +302,10 @@ export default {
             this.score2 = res.data.score2;
             this.name_1 = res.data.user1;
             this.name_2 = res.data.user2;
+            this.time1 = res.data.time1;
+            this.time2 = res.data.time2;
+            this.checkavatar();
+            this.judge();
         })
       },
        backmain() {
@@ -297,14 +318,6 @@ export default {
         })
            this.$router.push('/gameintro');
        }
-    //   recordid() {
-    //       this.$router.push({ name: 'record',params:{ids:this.id} });
-    //   }
-    },
-    // mounted:function() {
-    //     console.log(this.$route.params.ids);
-    //     this.id = this.$route.params.ids;
-    //     console.log(this.id);
-    // }
+    }
 }
 </script>

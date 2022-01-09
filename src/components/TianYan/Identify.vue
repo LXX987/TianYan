@@ -15,7 +15,7 @@
             <div class="intro1">
                 <div class="head1">
                     <p class="idetitle" id="identifyname">农业世界</p>
-                    <img class="idetitle" @click="closeimg1" id="enterimg" src="../../assets/enter.png">
+                    <img class="idetitle" @click="closeimg1" id="enterimg" src="../../assets/identifynote.png">
                     <div class="idecontent">
                         <p><span>目标识别农作物种类，</span></p>
                         <p><span>精确识别，</span></p>
@@ -29,14 +29,14 @@
         </div>
         <div class="identifybord" id="bord11" v-show="showbord1">
             <p class="idetitle" id="identifyname" style="margin-left:40px;">农业世界</p>
-            <img class="idetitle" @click="changeimg1" id="enterimg" src="../../assets/enter.png">
+            <img class="idetitle" @click="changeimg1" id="enterimg" src="../../assets/identifynote.png">
             <el-button type="primary" icon="el-icon-s-promotion" id="begin" @click="enteronepage" round>进入</el-button>
         </div>
         <div class="identifybord" id="bord2" v-show="showbox2">
             <div class="intro2">
                 <div class="head2">
                     <p class="idetitle" id="identifyname">科普基地</p>
-                    <img class="idetitle" @click="closeimg2" id="enterimg" src="../../assets/enter.png">
+                    <img class="idetitle" @click="closeimg2" id="enterimg" src="../../assets/identifynote.png">
                     <div class="idecontent">
                         <p><span>目标识别农作物生长阶段，</span></p>
                         <p><span>科普不同农作物生长知识</span></p>
@@ -49,14 +49,14 @@
         </div>
         <div class="identifybord" id="bord22" v-show="showbord2">
             <p class="idetitle" id="identifyname" style="margin-left:40px;">科普基地</p>
-            <img class="idetitle" @click="changeimg2" id="enterimg" src="../../assets/enter.png">
+            <img class="idetitle" @click="changeimg2" id="enterimg" src="../../assets/identifynote.png">
             <el-button type="primary" icon="el-icon-s-promotion" id="begin" @click="entertwopage" round>进入</el-button>
         </div>
         <div class="identifybord" id="bord3" v-show="showbox3">
             <div class="intro3">
                 <div class="head3">
                     <p class="idetitle" id="identifyname">农学学堂</p>
-                    <img class="idetitle" @click="closeimg3" id="enterimg" src="../../assets/enter.png">
+                    <img class="idetitle" @click="closeimg3" id="enterimg" src="../../assets/identifynote.png">
                     <div class="idecontent">
                         <p><span>目标识别农作物健康程度，</span></p>
                         <p><span>提供相关的分析介绍和改善意见</span></p>
@@ -69,7 +69,7 @@
         </div>
         <div class="identifybord" id="bord33" v-show="showbord3">
             <p class="idetitle" id="identifyname" style="margin-left:40px;">农学学堂</p>
-            <img class="idetitle" @click="changeimg3" id="enterimg" src="../../assets/enter.png">
+            <img class="idetitle" @click="changeimg3" id="enterimg" src="../../assets/identifynote.png">
             <el-button type="primary" icon="el-icon-s-promotion" id="begin" @click="enterthreepage" round>进入</el-button>
         </div>
     </div>

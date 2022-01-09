@@ -63,6 +63,11 @@
              <el-table
       :data="tableData"
       style="width: 100%">
+      <!-- <el-table-column
+        prop="rand"
+        label="排名"
+        width="200">
+      </el-table-column> -->
       <el-table-column
         prop="time"
         label="游戏日期"

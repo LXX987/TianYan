@@ -187,7 +187,7 @@
 }
 .uploadquestionbody {
     width: 900px;
-    height: 700px;
+    height: 600px;
     border: 1px solid rgb(132, 156, 86);
     border-radius: 10px;
     margin-left: 180px;
@@ -240,14 +240,14 @@
 .body{
     overflow-x: hidden;
     margin: 0px;
-    height: 1754px;
+    height: 1354px;
 }
 .slow #back {
     margin-top: 0px;
 }
 .slow{
     width:1280px;
-    height: 1450px;
+    height: 1050px;
     background-color: #fff6e6;
 }
 #word{
@@ -306,6 +306,10 @@ export default {
       }
   },
   mounted() {
+    document.getElementById("img1").src = require('../../assets/kongtupian.png');
+    document.getElementById("img2").src = require('../../assets/kongtupian.png');
+    document.getElementById("img3").src = require('../../assets/kongtupian.png');
+    document.getElementById("img4").src = require('../../assets/kongtupian.png');
   },
    methods: {
        backgameone() {
