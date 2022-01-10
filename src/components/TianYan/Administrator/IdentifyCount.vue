@@ -10,7 +10,7 @@
         </el-card>
         <el-card class="box-card2" style="background-color: #26c6da">
           <i class="el-icon-zoom-in" style="font-size:50px;margin-top:20px;"></i>
-          <h style="font-size:45px;margin-left:100px;">32</h>
+          <h style="font-size:45px;margin-left:100px;">244</h>
         </el-card>
         <el-card class="box-card3" style="background-color: #ffee58">
           <i class="el-icon-s-comment" style="font-size:50px;margin-top:20px;"></i>
