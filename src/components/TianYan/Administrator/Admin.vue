@@ -208,13 +208,13 @@ export default {
             or:'否'
           },{
             id:'2',
-            name:'1128',
+            name:'小同',
             email:'2372@126.com',
             score:'340',
             or:'否'
           },{
             id:'21',
-            name:'小小',
+            name:'小艺',
             email:'56383ff@qq.com',
             score:'80',
             or:'否'

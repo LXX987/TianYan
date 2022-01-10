@@ -277,30 +277,18 @@ export default {
     return {
       input:'',
       agriculturalworld:[{
-        name:'白菜',
-        content:'不好吃',
-        showawdialogue:false
-      },{
-        name:'番茄',
-        content:'好吃',
+        name:'',
+        content:'',
         showawdialogue:false
       }],
       sciencebase:[{
-        name:'实验',
-        content:'是什么',
-        showsbdialogue:false
-      },{
-        name:'仪器',
-        content:'是什么',
+        name:'',
+        content:'',
         showsbdialogue:false
       }],
       agriculturalschool:[{
-        name:'果树',
-        content:'果实',
-        showasdialogue:false
-      },{
-        name:'仓库',
-        content:'储存',
+        name:'',
+        content:'',
         showasdialogue:false
       }],
       agriculturalworldRules:{
