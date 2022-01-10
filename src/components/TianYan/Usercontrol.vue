@@ -14,7 +14,7 @@
         <el-tabs type="border-card">
             <el-tab-pane label="个人信息">
               <div class="ownerinfro" id="owner_img">
-                <img :src="userInfo.avatar"/>
+                <img style="border-radius:50%;" :src="userInfo.avatar"/>
                 <el-button id="edituserimg" @click.stop="uploadHeadImg">编辑头像</el-button>
                      <input type="file" accept="image/*" style="display: none" @change="handleFile" class="hiddenInput"/>
               </div>
@@ -369,7 +369,7 @@ export default {
           testuid:'',
           popup: 0,
           logoutview: 0,
-          username: "lxt123456",
+          username: "test",
           phonenumber:"123456789",
           email: "123321@163.com",
           ruleForm: {

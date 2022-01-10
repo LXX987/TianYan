@@ -22,7 +22,7 @@
                 <p @click="close_pattern">×</p>
                 <h2 style="margin-top:-42px;margin-bottom: 6px;">选择游戏模式</h2>
                 <div class="pattern_block" id="pattern_1" @click="jump_robot"><p>人机对抗</p></div>
-                <div class="pattern_block" id="pattern_2" @click="jump_vs"><p>3V3</p></div>
+                <div class="pattern_block" id="pattern_2" @click="jump_vs"><p>1V1</p></div>
             </div>
         </div>
         <br><br><br><br><br>
