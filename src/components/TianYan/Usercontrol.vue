@@ -369,7 +369,7 @@ export default {
           testuid:'',
           popup: 0,
           logoutview: 0,
-          username: "test",
+          username: "小易",
           phonenumber:"123456789",
           email: "123321@163.com",
           ruleForm: {

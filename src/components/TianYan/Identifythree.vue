@@ -247,6 +247,7 @@ export default {
            .then(res=>{
                console.log(res);
                this.plantname = res.data.result;
+               this.plantcontent = res.data.content;
             })
 
             
