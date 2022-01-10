@@ -246,6 +246,7 @@ export default {
            axios.post("http://124.70.206.207/contest/worms", data)
            .then(res=>{
                console.log(res);
+               this.plantname = res.data.result;
             })
 
             
