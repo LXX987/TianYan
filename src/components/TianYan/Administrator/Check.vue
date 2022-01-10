@@ -14,7 +14,7 @@
                 <span style="font-size:12px;margin-left:5px">{{item.time}}</span>
               </div>
               <br>
-              <h style="margin-left:20px;">问题题目</h>
+              <h style="margin-left:20px;font-weight:bold">问题题目</h>
               <el-input
                 type="textarea"
                 autosize
@@ -26,16 +26,57 @@
               </el-input>
 
               <p></p>
-              <h style="margin-left:20px;">问题照片</h>
+              <h style="margin-left:20px;font-weight:bold">问题图片</h>
               <div class="questionphoto">
                 <img :src='item.photourl'>
               </div>
               <p></p>
-              <h style="margin-left:20px;">问题答案</h>
+              <h style="margin-left:20px;font-weight:bold">正确答案</h>
               <el-input
                 type="textarea"
                 autosize
-                v-model="item.answer"
+                v-model="item.trueanswer"
+                readonly
+                class="input-border"
+                style="width:600px;margin-top:5px;margin-left:20px;"
+              >
+              </el-input>
+
+              <p></p>
+
+              <h style="margin-left:20px;font-weight:bold">其他答案</h>
+              <p></p>
+              <h style="margin-left:20px">选项一</h>
+              <el-input
+                type="textarea"
+                autosize
+                v-model="item.wronganswer1"
+                readonly
+                class="input-border"
+                style="width:600px;margin-top:5px;margin-left:20px;"
+              >
+              </el-input>
+
+              <p></p>
+
+              <h style="margin-left:20px">选项二</h>
+              <el-input
+                type="textarea"
+                autosize
+                v-model="item.wronganswer2"
+                readonly
+                class="input-border"
+                style="width:600px;margin-top:5px;margin-left:20px;"
+              >
+              </el-input>
+
+              <p></p>
+
+              <h style="margin-left:20px">选项三</h>
+              <el-input
+                type="textarea"
+                autosize
+                v-model="item.wronganswer3"
                 readonly
                 class="input-border"
                 style="width:600px;margin-top:5px;margin-left:20px;"
@@ -83,36 +124,40 @@ export default {
   data(){
     return {
       question:[{
-        name:'啦啦啦',
-        time:'2021.1.1',
-        title:'种子',
-        answer:'key',
-        photourl:require('../../../assets/section1.png')
-      },{
-        name:'111',
-        time:'2021.1.1',
-        title:'11',
-        answer:'1',
-        photourl:require('../../../assets/section1.png')
-      },{
-        name:'111',
-        time:'2021.1.1',
-        title:'11',
-        answer:'1',
-        photourl:require('../../../assets/section1.png')
-      },{
-        name:'111',
-        time:'2021.1.1',
-        title:'11',
-        answer:'1',
-        photourl:require('../../../assets/section1.png')
-      },{
-        name:'111',
-        time:'2021.1.1',
-        title:'11',
-        answer:'1',
-        photourl:require('../../../assets/section1.png')
-      }
+        name:'小小',
+        time:'2022-01-10',
+        title:'请选择下列图片的正确种类',
+        trueanswer:'番茄',
+        wronganswer1:'土豆',
+        wronganswer2:'白菜',
+        wronganswer3:'小麦',
+        photourl:require('../../../assets/checktomato.jpg')
+      },
+      //   {
+      //   name:'111',
+      //   time:'2021.1.1',
+      //   title:'11',
+      //   answer:'1',
+      //   photourl:require('../../../assets/section1.png')
+      // },{
+      //   name:'111',
+      //   time:'2021.1.1',
+      //   title:'11',
+      //   answer:'1',
+      //   photourl:require('../../../assets/section1.png')
+      // },{
+      //   name:'111',
+      //   time:'2021.1.1',
+      //   title:'11',
+      //   answer:'1',
+      //   photourl:require('../../../assets/section1.png')
+      // },{
+      //   name:'111',
+      //   time:'2021.1.1',
+      //   title:'11',
+      //   answer:'1',
+      //   photourl:require('../../../assets/section1.png')
+      // }
       ]
     }
   }
@@ -139,9 +184,6 @@ export default {
   border-radius: 12px;
 }
 .questionphoto{
-  width:150px;
-  height:150px;
-  border:2px dotted #ff7043;
   border-radius:12px;
   margin-left:20px;
 }
